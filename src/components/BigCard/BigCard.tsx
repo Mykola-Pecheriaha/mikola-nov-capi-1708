@@ -17,7 +17,7 @@ export default function BigCard() {
                 Оперативне втручання з метою усунення негативних естетичних наслідків вікових змін, а також різних набутих особливостей статури
               </p>
             </div>
-            <button className="mt-auto w-full md:w-auto px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded transition-all duration-200 text-base md:text-lg shadow">
+            <button className="mt-auto w-full md:w-auto px-6 py-3 bg-amber-400 hover:bg-amber-600 text-white font-semibold rounded transition-all duration-200 text-base md:text-lg shadow">
               Дізнатися більше
             </button>
           </div>

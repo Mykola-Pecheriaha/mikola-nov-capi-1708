@@ -5,6 +5,7 @@ import './globals.css';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import SocialSidebar from '../components/VidioBord/SocialSidebar';
+import { ThemeProvider } from '../context/ThemeContext';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,10 +30,12 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header />
-        <SocialSidebar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <SocialSidebar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

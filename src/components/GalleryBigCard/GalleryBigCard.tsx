@@ -82,7 +82,7 @@ export function GalleryBigCard({ images }: GalleryBigCardProps) {
     <div className="w-full mx-auto relative">
       <div className="relative w-full h-[400px] bg-white rounded-lg overflow-hidden shadow-lg">
         <button
-          className="absolute top-1/2 -translate-y-1/2 left-4 w-9 h-9 bg-white/90 border-none rounded-full flex items-center justify-center text-lg cursor-pointer transition-all duration-300 z-30 text-blue-500 hover:bg-white hover:scale-110"
+          className="absolute top-1/2 -translate-y-1/2 left-4 w-9 h-9 bg-white/90 border-none rounded-full flex items-center justify-center text-lg cursor-pointer transition-all amber-300 z-30 text-amber-500 hover:bg-white hover:scale-110"
           onClick={prevImage}
           aria-label="Попереднє зображення"
         >
@@ -106,7 +106,7 @@ export function GalleryBigCard({ images }: GalleryBigCardProps) {
           />
         </div>
         <button
-          className="absolute top-1/2 -translate-y-1/2 right-4 w-9 h-9 bg-white/90 border-none rounded-full flex items-center justify-center text-lg cursor-pointer transition-all duration-300 z-30 text-blue-500 hover:bg-white hover:scale-110"
+          className="absolute top-1/2 -translate-y-1/2 right-4 w-9 h-9 bg-white/90 border-none rounded-full flex items-center justify-center text-lg cursor-pointer transition-all amber-300 z-30 text-amber-500 hover:bg-white hover:scale-110"
           onClick={nextImage}
           aria-label="Наступне зображення"
         >
@@ -122,13 +122,7 @@ export function GalleryBigCard({ images }: GalleryBigCardProps) {
               />
             ))}
           </div>
-          <button
-            className="w-7 h-7 bg-transparent border border-gray-300 rounded flex items-center justify-center text-base cursor-pointer transition-all duration-300 text-blue-500 font-bold hover:bg-blue-500 hover:text-white hover:border-blue-500"
-            onClick={openFullscreen}
-            aria-label="Відкрити на повний екран"
-          >
-            +
-          </button>
+<button className="w-7 h-7 bg-transparent border border-gray-300 rounded flex items-center justify-center text-base cursor-pointer transition-all duration-300 text-amber-500 font-bold hover:bg-amber-500 hover:text-white hover:border-amber-500" onClick={() => setFullscreen(true)} aria-label="Відкрити на повний екран">+</button>
         </div>
       </div>
       {fullscreen && (
@@ -149,7 +143,7 @@ export function GalleryBigCard({ images }: GalleryBigCardProps) {
               &#8942;
             </button>
             <button
-              className="w-10 h-10 bg-white/20 border-none rounded-full text-white text-2xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/30 mr-5"
+              className="w-10 h-10 bg-white/20 border-none rounded-full text-white text-2xl flex items-center justify-center cursor-pointer transition-all amber-300 hover:bg-amber/30 mr-5"
               onClick={prevImage}
               aria-label="Попереднє зображення"
             >

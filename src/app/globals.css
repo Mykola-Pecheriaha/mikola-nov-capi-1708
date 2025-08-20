@@ -1,25 +1,18 @@
 @import 'tailwindcss';
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-    --topbar-text: #7491a3;
   --navbar-bg: #7491a3;
   --navbar-text: #ffffff;
-  --header-height: 80px;
 }
 
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-      --topbar-bg: #ffffff;
-  --topbar-text: #7491a3;
-  --navbar-bg: #7491a3;
-  --navbar-text: #ffffff;
-  --header-height: 80px;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --navbar-bg: #222e36;
+  --navbar-text: #ededed;
 }
 
 body {
