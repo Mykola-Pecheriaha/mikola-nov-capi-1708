@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 const mainList = [
-  { label: "Консультація пластичного хірурга", link: "/services/plastic-consultation" },
+  { label: "Консультація пластичного хірурга", link: "/services/plastic-surg-consult" },
   { label: "Пластика грудей", link: "/services/plastic-breast" },
   { label: "Збільшення грудей", link: "/services/plastic-breast#augmentation" },
   { label: "Зменшення грудей", link: "/services/plastic-breast#reduction" },
