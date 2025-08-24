@@ -1,10 +1,8 @@
 "use client";
-import React, { useState } from "react";
-import BurgerConsultationModal from "@/components/Header/BurgerConsultationModal";
+import React from "react";
 import Image from "next/image";
 import PlasticSurgConsultSidebar from "./PlasticSurgConsultSidebar";
 export default function PlasticSurgConsult() {
-  const [showForm, setShowForm] = useState(false);
   return (
     <div className="w-full flex flex-col gap-8 my-8">
       {/* Верхній блок (без Sidebar) */}
@@ -21,7 +19,9 @@ export default function PlasticSurgConsult() {
                 Консультація допомагає оцінити очікуваний результат, обрати оптимальний метод і забезпечити максимальну безпеку.
               </p>
               <p className="mb-2">
-                <strong>Я — пластичний хірург</strong> із понад 25-річним досвідом, член Європейської асоціації пластичних хірургів.<br/>
+                  </p>
+                  <p>
+                    Якщо операція складна або багатоетапна, то слід розуміти, що для відновлення після неї потрібно не один тиждень, в цей період активність повинна бути зведена до мінімуму. Пацієнту необхідно бути готовим до того, що бажаний результат буде отримано через значний проміжок часу. Для жінок важливо, щоб операція не проводилася під час або напередодні менструацій, оскільки підвищена кровоточивість в цей період ускладнює завдання хірурга і подовжує період реабілітації. Також важливий сезон, на який запланована операція. На літній період пластичні хірурги рекомендують планувати процедури з малим хірургічним втручанням, як наприклад, ін&#39;єкції, при яких пошкодження шкіри мінімальні.
                 Навчався у провідних спеціалістів світу та виконую всі види пластичних операцій.<br/>
                 Понад <strong>2600 пацієнтів із різних країн</strong> вже довірили мені свою красу.
               </p>
@@ -35,12 +35,10 @@ export default function PlasticSurgConsult() {
             <div className="mt-6">
               <button
                 className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-                onClick={() => setShowForm(true)}
               >
                 записатися на прийом
               </button>
             </div>
-            <BurgerConsultationModal open={showForm} onClose={() => setShowForm(false)} />
           </div>
           {/* Права частина - зображення лікаря */}
           <div className="md:w-1/2 w-full flex items-center justify-center bg-gray-50 p-4 min-h-[320px]">
@@ -48,9 +46,7 @@ export default function PlasticSurgConsult() {
           </div>
         </div>
       </div>
-      {/* Далі flex-row: секції + Sidebar */}
       <div className="w-full flex flex-col md:flex-row gap-8">
-        {/* Лівий контейнер: усі секції */}
         <div className="w-full md:w-3/4 flex flex-col gap-8">
           {/* Передопераційний період */}
           <div className="bg-white rounded-xl shadow p-6">
@@ -112,28 +108,153 @@ export default function PlasticSurgConsult() {
               </p>
             </div>
           </div>
-          {/* Види обстеження */}
+          {/* Який день краще обрати для проведення пластичної операції? */}
           <div className="bg-white rounded-xl shadow p-6 mt-8">
-            <h3 className="text-xl font-bold mb-2">Види обстеження перед операцією</h3>
-            <ul className="list-disc pl-6 mb-2">
-              <li>Загальний аналіз крові та сечі</li>
-              <li>Біохімічний аналіз крові</li>
-              <li>Коагулограма</li>
-              <li>Група крові та резус-фактор</li>
-              <li>ЕКГ, флюорографія</li>
-              <li>Консультації суміжних спеціалістів (за потреби)</li>
-            </ul>
+            <h3 className="text-xl font-bold mb-2">Який день краще обрати для проведення пластичної операції?</h3>
+            {/* Верхній текст на всю ширину */}
+            <div className="w-full mb-4">
+
+              <p>
+                Якщо все таки рішення прийнято на користь операції, то для початку необхідно зв&#39;язатися з хірургом, щоб обговорити дату операції. Важливо спланувати свій графік так, щоб виділити достатньо часу на реабілітаційний період (цей час зазвичай обговорюється на консультації).
+              </p>
+            </div>
+            {/* Flex-блок: зображення зліва, текст справа */}
+            <div className="flex flex-col md:flex-row gap-6">
+              {/* Зображення зліва */}
+              <div className="md:w-1/3 w-full flex items-center justify-center bg-gray-50 p-2 rounded-xl">
+                <Image src="/images/gallery-images/gallery-images12.jpg" alt="Вибір дня операції" width={340} height={240} className="rounded-lg object-contain object-top h-[240px] max-h-[240px] w-auto max-w-full" />
+              </div>
+              {/* Текст справа */}
+              <div className="w-full mb-4">
+
+              <p>
+Для проведення пластичної операції важливо все. Якщо операція складна або багатоетапна, то слід розуміти, що для відновлення після неї потрібно не один тиждень, в цей період активність повинна бути зведена до мінімуму. Пацієнту необхідно бути готовим до того, що бажаний результат буде отримано через значний проміжок часу. Для жінок важливо, щоб операція не проводилася під час або напередодні менструацій, оскільки підвищена кровоточивість в цей період ускладнює завдання хірурга і подовжує період реабілітації. Також важливий сезон, на який запланована операція. На літній період пластичні хірурги рекомендують планувати процедури з малим хірургічним втручанням, як наприклад, ін&#39;єкції, при яких пошкодження шкіри мінімальні.
+              </p>
+            </div>
+            </div>  
+            {/* Текст на всю ширину під flex-блоком */}
+            <div className="w-full mt-6">
+              <p>
+У разі виникнення будь-якої, навіть незначної, зміни самопочуття, необхідно своєчасно повідомити про це персоналу клініки і перенести операцію на більш сприятливий час.
+              </p>
+            </div>
+ 
           </div>
-          {/* Самостійна підготовка */}
+  
+
+                  {/* Види обстеження перед пластикою*/}
+          <div className="bg-white rounded-xl shadow p-6 mt-8">
+            <h3 className="text-xl font-bold mb-2">Види обстеження перед пластикою</h3>
+            {/* Верхній текст на всю ширину */}
+            <div className="w-full mb-4">
+
+              <p>
+                Напередодні операції, але не раніше, ніж за 10 днів, пацієнт проходить лабораторне та діагностичне обстеження для отримання даних про стан здоров&#39;я.
+                При підготовці до пластичної операції необхідно провести діагностику організму і аналізи, які допоможуть фахівцям об&#39;єктивно оцінити всі наявні показання та протипоказання, підібрати найкращий вид лікування і метод проведення операції
+
+              </p>
+            </div>
+            {/* Flex-блок: зображення зліва, текст справа */}
+            <div className="flex flex-col md:flex-row gap-6">
+              {/* Зображення зліва */}
+              <div className="md:w-1/3 w-full flex items-center justify-center bg-gray-50 p-2 rounded-xl">
+                <Image src="/images/gallery-images/gallery-images12.jpg" alt="Вибір дня операції" width={340} height={240} className="rounded-lg object-contain object-top h-[240px] max-h-[240px] w-auto max-w-full" />
+              </div>
+              {/* Текст справа */}
+             <div className="md:w-2/3 w-full flex flex-col justify-center">
+                <div className="mb-2">
+                  <span className="font-semibold">Існує два варіанти обстеження:</span>
+                  <div className="mt-2">
+                    <div className="mb-2">
+                      <span className="font-bold">Скорочене</span> — для пацієнтів, яким планується процедура під місцевою анестезією.
+                      <ul className="list-disc pl-6 mt-1">
+                        <li>Загальний аналіз крові та сечі</li>
+                        <li>Цукор крові</li>
+                        <li>Коагулограма</li>
+                        <li>Група крові та резус-фактор</li>
+                        <li>ЕКГ (людям старше 40 років)</li>
+                        <li>Флюорографія ОГК (на протязі року)</li>
+                        <li>Консультації суміжних спеціалістів (за потреби)</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <span className="font-bold">Повне</span> — для тих, хто проходитиме хірургічне втручання під загальним наркозом.
+                      <ul className="list-disc pl-6 mt-1">
+                        <li>Загальний аналіз крові та сечі</li>
+                        <li>Біохімічний аналіз крові</li>
+                        <li>Коагулограма</li>
+                        <li>Група крові та резус-фактор</li>
+                        <li>ЕКГ, флюорографія</li>
+                        <li>Консультації суміжних спеціалістів (за потреби)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            
+            </div>  
+            {/* Текст на всю ширину під flex-блоком */}
+            <div className="w-full mt-6">
+              <p>
+               У разі виявлення медичних протипоказань, хірург залишає за собою право перенести або відмовити в операції. Обстеження можна пройти на базі нашої клініки .
+              </p>
+            </div>
+ 
+          </div>
+
+                  {/* Самостійна підготовка пацієнта перед операцією*/}
           <div className="bg-white rounded-xl shadow p-6 mt-8">
             <h3 className="text-xl font-bold mb-2">Самостійна підготовка пацієнта перед операцією</h3>
-            <ul className="list-disc pl-6 mb-2">
-              <li>Відмова від куріння та алкоголю мінімум за тиждень</li>
-              <li>Відміна препаратів, що впливають на згортання крові</li>
-              <li>Дотримання рекомендацій лікаря щодо харчування та режиму</li>
-              <li>Відмова від косметичних процедур перед операцією</li>
-            </ul>
+            {/* Верхній текст на всю ширину */}
+            <div className="w-full mb-4">
+
+              <p>
+                Зазвичай операцію призначають через 2 тижні після консультації, щоб пацієнт встиг підготувати організм.
+
+              </p>
+            </div>
+            {/* Flex-блок: зображення зліва, текст справа */}
+            <div className="flex flex-col md:flex-row gap-6">
+              {/* Зображення зліва */}
+              <div className="md:w-1/3 w-full flex items-center justify-center bg-gray-50 p-2 rounded-xl">
+                <Image src="/images/gallery-images/gallery-images12.jpg" alt="Вибір дня операції" width={340} height={240} className="rounded-lg object-contain object-top h-[240px] max-h-[240px] w-auto max-w-full" />
+              </div>
+              {/* Текст справа */}
+             <div className="md:w-2/3 w-full flex flex-col justify-center">
+                <div className="mb-2">
+                  <span className="font-semibold">Основні рекомендації::</span>
+                  <div className="mt-2">
+                    
+                      
+                  <ul className="list-disc pl-6 mb-2">
+                    <li><span className="font-bold">Прийом вітамінів.</span> Лікар може призначити комплекс вітамінів чи препарати з залізом і для зміцнення судин, особливо перед складними операціями.</li>
+                    <li><span className="font-bold">Відмова від куріння.</span> Нікотин уповільнює загоєння і погіршує стан шкіри та швів. Кинути слід мінімум за тиждень до втручання.</li>
+                    <li><span className="font-bold">Припинити прийом ліків.</span> Варто виключити антибіотики, антикоагулянти, аспірин та вітаміни A і E — вони впливають на згортання крові.</li>
+                    <li><span className="font-bold">Відмова від алкоголю.</span> Алкоголь розширює судини, підвищує тиск і заважає роботі анестезії. Не вживати щонайменше за 3 дні до операції.</li>
+                    <li><span className="font-bold">Харчування.</span> Менше солі, кофеїну й прянощів — це зменшить набряки.</li>
+                    <li><span className="font-bold">Шкіра.</span> Не засмагати та не відвідувати солярій.</li>
+                    <li><span className="font-bold">Косметологія.</span> Тимчасово відмовитися від косметичних процедур, фарбування та хімічної завивки.</li>
+                  </ul>
+                               
+                  </div>
+                </div>
+              </div>  
+            
+            </div>  
+            {/* Текст на всю ширину під flex-блоком */}
+            <div className="w-full mt-6">
+              <p>
+               Такі прості кроки допомагають організму швидше відновитися і знизити ризики під час операції.
+              </p>
+            </div>
+ 
           </div>
+
+
+
+
+
+
           {/* День операції */}
           <div className="bg-white rounded-xl shadow p-6 mt-8">
             <h3 className="text-xl font-bold mb-2">День операції в клініці</h3>
