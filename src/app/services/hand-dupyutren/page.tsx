@@ -1,0 +1,15 @@
+import type { ReactElement } from "react"
+import Dupuytren from "@/components/Dupuytren/Dupuytren";
+import PrychynyDyupyitrena from "@/components/Dupuytren/PrychynyDyupyitrena";
+import StagesDupuytren from "@/components/Dupuytren/StagesDupuytren";
+
+export default function DupuytrenPage(): ReactElement {
+  return (
+    <main className="p-6">
+      <Dupuytren />
+      <div className="my-8" />
+      <PrychynyDyupyitrena />
+      <StagesDupuytren />
+    </main>
+  )
+}
