@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const PrychynyDyupyitrena: React.FC = () => {
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 mt-12">
       <div className="flex flex-col md:flex-row bg-[#e7eeef] rounded-xl shadow p-6 gap-8 items-stretch">
         {/* Ліва частина: текст */}
         <div className="md:w-2/3 w-full flex flex-col">
