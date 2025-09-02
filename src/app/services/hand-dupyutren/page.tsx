@@ -5,6 +5,7 @@ import StagesDupuytren from "@/components/Dupuytren/StagesDupuytren";
 import ClinicsDupuytren from "@/components/Dupuytren/ClinicsDupuytren";
 import DiagnosticDupuytren from "@/components/Dupuytren/DiagnosticDupuytren";
 import TreatmentDupuytren from "@/components/Dupuytren/TreatmentDupuytren";
+import RehabilitationDupuytren from "@/components/Dupuytren/RehabilitationDupuytren";
 
 export default function DupuytrenPage(): ReactElement {
   return (
@@ -16,6 +17,7 @@ export default function DupuytrenPage(): ReactElement {
       <ClinicsDupuytren />
       <DiagnosticDupuytren />
       <TreatmentDupuytren />
+      <RehabilitationDupuytren />
     </main>
   )
 }
