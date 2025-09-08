@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 const mainList = [
-  { label: "Консультація хірурга", link: "/services/hand-consultation" },
+  { label: "Консультація хірурга", link: "/services/hand-surgeon-consultation" },
   { label: "Лікування контрактури Дюпюітрена", link: "/services/hand-dupyutren" },
   { label: "Лікування карпального синдрому", link: "/services/hand-carpal" },
   { label: "Видалення утворень на кисті(гангліом)", link: "/services/hand-ganglion" },
