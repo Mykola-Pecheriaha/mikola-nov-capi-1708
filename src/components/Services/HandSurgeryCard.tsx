@@ -6,7 +6,7 @@ const mainList = [
   { label: "Консультація хірурга", link: "/services/hand-surgeon-consultation" },
   { label: "Лікування контрактури Дюпюітрена", link: "/services/hand-dupyutren" },
   { label: "Лікування карпального синдрому", link: "/services/hand-carpal" },
-  { label: "Видалення утворень на кисті(гангліом)", link: "/services/hand-ganglion" },
+  { label: "Лікування тендовагинітів та Видалення утворень на кисті(гангліом)", link: "/services/hand-surgery" },
   { label: "Лікування гнійних уражень кисті", link: "/services/hand-infection" },
 ];
 

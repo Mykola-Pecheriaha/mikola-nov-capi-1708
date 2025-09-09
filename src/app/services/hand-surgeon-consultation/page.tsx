@@ -4,10 +4,9 @@ import type { ReactElement } from "react"
 import StartHendConsul from "@/components/HandSurgeonConsultation/StartHendConsul";
 import ClinicHendConsul from "@/components/HandSurgeonConsultation/ClinicHendConsul";
 import CommonDiseasHand  from "@/components/HandSurgeonConsultation/CommonDiseasHand";
-// import ClinicsDupuytren from "@/components/Dupuytren/ClinicsDupuytren";
-// import DiagnosticDupuytren from "@/components/Dupuytren/DiagnosticDupuytren";
-// import TreatmentDupuytren from "@/components/Dupuytren/TreatmentDupuytren";
-// import RehabilitationDupuytren from "@/components/Dupuytren/RehabilitationDupuytren";
+import PreoperativePreparation  from "@/components/HandSurgeonConsultation/PreoperativePreparation";
+import PerformingSurgery  from "@/components/HandSurgeonConsultation/PerformingSurgery";
+
 import SidebarHandConsult from "@/components/HandSurgeonConsultation/SidebarHandConsult";
 
 export default function HandSurgeonConsultationPage(): ReactElement {
@@ -19,10 +18,9 @@ export default function HandSurgeonConsultationPage(): ReactElement {
           <section className="md:w-3/4 w-full">
             <ClinicHendConsul/>
             <CommonDiseasHand />
-            {/* <ClinicsDupuytren /> */}
-            {/* <DiagnosticDupuytren /> */}
-            {/* <TreatmentDupuytren /> */}
-            {/* <RehabilitationDupuytren /> */}
+            <PreoperativePreparation />
+            <PerformingSurgery />
+
           </section>
           <SidebarHandConsult />
         </div>

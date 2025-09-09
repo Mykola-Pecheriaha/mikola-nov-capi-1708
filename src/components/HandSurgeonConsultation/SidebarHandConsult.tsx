@@ -6,10 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const menu = [
-  // { label: "Консультація хірурга", href: "/services/hand-consult" },// не показуємо на цій сторінці
+  // { label: "Консультація хірурга", href: "/services/hand-surgeon-consultation" },// не показуємо на цій сторінці
   { label: "Контрактура Дюпюїтрена", href: "/services/hand-dupyutren" }, 
   { label: "Карпальний синдром", href: "/services/hand-carpal" },
-  { label: "Видалення гангліом.", href: "/services/hand-ganglion" },
+  { label: "Тендовагиніти, видалення гангліом.", href: "/services/hand-surgery" },
   { label: "Гнійні уражень кисті", href: "/services/hand-infection" },
 ];
 
