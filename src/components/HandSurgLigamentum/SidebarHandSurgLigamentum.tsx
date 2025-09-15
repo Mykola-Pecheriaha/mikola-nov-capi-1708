@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const menu = [
   { label: "Консультація хірурга", href: "/services/hand-surgeon-consultation" },
   { label: "Контрактура Дюпюїтрена", href: "/services/hand-dupyutren" }, 
-  { label: "Карпальний синдром", href: "/services/hand-carpal" },
+  { label: "Карпальний синдром", href: "/services/carpal-syndrome" },
   // { label: "Тендовагиніти, видалення гангліом.", href: "/services/hand-surgery" },
   { label: "Гнійні уражень кисті", href: "/services/hand-infection" },
 ];

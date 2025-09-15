@@ -3,10 +3,11 @@ import type { ReactElement } from "react"
 
 import StartHandSurgLigamentum from "@/components/HandSurgLigamentum/StartHandSurgLigamentum";
 import KarvenHand from "@/components/HandSurgLigamentum/KarvenHand";
-// import ClinicHendConsul from "@/components/HandSurgeonConsultation/ClinicHendConsul";
-// import CommonDiseasHand  from "@/components/HandSurgeonConsultation/CommonDiseasHand";
-// import PreoperativePreparation  from "@/components/HandSurgeonConsultation/PreoperativePreparation";
-// import PerformingSurgery  from "@/components/HandSurgeonConsultation/PerformingSurgery";
+import KarvenHandTreatment from "@/components/HandSurgLigamentum/KarvenHandTreatment";
+import HottLigamentum from "@/components/HandSurgLigamentum/HottLigamentum";
+import HottHandreAtment from "@/components/HandSurgLigamentum/HottHandreAtment";
+import GangLigamentum  from "@/components/HandSurgLigamentum/GangLigamentum";
+
 
 import SidebarHandSurgLigamentum from "@/components/HandSurgLigamentum/SidebarHandSurgLigamentum";
 
@@ -18,9 +19,10 @@ export default function HandSurgLigamentumPage(): ReactElement {
         <div className="flex flex-col md:flex-row gap-6 md:gap-4 mt-8">
           <section className="md:w-3/4 w-full">
             <KarvenHand/>
-            {/* <CommonDiseasHand /> */}
-            {/* <PreoperativePreparation /> */}
-            {/* <PerformingSurgery /> */}
+            <KarvenHandTreatment />
+            <HottLigamentum />
+            <HottHandreAtment />
+            <GangLigamentum />
 
           </section>
           <SidebarHandSurgLigamentum />

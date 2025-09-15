@@ -1,6 +1,10 @@
+
+"use client";
 import GalleryProcto from '../GalleryProcto/GalleryProcto'
+import { useRouter } from 'next/navigation';
 
 export default function BigCardProcto() {
+  const router = useRouter();
   return (
     <section className="w-full bg-gray-50 py-8 md:py-12">
       <div className="container mx-auto px-4">
@@ -17,7 +21,10 @@ export default function BigCardProcto() {
                 Захворювання прямої кишки є поширеною медичною проблемою, що потребує професійного підходу. Своєчасна діагностика та лікування дозволяють уникнути ускладнень і забезпечити відновлення здоров’я та якості життя.
               </p>
             </div>
-            <button className="mt-auto w-full md:w-auto px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded transition-all duration-200 text-base md:text-lg shadow">
+            <button
+              className="mt-auto w-full md:w-auto px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded transition-all duration-200 text-base md:text-lg shadow"
+              onClick={() => router.push('/services/proctolog-consultation')}
+            >
               Дізнатися більше
             </button>
           </div>

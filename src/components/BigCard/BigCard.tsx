@@ -1,7 +1,11 @@
+
+"use client";
 import GalleryBigCard from '../GalleryBigCard/GalleryBigCard'
 import galleryPlasticSurgery from '../../data/galleryPlasticSurgery'
+import { useRouter } from 'next/navigation';
 
 export default function BigCard() {
+  const router = useRouter();
   return (
     <section className="w-full bg-gray-50 py-8 md:py-12">
       <div className="container mx-auto px-4">
@@ -17,7 +21,10 @@ export default function BigCard() {
                 Оперативне втручання з метою усунення негативних естетичних наслідків вікових змін, а також різних набутих особливостей статури
               </p>
             </div>
-            <button className="mt-auto w-full md:w-auto px-6 py-3 bg-amber-400 hover:bg-amber-600 text-white font-semibold rounded transition-all duration-200 text-base md:text-lg shadow">
+            <button
+              className="mt-auto w-full md:w-auto px-6 py-3 bg-amber-400 hover:bg-amber-600 text-white font-semibold rounded transition-all duration-200 text-base md:text-lg shadow"
+              onClick={() => router.push('/services/plastic-surgery')}
+            >
               Дізнатися більше
             </button>
           </div>
