@@ -48,9 +48,6 @@ export function GalleryBigCard({ images }: GalleryBigCardProps) {
     setCurrentIndex(prevIndex => (prevIndex - 1 + images.length) % images.length)
   }
 
-  const openFullscreen = () => {
-    setFullscreen(true)
-  }
 
   const closeFullscreen = () => {
     setFullscreen(false)

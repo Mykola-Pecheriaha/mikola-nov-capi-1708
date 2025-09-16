@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import StartCarpalSyndromeGallery from "./StartCarpalSyndromeGallery";
 
 const benefits = [
@@ -29,7 +30,7 @@ const StartCarpalSyndrome: React.FC = () => {
         </div>
         <div className="md:w-1/3 w-full flex items-center justify-center">
           {/* Зображення справа */}
-          <img src="/images/hand/carpal/carpale17-removebg-preview.png" alt="Карпальний синдром" className="rounded-xl shadow-lg w-full max-w-[320px] h-auto object-cover" />
+          <Image src="/images/hand/carpal/carpale17-removebg-preview.png" alt="Карпальний синдром" width={320} height={320} className="rounded-xl shadow-lg w-full max-w-[320px] h-auto object-cover" />
         </div>
       </div>
       {/* Опис захворювання на всю ширину — інформативний блок */}

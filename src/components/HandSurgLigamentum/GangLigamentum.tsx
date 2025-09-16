@@ -31,7 +31,7 @@ const GangLigamentum: React.FC = () => {
       </div>
       {/* Дві частини: зліва текст, справа галерея */}
       <div className="flex flex-col md:flex-row gap-8 items-start mt-8">
-        <div className="md:w-2/3 w-full">
+        <div className="md:w-2/3 bg-[#e7eeef] w-full">
           <div className="mb-4">
             <span className="font-semibold">Гігроми бувають:</span><br/>
             За своєю будовою гігроми бувають однокамерні та багатокамерні.

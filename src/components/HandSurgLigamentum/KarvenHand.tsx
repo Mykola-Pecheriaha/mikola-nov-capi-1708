@@ -31,7 +31,7 @@ const KarvenHand: React.FC = () => {
       {/* Нижній блок: дві частини 2/3 і 1/3 */}
       <div className="flex flex-col md:flex-row gap-8 items-start">
         {/* Ліва частина: симптоми і діагностика */}
-        <div className="md:w-2/3 w-full">
+        <div className="md:w-2/3 bg-[#e7eeef] w-full">
           <h3 className="text-xl font-semibold mb-2 text-blue-900">Типові симптоми:</h3>
           <ul className="list-disc pl-6 space-y-2 text-base mb-4">
             {symptoms.map((s, idx) => (

@@ -23,7 +23,7 @@ const KarvenHandTreatment: React.FC = () => {
       {/* Нижній блок: дві частини 2/3 і 1/3 */}
       <div className="flex flex-col md:flex-row gap-8 items-start">
         {/* Ліва частина: методи лікування */}
-        <div className="md:w-2/3 w-full">
+        <div className="md:w-2/3 bg-[#e7eeef]  w-full">
           <ul className="list-disc pl-6 space-y-3 text-base">
             {treatments.map((t, idx) => (
               <li key={idx}>{t}</li>

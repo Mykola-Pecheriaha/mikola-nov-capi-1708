@@ -31,7 +31,7 @@ const HottHandreAtment: React.FC = () => {
 
       </div>
       {/* Блок на всю ширину: консервативний та оперативний методи */}
-      <div className="w-full bg-white rounded-xl shadow p-6 text-base text-gray-900">
+      <div className="w-full bg-[#e7eeef] rounded-xl shadow p-6 text-base text-gray-900">
         <ul className="list-disc pl-6 space-y-2">
           <li>
             <span className="font-semibold">Консервативний.</span> Медикаментозна терапія корисна тільки на початкових стадіях хвороби, коли уражений суглоб ще має можливість згинатися. Але подібний спосіб вимагають довготривалого лікування, можуть поліпшити стан хворого суглоба з подальшим рецидивом, але не зможуть повністю звільнити від захворювання.
@@ -42,8 +42,8 @@ const HottHandreAtment: React.FC = () => {
         </ul>
       </div>
       {/* Друга секція: 2/3 і 1/3 */}
-      <div className="flex flex-col md:flex-row gap-8 items-start mt-8">
-        <div className="md:w-2/3 w-full">
+      <div className="flex flex-col md:flex-row gap-8  items-start mt-8">
+        <div className="md:w-2/3 bg-[#e7eeef] w-full">
           <h3 className="text-xl font-semibold mb-2 text-blue-900">Консервативне лікування</h3>
           <ul className="list-disc pl-6 space-y-2 mb-4">
             {conservativeList.map((item, idx) => (

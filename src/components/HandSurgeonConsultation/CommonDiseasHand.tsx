@@ -36,7 +36,7 @@ const CommonDiseasHand: React.FC = () => {
   return (
     <div className="container mx-auto px-4 mt-12 flex flex-col md:flex-row gap-8 items-start">
       {/* Ліва частина: заголовок і список */}
-      <div className="md:w-2/3 w-full">
+      <div className="md:w-2/3 bg-[#e7eeef] w-full">
         <h2 className="text-2xl font-bold mb-6 text-blue-900">Поширені захворювання кисті рук</h2>
         <ul className="list-disc pl-6 space-y-4 text-base">
           {diseases.map((d, idx) => (

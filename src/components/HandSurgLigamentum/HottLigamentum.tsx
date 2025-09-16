@@ -25,9 +25,9 @@ const HottLigamentum: React.FC = () => {
         </div>
       </div>
       {/* Дві частини: зліва текст, справа галерея */}
-      <div className="flex flex-col md:flex-row gap-8 items-start">
+      <div className="flex flex-col md:flex-row gap-8 bg-[#e7eeef]items-start">
         {/* Ліва частина: заголовок і стадії */}
-        <div className="md:w-2/3 w-full">
+        <div className="md:w-2/3 w-full bg-[#e7eeef]">
           <h2 className="text-2xl font-bold mb-4 text-blue-900">Стадії розвитку хвороби Нотта</h2>
           <ul className="list-disc pl-6 space-y-3 text-base">
             {stages.map((s, idx) => (

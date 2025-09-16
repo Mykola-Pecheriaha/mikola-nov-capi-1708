@@ -37,7 +37,7 @@ const PreoperativePreparation: React.FC = () => {
       {/* Нижній блок: дві частини 2/3 і 1/3 */}
       <div className="flex flex-col md:flex-row gap-8 items-start">
         {/* Ліва частина: методи діагностики */}
-        <div className="md:w-2/3 w-full">
+        <div className="md:w-2/3 bg-[#e7eeef] w-full">
           <h3 className="text-xl font-semibold mb-4 text-blue-900">Основні методи діагностики:</h3>
           <ul className="list-disc pl-6 space-y-4 text-base">
             {diagnostics.map((d, idx) => (

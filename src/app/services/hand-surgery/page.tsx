@@ -7,6 +7,7 @@ import KarvenHandTreatment from "@/components/HandSurgLigamentum/KarvenHandTreat
 import HottLigamentum from "@/components/HandSurgLigamentum/HottLigamentum";
 import HottHandreAtment from "@/components/HandSurgLigamentum/HottHandreAtment";
 import GangLigamentum  from "@/components/HandSurgLigamentum/GangLigamentum";
+import GangLigamentAtment  from "@/components/HandSurgLigamentum/GangLigamentAtment";
 
 
 import SidebarHandSurgLigamentum from "@/components/HandSurgLigamentum/SidebarHandSurgLigamentum";
@@ -23,6 +24,7 @@ export default function HandSurgLigamentumPage(): ReactElement {
             <HottLigamentum />
             <HottHandreAtment />
             <GangLigamentum />
+            <GangLigamentAtment />
 
           </section>
           <SidebarHandSurgLigamentum />
