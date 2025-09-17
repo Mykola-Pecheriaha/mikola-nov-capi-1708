@@ -1,10 +1,11 @@
-
+import React from 'react';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import SocialSidebar from '../components/VidioBord/SocialSidebar';
+import KeyboardAdminShortcut from '../components/KeyboardAdminShortcut';
 import { ThemeProvider } from '../context/ThemeContext';
 
 const geistSans = Geist({
@@ -31,6 +32,7 @@ export default function RootLayout({
     <html lang="uk">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
+          <KeyboardAdminShortcut />
           <Header />
           <SocialSidebar />
           {children}

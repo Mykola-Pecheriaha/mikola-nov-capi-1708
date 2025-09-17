@@ -25,7 +25,24 @@ export default function BurgerConsultationModal({ open, onClose }: BurgerConsult
         </button>
         <h2 className="text-xl font-semibold text-center mb-2 text-[#5e9b9b]">Записатися на прийом</h2>
         <div className="border-b border-[#5e9b9b] mb-4"></div>
-        <form className="space-y-3">
+        <form className="space-y-3" onSubmit={async e => {
+          e.preventDefault();
+          if (!name || !phone) return;
+          try {
+            await fetch("http://localhost:4000/api/consultations", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ name, phone, comment: email })
+            });
+            setName("");
+            setPhone("");
+            setEmail("");
+            onClose();
+            alert("Запис успішно надіслано!");
+          } catch {
+            alert("Помилка при надсиланні запису");
+          }
+        }}>
           <div>
             <label className="block text-sm text-gray-600 mb-1" htmlFor="burger-consult-name">Ім&apos;я? *</label>
             <input
