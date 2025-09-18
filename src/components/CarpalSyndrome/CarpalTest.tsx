@@ -7,7 +7,7 @@ export default function CarpalTest() {
       <h2 className="text-2xl font-bold text-center mb-8">Іспити та тести</h2>
       <div className="flex flex-col md:flex-row gap-8 items-stretch">
         {/* Ліва частина 2/3 */}
-        <div className="md:w-2/3 w-full bg-[#e7eeef] flex flex-col justify-center">
+        <div className="md:w-2/3 w-full bg-[#e7eeef] rounded-lg flex flex-col justify-center p-2">
           <div className="mb-6">
             <span className="font-semibold text-lg mb-2 block">Під час медичного огляду лікар може виявити:</span>
             <ul className="list-none space-y-3 text-base">

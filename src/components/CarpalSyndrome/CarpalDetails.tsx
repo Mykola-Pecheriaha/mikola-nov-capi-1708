@@ -37,9 +37,9 @@ const CarpalDetails: React.FC = () => {
   return (
     <div className="container mx-auto px-4">
       {/* Верхній блок: дві частини */}
-      <div className="flex flex-col md:flex-row bg-[#e7eeef] rounded-xl shadow p-6 gap-8 items-stretch mb-8">
+      <div className="flex flex-col md:flex-row  rounded-xl shadow p-6 gap-8 items-stretch mb-8">
         {/* Ліва частина */}
-        <div className="md:w-2/3 w-full flex flex-col">
+        <div className="md:w-2/3 w-full bg-[#e7eeef] rounded-lg flex flex-col p-2">
           <h1 className="text-3xl font-bold text-blue-900 mb-4">Синдром зап`ястного каналу.</h1>
           <p className="text-blue-900 text-base mb-4">
             Синдром зап`ястного каналу — це стан, при якому серединний нерв, що проходить через вузький прохід у зап`ясті, стискається, викликаючи оніміння, слабкість і біль у руці та пальцях. Це один із найпоширеніших нервових розладів, особливо серед людей, чия робота пов`язана з повторюваними рухами рук.
@@ -55,9 +55,9 @@ const CarpalDetails: React.FC = () => {
       <div className="w-full h-[1mm] bg-blue-300 rounded my-8" />
 
       {/* Нижній блок: дві частини */}
-      <div className="flex flex-col md:flex-row bg-[#e7eeef] rounded-xl shadow p-6 gap-8 items-stretch">
+      <div className="flex flex-col md:flex-row rounded-xl shadow p-6 gap-8 items-stretch">
         {/* Ліва частина */}
-        <div className="md:w-2/3 w-full flex flex-col">
+        <div className="md:w-2/3 w-full bg-[#e7eeef] rounded-lg flex flex-col p-2">
           <h2 className="text-2xl font-bold text-blue-900 mb-4">Причини здавлення серединного нерва</h2>
           <p className="text-blue-900 text-base mb-4">Більшість випадків синдрому зап`ястного каналу спричинені поєднанням кількох факторів:</p>
           <ul className="space-y-3 mb-4">

@@ -5,8 +5,10 @@ import StartCarpalSyndrome from "@/components/CarpalSyndrome/StartCarpalSyndrome
 import CarpalDetails from "@/components/CarpalSyndrome/CarpalDetails";
 import CarpalSymptoms from "@/components/CarpalSyndrome/CarpalSymptoms";
 import CarpalTest from "@/components/CarpalSyndrome/CarpalTest";
-// import HottHandreAtment from "@/components/HandSurgLigamentum/HottHandreAtment";
-// import GangLigamentum  from "@/components/HandSurgLigamentum/GangLigamentum";
+import CarpalConservTreatm from "@/components/CarpalSyndrome/CarpalConservTreatm";
+import CarpalOperTreatm from "@/components/CarpalSyndrome/CarpalOperTreatm";
+import CarpalReabilitation from "@/components/CarpalSyndrome/CarpalReabilitation";
+import CarpalResult from "@/components/CarpalSyndrome/CarpalResult";
 
 
 import SidebarCarpal from "@/components/CarpalSyndrome/SidebarCarpal";
@@ -21,8 +23,10 @@ export default function HandSurgLigamentumPage(): ReactElement {
             <CarpalDetails/>
             <CarpalSymptoms/>
             <CarpalTest />
-            {/* <HottHandreAtment /> */}
-            {/* <GangLigamentum /> */}
+            <CarpalConservTreatm />
+            <CarpalOperTreatm />
+            <CarpalReabilitation />
+            <CarpalResult />
 
           </section>
           <SidebarCarpal />

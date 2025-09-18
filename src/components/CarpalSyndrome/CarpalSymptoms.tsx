@@ -7,7 +7,7 @@ export default function CarpalSymptoms() {
       <h2 className="text-2xl font-bold text-center mb-8">Симптоми синдрому зап&apos;ястного каналу</h2>
       <div className="flex flex-col md:flex-row gap-8 items-stretch">
         {/* Ліва частина 2/3 */}
-        <div className="md:w-2/3 bg-[#e7eeef] w-full flex flex-col justify-center">
+        <div className="md:w-2/3 bg-[#e7eeef] rounded-lg w-full flex flex-col justify-center p-2">
           <div className="mb-6">
             <span className="font-semibold text-lg mb-2 block">Вони можуть включати:</span>
             <ul className="list-none space-y-3 text-base">
