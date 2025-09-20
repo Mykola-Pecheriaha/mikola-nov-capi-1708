@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 const mainList = [
-  { label: "Консультація хірурга", link: "/services/phlebology-consultation" },
+  { label: "Консультація хірурга", link: "/services/phlebology" },
   { label: "Лазерне видалення вен", link: "/services/phlebology-laser" },
   { label: "Мініфлебектомія", link: "/services/phlebology-miniphlebectomy" },
   { label: "Склеротерапія", link: "/services/phlebology-sclerotherapy" },
