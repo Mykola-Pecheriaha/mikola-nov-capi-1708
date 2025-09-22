@@ -5,8 +5,9 @@ import PhleboSurgeonConsul from "@/components/PhleboSurgeonConsultation/PhleboSu
 import PhleboSimptomConsul from "@/components/PhleboSurgeonConsultation/PhleboSimptomConsul";
 import PhleboAtmentConsul from "@/components/PhleboSurgeonConsultation/PhleboAtmentConsul";
 import PhleboStagesConsul from "@/components/PhleboSurgeonConsultation/PhleboStagesConsul";
+import PhleboPreparConsul from "@/components/PhleboSurgeonConsultation/PhleboPreparConsul";
 
-
+import PhleboReabilConsul from "@/components/PhleboSurgeonConsultation/PhleboReabilConsul";
 import SidebarPhlebo from "@/components/PhleboSurgeonConsultation/SidebarPhlebo";
 
 export default function HandSurgLigamentumPage(): ReactElement {
@@ -20,9 +21,8 @@ export default function HandSurgLigamentumPage(): ReactElement {
             <PhleboSimptomConsul/>
             <PhleboStagesConsul />
             <PhleboAtmentConsul />
-            
-            {/* <CarpalOperTreatm /> */}
-            {/* <CarpalReabilitation /> */}
+            <PhleboPreparConsul />           
+            <PhleboReabilConsul />
             {/* <CarpalResult /> */}
 
           </section>

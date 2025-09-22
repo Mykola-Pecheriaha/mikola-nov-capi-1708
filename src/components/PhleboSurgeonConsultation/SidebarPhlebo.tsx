@@ -7,10 +7,10 @@ import { usePathname } from "next/navigation";
 
 const menu = [
   // { label: "Консультація хірурга", href: "/services/hand-surgeon-consultation" },// не показуємо на цій сторінці
-  { label: "Контрактура Дюпюїтрена", href: "/services/hand-dupyutren" }, 
-  { label: "Карпальний синдром", href: "/services/carpal-syndrome" },
-  { label: "Тендовагиніти, видалення гангліом.", href: "/services/hand-surgery" },
-  { label: "Гнійні уражень кисті", href: "/services/hand-infection" },
+  { label: "Лазерне видалення вен", href: "/services/phlebology-laser" }, 
+  { label: "Мініфлебектомія", href: "/services/phlebology-miniphlebectomy" },
+  { label: "Склеротерапія.", href: "/services/phlebology-sclerotherapy" },
+
 ];
 
 export default function SidebarPhlebo() {
