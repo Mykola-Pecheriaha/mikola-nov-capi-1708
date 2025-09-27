@@ -23,7 +23,7 @@ export default function HandSurgLigamentumPage(): ReactElement {
             <PhleboAtmentConsul />
             <PhleboPreparConsul />           
             <PhleboReabilConsul />
-            {/* <CarpalResult /> */}
+            
 
           </section>
           <SidebarPhlebo />
