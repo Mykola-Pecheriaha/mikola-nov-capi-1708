@@ -6,7 +6,7 @@ import PhlebologyScleroTerapi from "@/components/PhlebologySclero/PhlebologyScle
 
 import PhlebologyScleroTechnic from "@/components/PhlebologySclero/PhlebologyScleroTechnic";
 
-// import PhlebologyMiniAdvant from "@/components/PhlebologyMini/PhlebologyMiniAdvant";
+import PhlebologyScleroRecommen from "@/components/PhlebologySclero/PhlebologyScleroRecommen";
 
 
 import SidebarScleroTerapi from "@/components/PhlebologySclero/SidebarScleroTerapi";
@@ -20,7 +20,7 @@ export default function PhlebologyScleroPage(): ReactElement {
           <section className="md:w-3/4 w-full">
             
             <PhlebologyScleroTechnic/>
-           {/* <PhlebologyMiniAdvant/> */}
+           <PhlebologyScleroRecommen/>
 
 
           </section>
