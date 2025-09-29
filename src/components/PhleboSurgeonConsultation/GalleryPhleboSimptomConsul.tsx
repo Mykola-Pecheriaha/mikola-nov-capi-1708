@@ -18,63 +18,63 @@ const simptomImages: GalleryPhleboSimptomConsulImage[] = [
     alt: "Симптом 1",
     width: 800,
     height: 600,
-    title: "Симптом 1"
+    title: "Пульсуючий біль у ногах"
   },
   {
     src: "/images/varicose/simptom/simptom4.jpg",
     alt: "Симптом 2",
     width: 800,
     height: 600,
-    title: "Симптом 2"
+    title: "Біль після тривалої ходьби"
   },
   {
     src: "/images/varicose/simptom/simptom3.jpg",
     alt: "Симптом 3",
     width: 800,
     height: 600,
-    title: "Симптом 3"
+    title: "Нічні судоми та свербіж у м’язах"
   },
   {
     src: "/images/varicose/simptom/simptom6.jpg",
     alt: "Симптом 4",
     width: 800,
     height: 600,
-    title: "Симптом 4"
+    title: "Набряки нижніх кінцівок"
   },
   {
     src: "/images/varicose/simptom/simptom14.jpg",
     alt: "Симптом 5",
     width: 800,
     height: 600,
-    title: "Симптом 5"
+    title: "Відчуття важкості та розпирання в ногах"
   },
   {
     src: "/images/varicose/simptom/simptom8.jpg",
     alt: "Симптом 6",
     width: 800,
     height: 600,
-    title: "Симптом 6"
+    title: "Судинні “зірочки” на шкірі"
   },
   {
     src: "/images/varicose/simptom/simptom10.jpg",
     alt: "Симптом 7",
     width: 800,
     height: 600,
-    title: "Симптом 7"
+    title: "Зміни шкіри"
   },
   {
     src: "/images/varicose/simptom/simptom11.jpg",
     alt: "Симптом 8",
     width: 800,
     height: 600,
-    title: "Симптом 8"
+    title: "Видимі вени"
   },
     {
     src: "/images/varicose/simptom/simptom12.jpg",
     alt: "Симптом 8",
     width: 800,
     height: 600,
-    title: "Симптом 8"
+    title: "Трофічні виразки"
   }
   
 ];

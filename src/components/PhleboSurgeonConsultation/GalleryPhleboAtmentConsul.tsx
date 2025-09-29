@@ -18,49 +18,49 @@ const atmentImages: GalleryPhleboAtmentConsulImage[] = [
   alt: "Лікування 1".replace(/"/g, "&quot;"),
     width: 800,
     height: 600,
-  title: "Лікування 1".replace(/"/g, "&quot;")
+  title: " Флебектомія та стрипінг".replace(/"/g, "&quot;")
   },
   {
     src: "/images/varicose/varicos24.jpg",
   alt: "Лікування 2".replace(/"/g, "&quot;"),
     width: 800,
     height: 600,
-  title: "Лікування 2".replace(/"/g, "&quot;")
+  title: "Лазерна коагуляція".replace(/"/g, "&quot;")
   },
   {
     src: "/images/varicose/varicos23.jpg",
   alt: "Лікування 3".replace(/"/g, "&quot;"),
     width: 800,
     height: 600,
-  title: "Лікування 3".replace(/"/g, "&quot;")
+  title: "Склеротерапія".replace(/"/g, "&quot;")
   },
   {
     src: "/images/varicose/varicos30.jpg",
     alt: "Лікування 4",
     width: 800,
     height: 600,
-    title: "Лікування 4"
+    title: "Мініфлебектомія"
   },
   {
     src: "/images/varicose/varicos31.jpg",
     alt: "Лікування 5",
     width: 800,
     height: 600,
-    title: "Лікування 5"
+    title: "Мініфлебектомія"
   },
   {
     src: "/images/varicose/varicos32.jpg",
     alt: "Лікування 6",
     width: 800,
     height: 600,
-    title: "Лікування 6"
+    title: "Лазерна коагуляція"
   },
   {
     src: "/images/varicose/varicos33.jpg",
     alt: "Лікування 7",
     width: 800,
     height: 600,
-    title: "Лікування 7"
+    title: "Склеротерапія"
   },
 
 ];

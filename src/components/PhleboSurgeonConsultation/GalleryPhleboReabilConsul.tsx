@@ -16,28 +16,28 @@ const reabilImages: GalleryPhleboReabilConsulImage[] = [
 		alt: "Реабілітація 1",
 		width: 800,
 		height: 600,
-		title: "До/Після реабілітації 1"
+		title: "Компресійна білизна"
 	},
 	{
 		src: "/images/varicose/reabiblit/Reabil.jpg",
 		alt: "Реабілітація 2",
 		width: 800,
 		height: 600,
-		title: "До/Після реабілітації 2"
+		title: "компресійна білизна"
 	},
 	{
 		src: "/images/varicose/reabiblit/Reabil1.jpg",
 		alt: "Реабілітація 3",
 		width: 800,
 		height: 600,
-		title: "До/Після реабілітації 3"
+		title: "компресійна білизна"
 	},
 	{
 		src: "/images/varicose/reabiblit/Reabil2.jpg",
 		alt: "Реабілітація 4",
 		width: 800,
 		height: 600,
-		title: "До/Після реабілітації 4"
+		title: "компресійна білизна"
 	}
 ];
 
