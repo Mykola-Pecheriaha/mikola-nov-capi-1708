@@ -6,7 +6,11 @@ import ProctoHemorrhoiStart from "@/components/ProctoHemorrhoi/ProctoHemorrhoiSt
 
 import ProctoHemorrhoiStages from "@/components/ProctoHemorrhoi/ProctoHemorrhoiStages";
 
-// import ProctoPreparationConsul from "@/components/ProctoSurgeonConsultation/ProctoPreparationConsul";
+import ProctoHemorrhoiSimptoms  from "@/components/ProctoHemorrhoi/ProctoHemorrhoiSimptoms";
+
+import ProctoHemorrhoiTerapi  from "@/components/ProctoHemorrhoi/ProctoHemorrhoiTerapi";
+
+import ProctoHemorrhoiOper  from "@/components/ProctoHemorrhoi/ProctoHemorrhoiOper";
 
 import SidebarProctoHemorrhoi from "@/components/ProctoHemorrhoi/SidebarProctoHemorrhoi";
 
@@ -19,8 +23,9 @@ export default function ProctologConsultationPage(): ReactElement {
           <section className="md:w-3/4 w-full">
 
             <ProctoHemorrhoiStages />
-            {/* <ProctoPreparationConsul /> */}
-            {/* <PhleboAtmentConsul /> */}
+            <ProctoHemorrhoiSimptoms />
+            <ProctoHemorrhoiTerapi />
+            <ProctoHemorrhoiOper />
  
             
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const mainList = [
   { label: "Консультація проктолога", link: "/services/proctolog-consultation" },
-  { label: "Лікування геморою", link: "/services/proctology-hemorrhoids" },
+  { label: "Лікування геморою", link: "/services/proctolog-hemorrhoids" },
   { label: "Лікування анальної тріщини", link: "/services/proctology-fissure" },
   { label: "Лікування парапроктиту", link: "/services/proctology-paraproctitis" },
   { label: "Видалення новоутворень періанальної зони і анального каналу", link: "/services/proctology-tumors" },
