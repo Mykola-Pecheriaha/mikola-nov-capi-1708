@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -7,18 +6,18 @@ const menu = [
   { label: "Консультація хірурга", href: "/services/proctolog-consultation" },
   { label: "Лікування геморою", href: "/services/proctolog-hemorrhoids" },
   { label: "Лікування анальної тріщини", href: "/services/proctolog-fissure" },
-    { label: "Висічення кісти куприка", href: "/services/proctology-coccyx-cyst" },
   { label: "Лікування парапроктиту", href: "/services/proctolog-sclerotherapy" },
+    { label: "Висічення кісти куприка", href: "/services/proctology-coccyx-cyst" },
   { label: "Видалення новоутворень періанальної зони і анального каналу", href: "/services/proctolog-tumors" },
 ];
-export default function SidebarProctoHemorrhoi() {
+export default function SidebarAnalFissure() {
   const pathname = usePathname();
   return (
     <aside className="hidden md:block md:w-1/5 flex-none mt-10">
        <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto bg-white rounded-xl shadow-md p-4 border border-blue-100">
         <ul className="space-y-3 text-base font-medium">
           {menu
-            .filter(item => !(item.href === "/services/proctolog-hemorrhoids" && pathname.startsWith("/services/proctolog-hemorrhoids")))
+            .filter(item => !(item.href === "/services/proctolog-fissure" && pathname.startsWith("/services/proctolog-fissure")))
             .map((item) => (
               <li key={item.href}>
                 <Link

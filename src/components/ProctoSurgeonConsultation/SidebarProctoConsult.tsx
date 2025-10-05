@@ -7,6 +7,7 @@ const menu = [
   { label: "Консультація хірурга", href: "/services/proctolog-consultation" },
   { label: "Лікування геморою", href: "/services/proctolog-hemorrhoids" },
   { label: "Лікування анальної тріщини", href: "/services/proctolog-fissure" },
+    { label: "Висічення кісти куприка", href: "/services/proctology-coccyx-cyst" },
   { label: "Лікування парапроктиту", href: "/services/proctolog-sclerotherapy" },
   { label: "Видалення новоутворень періанальної зони і анального каналу", href: "/services/proctolog-tumors" },
 ];
