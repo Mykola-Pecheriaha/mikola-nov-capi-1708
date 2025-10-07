@@ -1,5 +1,5 @@
-"use client";
 
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -7,18 +7,17 @@ const menu = [
   { label: "Консультація хірурга", href: "/services/proctolog-consultation" },
   { label: "Лікування геморою", href: "/services/proctolog-hemorrhoids" },
   { label: "Лікування анальної тріщини", href: "/services/proctolog-fissure" },
-    { label: "Висічення кісти куприка", href: "/services/proctology-coccyx-cyst" },
-  { label: "Параректальна нориця", href: "/services/pararect-fistul-excision" },
+  { label: "Лікування парапроктиту", href: "/services/pararect-fistul-excision" },
   { label: "Видалення новоутворень періанальної зони і анального каналу", href: "/services/proctolog-tumors" },
 ];
-export default function SidebarProctoConsult() {
+export default function SidebarPararectalFistula() {
   const pathname = usePathname();
   return (
     <aside className="hidden md:block md:w-1/5 flex-none mt-10">
        <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto bg-white rounded-xl shadow-md p-4 border border-blue-100">
         <ul className="space-y-3 text-base font-medium">
           {menu
-            .filter(item => !(item.href === "/services/proctolog-consultation" && pathname.startsWith("/services/proctolog-consultation")))
+            .filter(item => !(item.href === "/services/pararect-fistul-excision" && pathname.startsWith("/services/pararect-fistul-excision")))
             .map((item) => (
               <li key={item.href}>
                 <Link

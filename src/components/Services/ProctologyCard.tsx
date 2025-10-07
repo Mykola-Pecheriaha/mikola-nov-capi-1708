@@ -6,7 +6,7 @@ const mainList = [
   { label: "Консультація проктолога", link: "/services/proctolog-consultation" },
   { label: "Лікування геморою", link: "/services/proctolog-hemorrhoids" },
   { label: "Лікування анальної тріщини", link: "/services/proctolog-fissure" },
-  { label: "Лікування парапроктиту", link: "/services/proctology-paraproctitis" },
+  { label: "Лікування парапроктиту", link: "/services/pararect-fistul-excision" },
   { label: "Видалення новоутворень періанальної зони і анального каналу", link: "/services/proctology-tumors" },
   { label: "Висічення кісти куприка", link: "/services/proctology-coccyx-cyst" },
 
