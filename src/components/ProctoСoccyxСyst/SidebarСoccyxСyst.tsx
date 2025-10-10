@@ -8,7 +8,7 @@ const menu = [
   { label: "Лікування анальної тріщини", href: "/services/proctolog-fissure" },
     { label: "Висічення кісти куприка", href: "/services/proctology-coccyx-cyst" },
   { label: "Параректальна нориця", href: "/services/pararect-fistul-excision" },
-  { label: "Видалення новоутворень періанальної зони і анального каналу", href: "/services/proctolog-tumors" },
+
 ];
 export default function SidebarСoccyxСyst() {
   const pathname = usePathname();

@@ -3,21 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 const menu = [
-  { label: "Консультація хірурга", href: "/services/proctolog-consultation" },
-  { label: "Лікування геморою", href: "/services/proctolog-hemorrhoids" },
-  { label: "Лікування анальної тріщини", href: "/services/proctolog-fissure" },
-  { label: "Параректальна нориця", href: "/services/pararect-fistul-excision" },
-    { label: "Висічення кісти куприка", href: "/services/proctology-coccyx-cyst" },
-
+  { label: "Консультація хірурга", href: "/services/general-surg-consult" },
+  { label: "Герніопластика", href: "/services/general-hernia" },
+  { label: "Холецистектомія", href: "/services/general-cholecystectomy" },
+  { label: "Грижесічення з абдомінопластикою ", href: "/services/general-hernia-abdominoplasty" },
+  { label: "Пластика білої лінії живота", href: "/services/general-white-line" },
 ];
-export default function SidebarAnalFissure() {
+export default function SidebarProctoConsult() {
   const pathname = usePathname();
   return (
     <aside className="hidden md:block md:w-1/5 flex-none mt-10">
        <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto bg-white rounded-xl shadow-md p-4 border border-blue-100">
         <ul className="space-y-3 text-base font-medium">
           {menu
-            .filter(item => !(item.href === "/services/proctolog-fissure" && pathname.startsWith("/services/proctolog-fissure")))
+            .filter(item => !(item.href === "/services/general-surg-consult" && pathname.startsWith("/services/general-surg-consult")))
             .map((item) => (
               <li key={item.href}>
                 <Link

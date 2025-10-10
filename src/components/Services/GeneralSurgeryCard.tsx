@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 const mainList = [
-  { label: "Консультація хірурга", link: "/services/general-consultation" },
+  { label: "Консультація хірурга", link: "/services/general-surg-consult" },
   { label: "Герніопластика (видалення грижі живота)", link: "/services/general-hernia" },
   { label: "Холецистектомія", link: "/services/general-cholecystectomy" },
   { label: "грижесічення з абдомінопластикою", link: "/services/general-hernia-abdominoplasty" },
