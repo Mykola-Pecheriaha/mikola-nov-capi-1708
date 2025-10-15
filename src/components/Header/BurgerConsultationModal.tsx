@@ -9,7 +9,9 @@ interface BurgerConsultationModalProps {
 export default function BurgerConsultationModal({ open, onClose }: BurgerConsultationModalProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<string|null>(null);
 
   if (!open) return null;
 
@@ -28,20 +30,28 @@ export default function BurgerConsultationModal({ open, onClose }: BurgerConsult
         <form className="space-y-3" onSubmit={async e => {
           e.preventDefault();
           if (!name || !phone) return;
+          setLoading(true);
+          setMessage(null);
           try {
-            await fetch("http://localhost:4000/api/consultations", {
+            const res = await fetch("/api/consultations", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ name, phone, comment: email })
+              body: JSON.stringify({ name, phone, comment })
             });
-            setName("");
-            setPhone("");
-            setEmail("");
-            onClose();
-            alert("Запис успішно надіслано!");
+            const data = await res.json();
+            if (data.success) {
+              setMessage("Запис успішно надіслано!");
+              setName("");
+              setPhone("");
+              setComment("");
+              setTimeout(() => { setMessage(null); onClose(); }, 1200);
+            } else {
+              setMessage("Помилка при надсиланні запису");
+            }
           } catch {
-            alert("Помилка при надсиланні запису");
+            setMessage("Помилка при надсиланні запису");
           }
+          setLoading(false);
         }}>
           <div>
             <label className="block text-sm text-gray-600 mb-1" htmlFor="burger-consult-name">Ім&apos;я? *</label>
@@ -68,22 +78,28 @@ export default function BurgerConsultationModal({ open, onClose }: BurgerConsult
             />
           </div>
           <div>
-            <label className="block text-sm text-gray-600 mb-1" htmlFor="burger-consult-email">Email</label>
+            <label className="block text-sm text-gray-600 mb-1" htmlFor="burger-consult-comment">Коментар</label>
             <input
-              id="burger-consult-email"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+              id="burger-consult-comment"
+              type="text"
+              placeholder="Коментар або email"
+              value={comment}
+              onChange={e => setComment(e.target.value)}
               className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:border-[#5e9b9b]"
             />
           </div>
           <button
             type="submit"
             className="w-full bg-[#5e9b9b] text-white rounded-full py-2 mt-2 font-semibold hover:bg-[#3b6e6e] transition"
+            disabled={loading}
           >
-            Записатися на прийом
+            {loading ? "Відправка..." : "Записатися на прийом"}
           </button>
+          {message && (
+            <div className={`mt-2 text-center text-sm ${message.includes("успішно") ? "text-green-600" : "text-red-600"}`}>
+              {message}
+            </div>
+          )}
         </form>
       </div>
     </div>

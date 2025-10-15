@@ -1,10 +1,16 @@
 "use client";
 import { GernioFAQGallery } from "./GernioFAQGallery";
 import FaqAccordion, { FaqItem } from "./FaqAccordion";
-import Link from "next/link";
+import { useState } from "react";
 
 
 export default function GernioFAQ() {
+  const [showModal, setShowModal] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [comment, setComment] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<string|null>(null);
   // Дані для галереї Чому утворюються грижі?
   const primaGalleryImages = [
     { src: "/images/gernioFAQ/gerniyaDetalis14.jpg", alt: "Причини утворення гриж", width: 800, height: 600, title: "Причини утворення гриж" },
@@ -202,9 +208,101 @@ export default function GernioFAQ() {
         </div>
         <div className="mt-12 text-center bg-white/90 rounded-xl shadow-lg py-8 px-4">
           <p className="text-lg md:text-xl mb-4 text-gray-800">Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію.</p>
-          <Link href="/ask-doctor">
-            <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full shadow transition-all duration-300">Зв&apos;язатися з нами</button>
-          </Link>
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+            <button
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full shadow transition-all duration-300"
+              onClick={() => setShowModal(true)}
+            >
+              Записатися на прийом
+            </button>
+          </div>
+          {/* Модальне вікно форми запису */}
+          {showModal && (
+            <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/40">
+              <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-sm relative animate-fadeIn">
+                <button
+                  className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700"
+                  onClick={() => { setShowModal(false); setMessage(null); setName(""); setPhone(""); setComment(""); }}
+                  aria-label="Закрити"
+                >
+                  &times;
+                </button>
+                <h3 className="text-2xl font-bold text-center mb-4 text-teal-700">Записатися на прийом</h3>
+                <form
+                  className="flex flex-col gap-4"
+                  onSubmit={async (event) => {
+                    event.preventDefault();
+                    setLoading(true);
+                    setMessage(null);
+                    try {
+                      const res = await fetch("/api/consultations", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ name, phone, comment })
+                      });
+                      const data = await res.json();
+                      if (data.success) {
+                        setMessage("Запис успішно надіслано!");
+                        setName("");
+                        setPhone("");
+                        setComment("");
+                      } else {
+                        setMessage("Помилка при надсиланні запису");
+                      }
+                    } catch {
+                      setMessage("Помилка при надсиланні запису");
+                    }
+                    setLoading(false);
+                  }}
+                >
+                  <div>
+                    <label className="block text-sm font-medium mb-1 text-gray-700">Ім&apos;я *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ім&apos;я"
+                      className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1 text-gray-700">Телефон *</label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="Телефон"
+                      className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                      value={phone}
+                      onChange={e => setPhone(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1 text-gray-700">Коментар</label>
+                    <input
+                      type="text"
+                      placeholder="Коментар або email"
+                      className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                      value={comment}
+                      onChange={e => setComment(e.target.value)}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-full mt-2 transition-all duration-300"
+                    disabled={loading}
+                  >
+                    {loading ? "Відправка..." : "Записатися на прийом"}
+                  </button>
+                  {message && (
+                    <div className={`mt-2 text-center text-sm ${message.includes("успішно") ? "text-green-600" : "text-red-600"}`}>
+                      {message}
+                    </div>
+                  )}
+                </form>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

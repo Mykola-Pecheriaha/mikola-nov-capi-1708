@@ -5,7 +5,8 @@ interface Consultation {
   name: string;
   phone: string;
   comment?: string;
-  date: string;
+  date?: string;
+  createdAt?: string;
 }
 
 export default function ConsultationsAdminPage() {
@@ -13,7 +14,7 @@ export default function ConsultationsAdminPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/consultations")
+    fetch("/api/consultations")
       .then(res => res.ok ? res.json() : [])
       .then(data => {
         setConsultations(Array.isArray(data) ? data : []);
@@ -48,7 +49,13 @@ export default function ConsultationsAdminPage() {
                 <td className="py-2 px-4 border-b">{c.name}</td>
                 <td className="py-2 px-4 border-b">{c.phone}</td>
                 <td className="py-2 px-4 border-b">{c.comment || "-"}</td>
-                <td className="py-2 px-4 border-b">{new Date(c.date).toLocaleString()}</td>
+                <td className="py-2 px-4 border-b">{
+                  c.date
+                    ? new Date(c.date).toLocaleString()
+                    : c.createdAt
+                      ? new Date(c.createdAt).toLocaleString()
+                      : "-"
+                }</td>
               </tr>
             ))}
           </tbody>
