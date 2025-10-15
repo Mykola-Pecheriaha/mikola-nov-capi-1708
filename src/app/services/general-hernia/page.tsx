@@ -5,7 +5,7 @@ import GeneralHerniaStart from "@/components/GeneralHernia/GeneralHerniaStart";
 import GeneralHerniaDiagnos from "@/components/GeneralHernia/GeneralHerniaDiagnos";
 import GeneralHerniaPreparat from "@/components/GeneralHernia/GeneralHerniaPreparat";
 import GeneralHerniaOperClasic from "@/components/GeneralHernia/GeneralHerniaOperClasic";
-
+import GernioFAQ from "@/components/GeneralHernia/GernioFAQ";
 
 import SidebarGeneralHernia from "@/components/GeneralHernia/SidebarGeneralHernia";
 
@@ -19,6 +19,7 @@ export default function GeneralHerniaPage(): ReactElement {
           <GeneralHerniaDiagnos/>
           <GeneralHerniaPreparat />
           <GeneralHerniaOperClasic />
+          <GernioFAQ />
             
 
 

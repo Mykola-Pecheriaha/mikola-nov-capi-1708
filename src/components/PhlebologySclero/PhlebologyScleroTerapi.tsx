@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { GalleryPhlebologySclero } from "./GalleryPhlebologySclero";
 import React from "react";
 

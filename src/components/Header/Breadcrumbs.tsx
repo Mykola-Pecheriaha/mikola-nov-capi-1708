@@ -12,6 +12,7 @@ const routeNames: { [key: string]: string } = {
   contacts: 'Контакти',
   blog: 'Блог',
   consultation: 'Консультація',
+  phlebology: 'Флебологія',
 }
 
 interface BreadcrumbsProps {
