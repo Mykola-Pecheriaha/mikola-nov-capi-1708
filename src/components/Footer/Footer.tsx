@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faInstagram, faTelegram } from '@fortawesome/free-brands-svg-icons'
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faTelegram } from '@fortawesome/free-brands-svg-icons';
 
 interface FooterProps {
   className?: string;
@@ -18,24 +18,25 @@ const navigationLinks: FooterLink[] = [
   { name: 'Команда', href: '/team' },
   { name: 'Про клініку', href: '/about' },
   { name: 'Блог', href: '/blog' },
-]
+];
 
 const socialLinks = [
   { icon: faFacebook, href: 'https://facebook.com', label: 'Facebook' },
   { icon: faInstagram, href: 'https://instagram.com', label: 'Instagram' },
   { icon: faTelegram, href: 'https://t.me/your-channel', label: 'Telegram' },
-]
+];
 
 export default function Footer({ className = '' }: FooterProps) {
   return (
-        <footer className={`bg-[#7491a3] ${className}`}>
+    <footer className={`bg-[#7491a3] ${className}`}>
       <div className="container-custom py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Про клініку */}
           <div className="col-span-1">
             <h2 className="text-xl font-bold text-white mb-4">ЦМКЛ</h2>
             <p className="text-white">
-             Професійна медична допомога від кращих хірургів Чернівців. Сучасне обладнання та індивідуальний підхід до кожного пацієнта.
+              Професійна медична допомога від кращих хірургів Чернівців. Сучасне обладнання та
+              індивідуальний підхід до кожного пацієнта.
             </p>
           </div>
 
@@ -66,7 +67,10 @@ export default function Footer({ className = '' }: FooterProps) {
                 </a>
               </li>
               <li>
-                <a href="mailto:Pecheryag@gmail.com" className="hover:text-gray-200 transition-colors">
+                <a
+                  href="mailto:Pecheryag@gmail.com"
+                  className="hover:text-gray-200 transition-colors"
+                >
                   Pecheryag@gmail.com
                 </a>
               </li>
@@ -94,6 +98,16 @@ export default function Footer({ className = '' }: FooterProps) {
           </div>
         </div>
 
+        {/* CTA медичної форми */}
+        <div className="mt-8 text-center">
+          <Link
+            href="/medical-form"
+            className="inline-flex items-center px-6 py-3 bg-[#7491a3] text-white font-semibold rounded-full border border-[#5c7a8d] hover:bg-[#678597] transition-colors"
+          >
+            📋 Заповнити медичну форму
+          </Link>
+        </div>
+
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-white/20">
           <p className="text-center text-white/80">
@@ -102,5 +116,5 @@ export default function Footer({ className = '' }: FooterProps) {
         </div>
       </div>
     </footer>
-  )
+  );
 }

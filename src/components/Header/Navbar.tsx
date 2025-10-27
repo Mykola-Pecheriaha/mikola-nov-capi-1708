@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Link from 'next/link'
-import Logo from './Logo'
-import { useTheme } from '@/context/ThemeContext'
-import { Bars3Icon, XMarkIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react';
+import Link from 'next/link';
+import Logo from './Logo';
+import { useTheme } from '@/context/ThemeContext';
+import { Bars3Icon, XMarkIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import BurgerConsultationModal from './BurgerConsultationModal';
 // import { useTheme } from '@/context/ThemeContext'
 
@@ -51,32 +51,41 @@ const navigation = [
     name: 'Блог',
     href: '/blog',
   },
-]
+  {
+    name: 'Медична форма',
+    href: '/medical-form',
+  },
+];
 
 export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
-  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
-    setActiveSubmenu(null)
-  }
+    setIsMobileMenuOpen(false);
+    setActiveSubmenu(null);
+  };
 
-  const handleMenuItemClick = (item: { name: string; submenu?: { name: string; href: string }[] }) => {
+  const handleMenuItemClick = (item: {
+    name: string;
+    submenu?: { name: string; href: string }[];
+  }) => {
     if (item.submenu) {
-      setActiveSubmenu(activeSubmenu === item.name ? null : item.name)
+      setActiveSubmenu(activeSubmenu === item.name ? null : item.name);
     } else {
-      closeMobileMenu()
+      closeMobileMenu();
     }
-  }
+  };
 
   return (
-    <nav style={{
-      backgroundColor: 'var(--navbar-bg)',
-      color: 'var(--navbar-text)'
-    }}>
+    <nav
+      style={{
+        backgroundColor: 'var(--navbar-bg)',
+        color: 'var(--navbar-text)',
+      }}
+    >
       <div className="container-custom">
         <div className="flex justify-between items-center h-16">
           <Logo />
@@ -116,17 +125,33 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Перемикач теми та бургер-меню справа */}
-          <div className="flex items-center gap-2">
+          {/* Медична форма, перемикач теми та бургер-меню справа */}
+          <div className="flex items-center gap-3">
+            {/* (CTA переміщено у Footer) */}
             <button
               onClick={toggleTheme}
               className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 transition text-white"
               aria-label="Перемкнути тему"
             >
               {theme === 'dark' ? (
-                <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" /></svg>
+                <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"
+                  />
+                </svg>
               ) : (
-                <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="5" strokeWidth={2}/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 6.95l-1.41-1.41M6.46 6.46L5.05 5.05m12.02 0l-1.41 1.41M6.46 17.54l-1.41 1.41"/></svg>
+                <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <circle cx="12" cy="12" r="5" strokeWidth={2} />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 6.95l-1.41-1.41M6.46 6.46L5.05 5.05m12.02 0l-1.41 1.41M6.46 17.54l-1.41 1.41"
+                  />
+                </svg>
               )}
             </button>
             <button
@@ -190,11 +215,21 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-              {/* Телефон і кнопка консультації */}
+              {/* Телефон і кнопки дій */}
               <div className="mt-6 flex flex-col items-center gap-3">
-                <a href="tel:+380507575411" className="w-full flex items-center justify-center bg-white text-[#7491a3] font-semibold rounded-md py-2 px-3 hover:bg-white/90 transition">
+                <a
+                  href="tel:+380507575411"
+                  className="w-full flex items-center justify-center bg-white text-[#7491a3] font-semibold rounded-md py-2 px-3 hover:bg-white/90 transition"
+                >
                   +380507575411
                 </a>
+                <Link
+                  href="/medical-form"
+                  onClick={closeMobileMenu}
+                  className="w-full bg-green-600 text-white rounded-full py-2 font-semibold hover:bg-green-700 transition text-center"
+                >
+                  📋 Медична форма
+                </Link>
                 <button
                   className="w-full bg-[#5e9b9b] text-white rounded-full py-2 font-semibold hover:bg-[#3b6e6e] transition"
                   onClick={() => setIsConsultationModalOpen(true)}
@@ -204,12 +239,15 @@ export default function Navbar() {
               </div>
             </div>
             {/* Модальне вікно консультації */}
-            <BurgerConsultationModal open={isConsultationModalOpen} onClose={() => setIsConsultationModalOpen(false)} />
+            <BurgerConsultationModal
+              open={isConsultationModalOpen}
+              onClose={() => setIsConsultationModalOpen(false)}
+            />
           </div>
         </div>
       </div>
 
-  {/* ConsultationModal видалено */}
+      {/* ConsultationModal видалено */}
     </nav>
-  )
+  );
 }
