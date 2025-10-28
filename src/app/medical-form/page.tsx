@@ -93,13 +93,18 @@ export default function MedicalFormPage() {
     };
 
     try {
+      console.log('Sending form data:', submitData);
+
       const res = await fetch('/api/medical-forms', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submitData),
       });
 
+      console.log('Response status:', res.status);
       const data = await res.json();
+      console.log('Response data:', data);
+
       if (data.success) {
         setMessage("Форму успішно надіслано! Ми зв'яжемося з вами найближчим часом.");
         // Очищення форми
@@ -120,10 +125,13 @@ export default function MedicalFormPage() {
           additionalComments: '',
         });
       } else {
-        setMessage('Помилка при надсиланні форми. Спробуйте ще раз.');
+        setMessage(`Помилка при надсиланні форми: ${data.error || 'Невідома помилка'}`);
       }
-    } catch {
-      setMessage('Помилка при надсиланні форми. Спробуйте ще раз.');
+    } catch (error) {
+      console.error('Fetch error:', error);
+      setMessage(
+        `Помилка при надсиланні форми: ${error instanceof Error ? error.message : 'Невідома помилка'}`,
+      );
     }
     setLoading(false);
   };
