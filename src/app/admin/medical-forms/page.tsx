@@ -46,6 +46,38 @@ export default function MedicalFormsAdminPage() {
     setShowModal(true);
   };
 
+  const handleDelete = async (formId: string) => {
+    if (!confirm('Ви впевнені, що хочете видалити цю консультацію?')) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/medical-forms?id=${formId}`, {
+        method: 'DELETE',
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Оновлюємо список форм
+        setMedicalForms((prevForms) => prevForms.filter((form) => form.id !== formId));
+
+        // Закриваємо модальне вікно якщо видаляємо поточну форму
+        if (selectedForm?.id === formId) {
+          setShowModal(false);
+          setSelectedForm(null);
+        }
+
+        alert('Консультацію успішно видалено!');
+      } else {
+        alert(`Помилка при видаленні: ${result.error}`);
+      }
+    } catch (error) {
+      console.error('Delete error:', error);
+      alert('Помилка при видаленні консультації');
+    }
+  };
+
   const getBMIStatus = (bmi: number) => {
     if (bmi < 18.5) return { text: 'Недостатня вага', color: 'text-blue-600' };
     if (bmi < 25) return { text: 'Нормальна вага', color: 'text-green-600' };
@@ -214,7 +246,10 @@ export default function MedicalFormsAdminPage() {
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <button className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 transition">
+                <button
+                  onClick={() => selectedForm && handleDelete(selectedForm.id)}
+                  className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 transition"
+                >
                   🗑️ Видалити
                 </button>
                 <button

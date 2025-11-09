@@ -84,29 +84,83 @@ export default function MedicalFormPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Prevent double submission
+    if (loading) return;
+
+    console.log('🏥 MEDICAL FORM SUBMISSION STARTED');
+    console.log('📱 User agent:', navigator.userAgent);
+    console.log('🌐 Online status:', navigator.onLine);
+    console.log('📋 Form data preview:', {
+      name: formData.name,
+      phone: formData.phone,
+      hasRequiredFields: !!(formData.name && formData.phone),
+    });
+
+    // Enhanced validation
+    if (!formData.name.trim()) {
+      setMessage("❌ Будь ласка, введіть ім'я");
+      return;
+    }
+
+    if (!formData.phone.trim()) {
+      setMessage('❌ Будь ласка, введіть телефон');
+      return;
+    }
+
+    // Check network connectivity
+    if (!navigator.onLine) {
+      console.log('❌ No internet connection');
+      setMessage("❌ Немає з'єднання з інтернетом. Перевірте підключення.");
+      return;
+    }
+
     setLoading(true);
     setMessage(null);
 
     const submitData = {
       ...formData,
       bmi: calculateBMI(),
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      isMobile: /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      ),
     };
 
     try {
-      console.log('Sending form data:', submitData);
+      console.log('🚀 Sending medical form data...');
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout for larger form
 
       const res = await fetch('/api/medical-forms', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Cache-Control': 'no-cache',
+        },
         body: JSON.stringify(submitData),
+        signal: controller.signal,
       });
 
-      console.log('Response status:', res.status);
+      clearTimeout(timeoutId);
+
+      console.log('📡 Medical form response:', {
+        status: res.status,
+        statusText: res.statusText,
+        ok: res.ok,
+        headers: Object.fromEntries(res.headers.entries()),
+      });
+
       const data = await res.json();
-      console.log('Response data:', data);
+      console.log('✅ Medical form response data:', data);
 
       if (data.success) {
-        setMessage("Форму успішно надіслано! Ми зв'яжемося з вами найближчим часом.");
+        console.log('🎉 MEDICAL FORM SUBMISSION SUCCESSFUL!');
+        setMessage("✅ Форму успішно надіслано! Ми зв'яжемося з вами найближчим часом. Дякуємо!");
+
         // Очищення форми
         setFormData({
           name: '',
@@ -124,14 +178,25 @@ export default function MedicalFormPage() {
           painLevel: 0,
           additionalComments: '',
         });
+
+        // Scroll to top to show success message
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        setMessage(`Помилка при надсиланні форми: ${data.error || 'Невідома помилка'}`);
+        console.log('❌ Server returned error:', data.error);
+        setMessage(`❌ Помилка при надсиланні форми: ${data.error || 'Невідома помилка сервера'}`);
       }
     } catch (error) {
-      console.error('Fetch error:', error);
-      setMessage(
-        `Помилка при надсиланні форми: ${error instanceof Error ? error.message : 'Невідома помилка'}`,
-      );
+      console.error('💥 Medical form submission error:', error);
+
+      if (error instanceof Error && error.name === 'AbortError') {
+        setMessage('⏰ Час очікування минув. Спробуйте надіслати форму ще раз.');
+      } else if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+        setMessage("🌐 Проблема з мережею. Перевірте інтернет-з'єднання та спробуйте ще раз.");
+      } else {
+        setMessage(
+          `❌ Помилка при надсиланні форми: ${error instanceof Error ? error.message : 'Невідома помилка'}`,
+        );
+      }
     }
     setLoading(false);
   };
@@ -441,7 +506,17 @@ export default function MedicalFormPage() {
 
               {message && (
                 <div
-                  className={`mt-4 p-4 rounded-lg ${message.includes('успішно') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}
+                  className={`mt-4 p-4 rounded-lg text-center font-medium text-base md:text-sm ${
+                    message.includes('успішно') || message.includes('✅')
+                      ? 'bg-green-100 text-green-700 border border-green-300'
+                      : 'bg-red-100 text-red-700 border border-red-300'
+                  }`}
+                  style={{
+                    position: 'sticky',
+                    top: '20px',
+                    zIndex: 50,
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                  }}
                 >
                   {message}
                 </div>

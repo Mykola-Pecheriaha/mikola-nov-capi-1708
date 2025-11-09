@@ -109,3 +109,63 @@ export async function POST(req: Request) {
     );
   }
 }
+
+export async function DELETE(req: Request) {
+  try {
+    const url = new URL(req.url);
+    const id = url.searchParams.get('id');
+
+    if (!id) {
+      return NextResponse.json({ success: false, error: 'ID is required' }, { status: 400 });
+    }
+
+    console.log('DELETE request for ID:', id);
+
+    // На Vercel видаляємо з пам'яті
+    if (process.env.VERCEL === '1') {
+      const index = vercelMemoryStore.findIndex((form) => form.id === id);
+
+      if (index === -1) {
+        return NextResponse.json({ success: false, error: 'Form not found' }, { status: 404 });
+      }
+
+      vercelMemoryStore.splice(index, 1);
+      console.log(`Vercel: deleted form, remaining: ${vercelMemoryStore.length}`);
+
+      return NextResponse.json({
+        success: true,
+        message: `Form deleted (${vercelMemoryStore.length} remaining)`,
+      });
+    } else {
+      // Локально видаляємо з файлу
+      if (!fs.existsSync(DATA_PATH)) {
+        return NextResponse.json({ success: false, error: 'No forms found' }, { status: 404 });
+      }
+
+      const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
+      const initialLength = data.length;
+      const filteredData = data.filter((form: MedicalFormData) => form.id !== id);
+
+      if (filteredData.length === initialLength) {
+        return NextResponse.json({ success: false, error: 'Form not found' }, { status: 404 });
+      }
+
+      fs.writeFileSync(DATA_PATH, JSON.stringify(filteredData, null, 2));
+      console.log(`Local: deleted form, remaining: ${filteredData.length}`);
+
+      return NextResponse.json({
+        success: true,
+        message: `Form deleted (${filteredData.length} remaining)`,
+      });
+    }
+  } catch (e) {
+    console.error('DELETE Error:', e);
+    return NextResponse.json(
+      {
+        success: false,
+        error: e instanceof Error ? e.message : String(e),
+      },
+      { status: 500 },
+    );
+  }
+}

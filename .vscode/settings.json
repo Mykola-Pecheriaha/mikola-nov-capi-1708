@@ -1,0 +1,14 @@
+{
+  "cSpell.language": "en,uk",
+  "cSpell.enabled": true,
+  "cSpell.enabledFileTypes": {
+    "typescript": true,
+    "typescriptreact": true,
+    "javascript": true,
+    "javascriptreact": true,
+    "json": true,
+    "markdown": true
+  },
+  "cSpell.diagnosticLevel": "Information",
+  "cSpell.showStatus": true
+}
