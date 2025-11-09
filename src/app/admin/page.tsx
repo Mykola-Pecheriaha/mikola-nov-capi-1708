@@ -1,7 +1,56 @@
 'use client';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
+interface MedicalForm {
+  id: string;
+  status: string;
+  createdAt: string;
+}
+
+interface Consultation {
+  createdAt: string;
+}
 
 export default function AdminPage() {
+  const [consultations, setConsultations] = useState<Consultation[]>([]);
+  const [medicalForms, setMedicalForms] = useState<MedicalForm[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    Promise.all([
+      fetch('/api/consultations').then((res) => (res.ok ? res.json() : [])),
+      fetch('/api/medical-forms').then((res) => (res.ok ? res.json() : [])),
+    ])
+      .then(([consultationsData, formsData]) => {
+        setConsultations(Array.isArray(consultationsData) ? consultationsData : []);
+        setMedicalForms(Array.isArray(formsData) ? formsData : []);
+        setLoading(false);
+      })
+      .catch(() => {
+        setConsultations([]);
+        setMedicalForms([]);
+        setLoading(false);
+      });
+  }, []);
+
+  // Calculate statistics
+  const todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
+
+  const consultationsToday = consultations.filter(
+    (c) => c.createdAt && new Date(c.createdAt) >= todayStart
+  ).length;
+
+  const pendingForms = medicalForms.filter((f) => f.status === 'pending').length;
+
+  const processedToday = medicalForms.filter(
+    (f) =>
+      f.createdAt &&
+      new Date(f.createdAt) >= todayStart &&
+      (f.status === 'reviewed' || f.status === 'completed')
+  ).length;
+
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-6xl mx-auto px-4">
@@ -19,7 +68,12 @@ export default function AdminPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">💬</span>
               </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Записи на консультацію</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Записи на консультацію
+                {!loading && consultations.length > 0 && (
+                  <span className="ml-2 text-lg text-blue-600">({consultations.length})</span>
+                )}
+              </h2>
               <p className="text-gray-600 mb-6">
                 Переглядайте та керуйте записами пацієнтів на консультації. Швидкі записи через
                 форми на сайті.
@@ -47,7 +101,12 @@ export default function AdminPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">📋</span>
               </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Медичні форми</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Медичні форми
+                {!loading && medicalForms.length > 0 && (
+                  <span className="ml-2 text-lg text-green-600">({medicalForms.length})</span>
+                )}
+              </h2>
               <p className="text-gray-600 mb-6">
                 Детальні медичні анкети пацієнтів з повною інформацією про стан здоров&apos;я,
                 скарги та історію хвороб.
@@ -75,24 +134,32 @@ export default function AdminPage() {
           <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             📊 Швидка статистика
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <div className="text-3xl font-bold text-blue-600 mb-2">-</div>
-              <div className="text-sm text-gray-600">Нові консультації</div>
+          {loading ? (
+            <div className="text-center py-8 text-gray-500">Завантаження статистики...</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="text-center p-4 bg-blue-50 rounded-lg">
+                <div className="text-3xl font-bold text-blue-600 mb-2">{consultationsToday}</div>
+                <div className="text-sm text-gray-600">Нові консультації</div>
+                <div className="text-xs text-gray-500 mt-1">сьогодні</div>
+              </div>
+              <div className="text-center p-4 bg-green-50 rounded-lg">
+                <div className="text-3xl font-bold text-green-600 mb-2">{medicalForms.length}</div>
+                <div className="text-sm text-gray-600">Медичні форми</div>
+                <div className="text-xs text-gray-500 mt-1">всього</div>
+              </div>
+              <div className="text-center p-4 bg-yellow-50 rounded-lg">
+                <div className="text-3xl font-bold text-yellow-600 mb-2">{pendingForms}</div>
+                <div className="text-sm text-gray-600">Очікують розгляду</div>
+                <div className="text-xs text-gray-500 mt-1">pending</div>
+              </div>
+              <div className="text-center p-4 bg-purple-50 rounded-lg">
+                <div className="text-3xl font-bold text-purple-600 mb-2">{processedToday}</div>
+                <div className="text-sm text-gray-600">Оброблено сьогодні</div>
+                <div className="text-xs text-gray-500 mt-1">reviewed/completed</div>
+              </div>
             </div>
-            <div className="text-center p-4 bg-green-50 rounded-lg">
-              <div className="text-3xl font-bold text-green-600 mb-2">-</div>
-              <div className="text-sm text-gray-600">Медичні форми</div>
-            </div>
-            <div className="text-center p-4 bg-yellow-50 rounded-lg">
-              <div className="text-3xl font-bold text-yellow-600 mb-2">-</div>
-              <div className="text-sm text-gray-600">Очікують розгляду</div>
-            </div>
-            <div className="text-center p-4 bg-purple-50 rounded-lg">
-              <div className="text-3xl font-bold text-purple-600 mb-2">-</div>
-              <div className="text-sm text-gray-600">Оброблено сьогодні</div>
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Швидкі дії */}
