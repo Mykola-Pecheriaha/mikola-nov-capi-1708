@@ -1,53 +1,75 @@
 import { NextResponse } from 'next/server';
+import { supabase } from '@/lib/supabase';
+import type { MedicalForm } from '@/lib/supabase';
 import fs from 'fs';
 import path from 'path';
 
+// Локальні файли як fallback
 const DATA_PATH = path.join(process.cwd(), 'server', 'medical-forms.json');
 
-// Тимчасове рішення для Vercel - in-memory store
-// TODO: Замінити на Vercel KV коли проект буде готовий до продакшину
-interface MedicalFormData {
-  id: string;
-  name: string;
-  age: string;
-  gender: string;
-  phone: string;
-  height: string;
-  weight: string;
-  bmi?: number;
-  complaints: string;
-  examinations: string[];
-  hasChronicDisease: boolean;
-  chronicDiseases: string;
-  takesMedication: boolean;
-  medications: string;
-  painLevel: number;
-  additionalComments: string;
-  createdAt: string;
-  status: string;
+// Перевірка чи Supabase доступний
+function isSupabaseAvailable(): boolean {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  return !!(url && key && url !== 'https://placeholder.supabase.co' && key !== 'placeholder-key');
 }
 
-const vercelMemoryStore: MedicalFormData[] = [];
+// Функція для перетворення snake_case в camelCase для фронтенду
+function toCamelCase(obj: Record<string, unknown>): Record<string, unknown> {
+  const camelCaseObj: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(obj)) {
+    const camelKey = key.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+    camelCaseObj[camelKey] = value;
+  }
+  return camelCaseObj;
+}
 
 export async function GET() {
   try {
-    // На Vercel використовуємо in-memory store
-    if (process.env.VERCEL === '1') {
-      console.log(`Vercel: returning ${vercelMemoryStore.length} forms from memory`);
-      return NextResponse.json(vercelMemoryStore);
-    }
+    if (isSupabaseAvailable()) {
+      console.log('📋 Fetching medical forms from Supabase...');
 
-    // Локально читаємо з файлу
-    if (fs.existsSync(DATA_PATH)) {
-      const data = fs.readFileSync(DATA_PATH, 'utf-8');
-      return NextResponse.json(JSON.parse(data));
+      const { data, error } = await supabase
+        .from('medical_forms')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('❌ Supabase error:', error);
+        return NextResponse.json(
+          { error: 'Failed to fetch medical forms', details: error.message },
+          { status: 500 },
+        );
+      }
+
+      console.log(`✅ Successfully fetched ${data?.length || 0} medical forms from Supabase`);
+
+      // Перетворюємо snake_case в camelCase для фронтенду
+      const camelCaseData = data?.map(toCamelCase) || [];
+
+      return NextResponse.json(camelCaseData);
     } else {
-      console.log('Local: medical forms file does not exist, returning empty array');
-      return NextResponse.json([], { status: 200 });
+      // Fallback до локальних файлів
+      console.log('📂 Supabase не налаштовано, використовуємо локальні файли...');
+
+      if (!fs.existsSync(DATA_PATH)) {
+        fs.writeFileSync(DATA_PATH, JSON.stringify([], null, 2));
+      }
+
+      const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
+      console.log(`✅ Successfully fetched ${data.length} medical forms from local file`);
+
+      return NextResponse.json(data);
     }
   } catch (error) {
-    console.error('Error reading medical forms:', error);
-    return NextResponse.json([], { status: 200 });
+    console.error('💥 Error fetching medical forms:', error);
+    return NextResponse.json(
+      {
+        error: 'Internal server error',
+        details: error instanceof Error ? error.message : String(error),
+      },
+      { status: 500 },
+    );
   }
 }
 
@@ -55,50 +77,115 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    // Додаємо timestamp та унікальний ID
-    const formData = {
-      id: Date.now().toString(),
-      ...body,
-      createdAt: new Date().toISOString(),
-      status: 'pending', // pending, reviewed, completed
-    };
+    if (isSupabaseAvailable()) {
+      console.log('📋 Medical form submission to Supabase:', {
+        name: body.name,
+        phone: body.phone,
+        isMobile: body.isMobile,
+        userAgent: body.userAgent?.substring(0, 50) + '...',
+      });
 
-    console.log('Medical form submission:', {
-      id: formData.id,
-      name: formData.name,
-      phone: formData.phone,
-      isVercel: process.env.VERCEL === '1',
-    });
+      // Підготовка даних для Supabase (snake_case)
+      const formData: Partial<MedicalForm> = {
+        name: body.name,
+        age: body.age,
+        gender: body.gender,
+        phone: body.phone,
+        height: body.height,
+        weight: body.weight,
+        bmi: body.bmi,
+        complaints: body.complaints,
+        examinations: body.examinations || [],
+        has_chronic_disease: body.hasChronicDisease || false,
+        chronic_diseases: body.chronicDiseases || '',
+        takes_medication: body.takesMedication || false,
+        medications: body.medications || '',
+        pain_level: body.painLevel || 0,
+        additional_comments: body.additionalComments || '',
+        user_agent: body.userAgent,
+        is_mobile: body.isMobile || false,
+        viewport: body.viewport,
+        connection: body.connection,
+        platform: body.platform,
+        cookie_enabled: body.cookieEnabled,
+        status: 'pending',
+      };
 
-    // На Vercel зберігаємо у пам'яті (тимчасово)
-    if (process.env.VERCEL === '1') {
-      vercelMemoryStore.push(formData);
-      console.log(`Vercel: saved to memory, total forms: ${vercelMemoryStore.length}`);
-    } else {
-      // Локально зберігаємо у файл
-      try {
-        const data = fs.existsSync(DATA_PATH)
-          ? JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'))
-          : [];
-        data.push(formData);
-        fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
-        console.log('Local: saved to file successfully');
-      } catch (fileError) {
-        console.warn('Cannot write to file:', fileError);
+      // Зберігаємо в Supabase
+      const { data, error } = await supabase
+        .from('medical_forms')
+        .insert([formData])
+        .select()
+        .single();
+
+      if (error) {
+        console.error('❌ Supabase insert error:', error);
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'Failed to save medical form',
+            details: error.message,
+          },
+          { status: 500 },
+        );
       }
-    }
 
-    return NextResponse.json({
-      success: true,
-      id: formData.id,
-      message:
-        process.env.VERCEL === '1'
-          ? `Form saved to memory (${vercelMemoryStore.length} total)`
-          : 'Form saved to local file',
-      environment: process.env.VERCEL === '1' ? 'vercel' : 'local',
-    });
+      console.log('✅ Medical form saved successfully to Supabase:', data.id);
+
+      return NextResponse.json({
+        success: true,
+        id: data.id,
+        message: 'Medical form saved to Supabase database',
+        environment: 'supabase',
+        debug: {
+          supabaseId: data.id,
+          createdAt: data.created_at,
+        },
+      });
+    } else {
+      // Fallback до локальних файлів
+      console.log('📂 Supabase не налаштовано, зберігаємо в локальні файли...');
+
+      if (!fs.existsSync(DATA_PATH)) {
+        fs.writeFileSync(DATA_PATH, JSON.stringify([], null, 2));
+      }
+
+      const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
+
+      // Генеруємо ID
+      const newId = data.length > 0 ? Math.max(...data.map((d: { id: number }) => d.id)) + 1 : 1;
+
+      const newForm = {
+        id: newId,
+        ...body,
+        bmi:
+          body.bmi ||
+          (body.weight && body.height
+            ? (body.weight / Math.pow(body.height / 100, 2)).toFixed(1)
+            : null),
+        status: 'pending',
+        timestamp: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+      };
+
+      data.push(newForm);
+      fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
+
+      console.log('✅ Medical form saved successfully to local file:', newId);
+
+      return NextResponse.json({
+        success: true,
+        id: newId,
+        message: 'Medical form saved to local file (development mode)',
+        environment: 'local',
+        debug: {
+          localId: newId,
+          totalForms: data.length,
+        },
+      });
+    }
   } catch (e) {
-    console.error('API Error:', e);
+    console.error('💥 Medical form API Error:', e);
     return NextResponse.json(
       {
         success: false,
@@ -119,45 +206,25 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ success: false, error: 'ID is required' }, { status: 400 });
     }
 
-    console.log('DELETE request for ID:', id);
+    console.log('🗑️ DELETE request for medical form ID:', id);
 
-    // На Vercel видаляємо з пам'яті
-    if (process.env.VERCEL === '1') {
-      const index = vercelMemoryStore.findIndex((form) => form.id === id);
+    // Видаляємо з Supabase
+    const { error } = await supabase.from('medical_forms').delete().eq('id', id);
 
-      if (index === -1) {
-        return NextResponse.json({ success: false, error: 'Form not found' }, { status: 404 });
-      }
-
-      vercelMemoryStore.splice(index, 1);
-      console.log(`Vercel: deleted form, remaining: ${vercelMemoryStore.length}`);
-
-      return NextResponse.json({
-        success: true,
-        message: `Form deleted (${vercelMemoryStore.length} remaining)`,
-      });
-    } else {
-      // Локально видаляємо з файлу
-      if (!fs.existsSync(DATA_PATH)) {
-        return NextResponse.json({ success: false, error: 'No forms found' }, { status: 404 });
-      }
-
-      const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
-      const initialLength = data.length;
-      const filteredData = data.filter((form: MedicalFormData) => form.id !== id);
-
-      if (filteredData.length === initialLength) {
-        return NextResponse.json({ success: false, error: 'Form not found' }, { status: 404 });
-      }
-
-      fs.writeFileSync(DATA_PATH, JSON.stringify(filteredData, null, 2));
-      console.log(`Local: deleted form, remaining: ${filteredData.length}`);
-
-      return NextResponse.json({
-        success: true,
-        message: `Form deleted (${filteredData.length} remaining)`,
-      });
+    if (error) {
+      console.error('❌ Supabase delete error:', error);
+      return NextResponse.json(
+        { success: false, error: 'Failed to delete medical form', details: error.message },
+        { status: 500 },
+      );
     }
+
+    console.log('✅ Medical form deleted successfully');
+
+    return NextResponse.json({
+      success: true,
+      message: 'Medical form deleted from Supabase database',
+    });
   } catch (e) {
     console.error('DELETE Error:', e);
     return NextResponse.json(

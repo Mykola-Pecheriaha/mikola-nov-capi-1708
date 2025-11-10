@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Test Medical Form API</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>🧪 Test Medical Form API</h1>
+
+    <form id="testForm">
+      <div>
+        <label>Name: <input type="text" id="name" value="Test Patient" required /></label>
+      </div>
+      <div>
+        <label>Age: <input type="number" id="age" value="30" required /></label>
+      </div>
+      <div>
+        <label
+          >Gender:
+          <select id="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label>Phone: <input type="tel" id="phone" value="1234567890" required /></label>
+      </div>
+      <div>
+        <label>Height (cm): <input type="number" id="height" value="175" required /></label>
+      </div>
+      <div>
+        <label>Weight (kg): <input type="number" id="weight" value="70" required /></label>
+      </div>
+      <div>
+        <label>Complaints: <textarea id="complaints" required>Test complaint</textarea></label>
+      </div>
+
+      <button type="submit">Submit Test Form</button>
+    </form>
+
+    <div id="result" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc"></div>
+
+    <script>
+      document.getElementById('testForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = '⏳ Submitting...';
+
+        const formData = {
+          name: document.getElementById('name').value,
+          age: parseInt(document.getElementById('age').value),
+          gender: document.getElementById('gender').value,
+          phone: document.getElementById('phone').value,
+          height: parseInt(document.getElementById('height').value),
+          weight: parseInt(document.getElementById('weight').value),
+          complaints: document.getElementById('complaints').value,
+          examinations: [],
+          hasChronicDisease: false,
+          chronicDiseases: '',
+          takesMedication: false,
+          medications: '',
+          painLevel: 0,
+          additionalComments: '',
+          bmi: 0,
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          isMobile: /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent,
+          ),
+          viewport: {
+            width: window.innerWidth,
+            height: window.innerHeight,
+          },
+          connection: {
+            online: navigator.onLine,
+            effectiveType: 'unknown',
+          },
+          platform: navigator.platform,
+          cookieEnabled: navigator.cookieEnabled,
+        };
+
+        console.log('📤 Sending data:', formData);
+
+        try {
+          const response = await fetch('/api/medical-forms', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+
+          console.log('📡 Response status:', response.status);
+          console.log('📡 Response ok:', response.ok);
+
+          const data = await response.json();
+          console.log('📋 Response data:', data);
+
+          if (data.success) {
+            resultDiv.innerHTML = `✅ SUCCESS! Form saved with ID: ${data.id}`;
+            resultDiv.style.background = '#d4edda';
+            resultDiv.style.color = '#155724';
+          } else {
+            resultDiv.innerHTML = `❌ ERROR: ${data.error || 'Unknown error'}`;
+            resultDiv.style.background = '#f8d7da';
+            resultDiv.style.color = '#721c24';
+          }
+        } catch (error) {
+          console.error('💥 Fetch error:', error);
+          resultDiv.innerHTML = `💥 FETCH ERROR: ${error.message}`;
+          resultDiv.style.background = '#f8d7da';
+          resultDiv.style.color = '#721c24';
+        }
+      });
+    </script>
+  </body>
+</html>

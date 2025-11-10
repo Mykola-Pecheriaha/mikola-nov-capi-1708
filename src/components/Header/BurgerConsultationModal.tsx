@@ -63,32 +63,76 @@ export default function BurgerConsultationModal({ open, onClose }: BurgerConsult
             setMessage(null);
 
             try {
-              console.log('🚀 Sending request to API...');
+              const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent,
+              );
 
-              const controller = new AbortController();
-              const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+              console.log('🚀 Sending consultation request to API...');
+              console.log('🌐 Current URL:', window.location.href);
+              console.log('� Is Mobile:', isMobile);
+              console.log('�📡 API endpoint:', '/api/consultations');
 
-              const res = await fetch('/api/consultations', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  Accept: 'application/json',
-                  'Cache-Control': 'no-cache',
+              const requestData = {
+                name: name.trim(),
+                phone: phone.trim(),
+                comment: comment.trim(),
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                isMobile,
+                viewport: {
+                  width: window.innerWidth,
+                  height: window.innerHeight,
                 },
-                body: JSON.stringify({
-                  name: name.trim(),
-                  phone: phone.trim(),
-                  comment: comment.trim(),
-                  timestamp: new Date().toISOString(),
-                  userAgent: navigator.userAgent,
-                  isMobile: /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-                    navigator.userAgent,
-                  ),
-                }),
-                signal: controller.signal,
-              });
+                connection: {
+                  online: navigator.onLine,
+                  effectiveType:
+                    (navigator as Navigator & { connection?: { effectiveType?: string } })
+                      .connection?.effectiveType || 'unknown',
+                },
+              };
 
-              clearTimeout(timeoutId);
+              let res: Response;
+
+              if (isMobile) {
+                console.log('📱 Using mobile-optimized request...');
+
+                // Мобільна версія з більшим таймаутом і без AbortController
+                const timeoutPromise = new Promise<never>((_, reject) =>
+                  setTimeout(() => reject(new Error('Mobile consultation timeout')), 20000),
+                );
+
+                const fetchPromise = fetch('/api/consultations', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                    'Cache-Control': 'no-cache',
+                    'User-Agent': navigator.userAgent,
+                  },
+                  body: JSON.stringify(requestData),
+                  credentials: 'same-origin',
+                });
+
+                res = await Promise.race([fetchPromise, timeoutPromise]);
+              } else {
+                console.log('💻 Using desktop request...');
+
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+                res = await fetch('/api/consultations', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                    'Cache-Control': 'no-cache',
+                  },
+                  body: JSON.stringify(requestData),
+                  signal: controller.signal,
+                });
+
+                clearTimeout(timeoutId);
+              }
 
               console.log('📡 Response received:', {
                 status: res.status,
@@ -119,16 +163,37 @@ export default function BurgerConsultationModal({ open, onClose }: BurgerConsult
                 setMessage(`❌ Помилка: ${data.error || 'Невідома помилка'}`);
               }
             } catch (error) {
+              const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent,
+              );
+
               console.error('💥 Consultation submission error:', error);
+              console.error('📱 Mobile device:', isMobile);
 
               if (error instanceof Error && error.name === 'AbortError') {
                 setMessage('⏰ Час очікування минув. Спробуйте ще раз.');
-              } else if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
-                setMessage("🌐 Проблема з мережею. Перевірте з'єднання.");
-              } else {
+              } else if (
+                error instanceof Error &&
+                error.message.includes('Mobile consultation timeout')
+              ) {
                 setMessage(
-                  `❌ Помилка: ${error instanceof Error ? error.message : 'Невідома помилка'}`,
+                  '📱 Мобільний таймаут. Спробуйте:\n• Перевірити Wi-Fi\n• Оновити сторінку',
                 );
+              } else if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+                if (isMobile) {
+                  setMessage(
+                    '📱 Мобільна мережа недоступна.\nСпробуйте Wi-Fi або оновіть сторінку.',
+                  );
+                } else {
+                  setMessage("🌐 Проблема з мережею. Перевірте з'єднання.");
+                }
+              } else {
+                const errorMsg = error instanceof Error ? error.message : 'Невідома помилка';
+                if (isMobile) {
+                  setMessage(`📱 Мобільна помилка: ${errorMsg}`);
+                } else {
+                  setMessage(`❌ Помилка: ${errorMsg}`);
+                }
               }
             } finally {
               setLoading(false);

@@ -118,44 +118,102 @@ export default function MedicalFormPage() {
     setLoading(true);
     setMessage(null);
 
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    );
+
     const submitData = {
       ...formData,
       bmi: calculateBMI(),
       timestamp: new Date().toISOString(),
       userAgent: navigator.userAgent,
-      isMobile: /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent,
-      ),
+      isMobile,
+      viewport: {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        devicePixelRatio: window.devicePixelRatio || 1,
+      },
+      connection: {
+        online: navigator.onLine,
+        effectiveType:
+          (navigator as Navigator & { connection?: { effectiveType?: string } }).connection
+            ?.effectiveType || 'unknown',
+        downlink:
+          (navigator as Navigator & { connection?: { downlink?: number } }).connection?.downlink ||
+          'unknown',
+      },
+      platform: navigator.platform,
+      cookieEnabled: navigator.cookieEnabled,
     };
 
     try {
       console.log('🚀 Sending medical form data...');
-
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout for larger form
-
-      const res = await fetch('/api/medical-forms', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Cache-Control': 'no-cache',
-        },
-        body: JSON.stringify(submitData),
-        signal: controller.signal,
+      console.log('🌐 Current URL:', window.location.href);
+      console.log('📱 Is Mobile:', isMobile);
+      console.log('📡 API endpoint:', '/api/medical-forms');
+      console.log('📦 Payload size:', JSON.stringify(submitData).length, 'characters');
+      console.log('🔗 Connection info:', {
+        online: navigator.onLine,
+        effectiveType: (navigator as Navigator & { connection?: { effectiveType?: string } })
+          .connection?.effectiveType,
+        userAgent: navigator.userAgent,
       });
 
-      clearTimeout(timeoutId);
+      // Для мобільних пристроїв використовуємо більший таймаут і не використовуємо AbortController
+      let res: Response;
+
+      if (isMobile) {
+        console.log('📱 Using mobile-optimized fetch...');
+
+        // Мобільна версія без AbortController (може викликати проблеми на деяких пристроях)
+        const timeoutPromise = new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error('Mobile timeout after 30 seconds')), 30000),
+        );
+
+        const fetchPromise = fetch('/api/medical-forms', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Cache-Control': 'no-cache',
+            'User-Agent': navigator.userAgent,
+          },
+          body: JSON.stringify(submitData),
+          credentials: 'same-origin',
+        });
+
+        res = await Promise.race([fetchPromise, timeoutPromise]);
+      } else {
+        console.log('💻 Using desktop-optimized fetch...');
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+        res = await fetch('/api/medical-forms', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Cache-Control': 'no-cache',
+          },
+          body: JSON.stringify(submitData),
+          signal: controller.signal,
+        });
+
+        clearTimeout(timeoutId);
+      }
 
       console.log('📡 Medical form response:', {
         status: res.status,
         statusText: res.statusText,
         ok: res.ok,
+        isMobile,
         headers: Object.fromEntries(res.headers.entries()),
       });
 
       const data = await res.json();
       console.log('✅ Medical form response data:', data);
+      console.log('🔍 Response data.success:', data.success, typeof data.success);
 
       if (data.success) {
         console.log('🎉 MEDICAL FORM SUBMISSION SUCCESSFUL!');
@@ -187,15 +245,37 @@ export default function MedicalFormPage() {
       }
     } catch (error) {
       console.error('💥 Medical form submission error:', error);
+      console.error('📱 Device info:', {
+        isMobile,
+        userAgent: navigator.userAgent,
+        online: navigator.onLine,
+        cookieEnabled: navigator.cookieEnabled,
+        platform: navigator.platform,
+      });
 
       if (error instanceof Error && error.name === 'AbortError') {
         setMessage('⏰ Час очікування минув. Спробуйте надіслати форму ще раз.');
       } else if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
-        setMessage("🌐 Проблема з мережею. Перевірте інтернет-з'єднання та спробуйте ще раз.");
-      } else {
+        if (isMobile) {
+          setMessage(
+            "📱 Проблема з мобільним з'єднанням. Спробуйте:\n• Перевірити інтернет\n• Оновити сторінку\n• Використати Wi-Fi замість мобільних даних",
+          );
+        } else {
+          setMessage("🌐 Проблема з мережею. Перевірте інтернет-з'єднання та спробуйте ще раз.");
+        }
+      } else if (error instanceof Error && error.message.includes('Mobile timeout')) {
         setMessage(
-          `❌ Помилка при надсиланні форми: ${error instanceof Error ? error.message : 'Невідома помилка'}`,
+          '📱 Мобільний таймаут. Спробуйте:\n• Перевірити стабільність інтернету\n• Зачекати кілька секунд і спробувати знову\n• Використати Wi-Fi',
         );
+      } else {
+        const errorMsg = error instanceof Error ? error.message : 'Невідома помилка';
+        if (isMobile) {
+          setMessage(
+            `📱 Мобільна помилка: ${errorMsg}\n\nСпробуйте оновити сторінку або використати Wi-Fi.`,
+          );
+        } else {
+          setMessage(`❌ Помилка при надсиланні форми: ${errorMsg}`);
+        }
       }
     }
     setLoading(false);
