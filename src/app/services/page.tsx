@@ -11,7 +11,7 @@ export default function ServicesPage(): ReactElement {
     <main className="p-6 bg-transparent">
       <h1 className="text-3xl font-bold mb-4">Наші послуги</h1>
       <div className="container mx-auto px-4">
-        <PlasticSurgeryCard />
+  <PlasticSurgeryCard />
   <PhlebologyCard />
   <ProctologyCard />
   <GeneralSurgeryCard />
