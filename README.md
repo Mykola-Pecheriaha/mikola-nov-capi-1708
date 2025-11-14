@@ -18,7 +18,7 @@
 ```bash
 git clone <repository-url>
 cd mikola-nov-capi-1708
-npm install
+yarn install
 ```
 
 ### 2. Налаштування Supabase
@@ -31,7 +31,7 @@ npm install
 ### 3. Запуск розробки
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 Відкрийте [http://localhost:3000](http://localhost:3000) у браузері.
@@ -125,10 +125,10 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
 ### Запуск локально
 
 ```bash
-npm run dev          # Development server
-npm run build        # Production build
-npm run start        # Production server
-npm run lint         # ESLint
+yarn dev             # Development server
+yarn build           # Production build
+yarn start           # Production server
+yarn lint            # ESLint
 ```
 
 ### Debug мобільних пристроїв

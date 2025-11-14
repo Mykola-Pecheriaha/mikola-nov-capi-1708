@@ -160,7 +160,13 @@ export default function BurgerConsultationModal({ open, onClose }: BurgerConsult
                 }, 2500); // Longer delay for mobile
               } else {
                 console.log('❌ Server returned error:', data.error);
-                setMessage(`❌ Помилка: ${data.error || 'Невідома помилка'}`);
+
+                // Спеціальна обробка помилок конфігурації на продакшені
+                if (data.needsSetup && data.environment === 'serverless') {
+                  setMessage('🔧 База даних не налаштована.\nЗверніться до адміністратора сайту.');
+                } else {
+                  setMessage(`❌ Помилка: ${data.error || 'Невідома помилка'}`);
+                }
               }
             } catch (error) {
               const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(

@@ -14,6 +14,15 @@ function isSupabaseAvailable(): boolean {
   return !!(url && key && url !== 'https://placeholder.supabase.co' && key !== 'placeholder-key');
 }
 
+// Перевірка чи ми на serverless платформі (Vercel)
+function isServerlessEnvironment(): boolean {
+  return !!(
+    process.env.VERCEL ||
+    process.env.AWS_LAMBDA_FUNCTION_NAME ||
+    process.env.RAILWAY_ENVIRONMENT
+  );
+}
+
 // Функція для перетворення snake_case в camelCase для фронтенду
 function toCamelCase(obj: Record<string, unknown>): Record<string, unknown> {
   const camelCaseObj: Record<string, unknown> = {};
@@ -26,6 +35,22 @@ function toCamelCase(obj: Record<string, unknown>): Record<string, unknown> {
 
 export async function GET() {
   try {
+    // На serverless платформах завжди використовуємо Supabase
+    if (isServerlessEnvironment()) {
+      if (!isSupabaseAvailable()) {
+        console.error('❌ Serverless environment detected but Supabase not configured');
+        return NextResponse.json(
+          {
+            error: 'Database not configured',
+            details: 'Supabase configuration required for production environment',
+            environment: 'serverless',
+            needsSetup: true,
+          },
+          { status: 500 },
+        );
+      }
+    }
+
     if (isSupabaseAvailable()) {
       console.log('📋 Fetching medical forms from Supabase...');
 
@@ -49,7 +74,7 @@ export async function GET() {
 
       return NextResponse.json(camelCaseData);
     } else {
-      // Fallback до локальних файлів
+      // Fallback до локальних файлів (тільки для локальної розробки)
       console.log('📂 Supabase не налаштовано, використовуємо локальні файли...');
 
       if (!fs.existsSync(DATA_PATH)) {
@@ -76,6 +101,26 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+
+    // На serverless платформах завжди вимагаємо Supabase
+    if (isServerlessEnvironment()) {
+      if (!isSupabaseAvailable()) {
+        console.error('❌ Serverless environment: Supabase required but not configured');
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'Database not configured for production',
+            details:
+              'Supabase configuration required. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables.',
+            environment: 'serverless',
+            needsSetup: true,
+            setupInstructions:
+              'Visit https://supabase.com to create a project and get your credentials',
+          },
+          { status: 500 },
+        );
+      }
+    }
 
     if (isSupabaseAvailable()) {
       console.log('📋 Medical form submission to Supabase:', {
@@ -143,46 +188,61 @@ export async function POST(req: Request) {
         },
       });
     } else {
-      // Fallback до локальних файлів
+      // Fallback до локальних файлів (тільки для локальної розробки)
       console.log('📂 Supabase не налаштовано, зберігаємо в локальні файли...');
 
-      if (!fs.existsSync(DATA_PATH)) {
-        fs.writeFileSync(DATA_PATH, JSON.stringify([], null, 2));
+      try {
+        if (!fs.existsSync(DATA_PATH)) {
+          fs.writeFileSync(DATA_PATH, JSON.stringify([], null, 2));
+        }
+
+        const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
+
+        // Генеруємо ID
+        const newId = data.length > 0 ? Math.max(...data.map((d: { id: number }) => d.id)) + 1 : 1;
+
+        const newForm = {
+          id: newId,
+          ...body,
+          bmi:
+            body.bmi ||
+            (body.weight && body.height
+              ? (body.weight / Math.pow(body.height / 100, 2)).toFixed(1)
+              : null),
+          status: 'pending',
+          timestamp: new Date().toISOString(),
+          createdAt: new Date().toISOString(),
+        };
+
+        data.push(newForm);
+        fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
+
+        console.log('✅ Medical form saved successfully to local file:', newId);
+
+        return NextResponse.json({
+          success: true,
+          id: newId,
+          message: 'Medical form saved to local file (development mode)',
+          environment: 'local',
+          debug: {
+            localId: newId,
+            totalForms: data.length,
+          },
+        });
+      } catch (fileError) {
+        console.error('❌ File system error:', fileError);
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'File system error',
+            details:
+              'Cannot write to file system in this environment. Please configure Supabase for production.',
+            fileError: fileError instanceof Error ? fileError.message : String(fileError),
+            needsSetup: true,
+          },
+          { status: 500 },
+        );
       }
-
-      const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
-
-      // Генеруємо ID
-      const newId = data.length > 0 ? Math.max(...data.map((d: { id: number }) => d.id)) + 1 : 1;
-
-      const newForm = {
-        id: newId,
-        ...body,
-        bmi:
-          body.bmi ||
-          (body.weight && body.height
-            ? (body.weight / Math.pow(body.height / 100, 2)).toFixed(1)
-            : null),
-        status: 'pending',
-        timestamp: new Date().toISOString(),
-        createdAt: new Date().toISOString(),
-      };
-
-      data.push(newForm);
-      fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
-
-      console.log('✅ Medical form saved successfully to local file:', newId);
-
-      return NextResponse.json({
-        success: true,
-        id: newId,
-        message: 'Medical form saved to local file (development mode)',
-        environment: 'local',
-        debug: {
-          localId: newId,
-          totalForms: data.length,
-        },
-      });
     }
   } catch (e) {
     console.error('💥 Medical form API Error:', e);

@@ -6,7 +6,13 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:api": "node test-medical-forms.js",
+    "check:supabase": "./check-supabase.sh",
+    "setup:supabase": "./setup-supabase.sh",
+    "setup:help": "echo '🎯 Швидке налаштування Supabase:' && echo '📖 cat SUPABASE_STEP_BY_STEP.md  # Покрокова інструкція' && echo '🔍 yarn check:supabase          # Перевірка налаштування' && echo '🧪 yarn test:api               # Тестування API' && echo '📁 Файли: supabase-setup-complete.sql (SQL код)'",
+    "setup:guide": "cat SUPABASE_STEP_BY_STEP.md",
+    "setup:sql": "echo '📋 Скопіюйте цей SQL код у Supabase SQL Editor:' && echo '===========================================' && cat supabase-setup-complete.sql"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",

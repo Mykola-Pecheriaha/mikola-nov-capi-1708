@@ -2,8 +2,38 @@ import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import type { Consultation } from '@/lib/supabase';
 
+// Перевірка чи Supabase доступний
+function isSupabaseAvailable(): boolean {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  return !!(url && key && url !== 'https://placeholder.supabase.co' && key !== 'placeholder-key');
+}
+
+// Перевірка чи ми на serverless платформі (Vercel)
+function isServerlessEnvironment(): boolean {
+  return !!(
+    process.env.VERCEL ||
+    process.env.AWS_LAMBDA_FUNCTION_NAME ||
+    process.env.RAILWAY_ENVIRONMENT
+  );
+}
+
 export async function GET() {
   try {
+    // На serverless платформах завжди вимагаємо Supabase
+    if (isServerlessEnvironment() && !isSupabaseAvailable()) {
+      console.error('❌ Serverless environment detected but Supabase not configured');
+      return NextResponse.json(
+        {
+          error: 'Database not configured',
+          details: 'Supabase configuration required for production environment',
+          environment: 'serverless',
+          needsSetup: true,
+        },
+        { status: 500 },
+      );
+    }
+
     console.log('📞 Fetching consultations from Supabase...');
 
     const { data, error } = await supabase
@@ -36,6 +66,24 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+
+    // На serverless платформах завжди вимагаємо Supabase
+    if (isServerlessEnvironment() && !isSupabaseAvailable()) {
+      console.error('❌ Serverless environment: Supabase required but not configured');
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Database not configured for production',
+          details:
+            'Supabase configuration required. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables.',
+          environment: 'serverless',
+          needsSetup: true,
+          setupInstructions:
+            'Visit https://supabase.com to create a project and get your credentials',
+        },
+        { status: 500 },
+      );
+    }
 
     console.log('📞 Consultation submission to Supabase:', {
       name: body.name,
