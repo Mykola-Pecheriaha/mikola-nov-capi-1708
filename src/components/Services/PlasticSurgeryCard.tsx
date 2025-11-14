@@ -5,11 +5,11 @@ import Image from 'next/image';
 const mainList = [
   { label: 'Консультація пластичного хірурга', link: '/services/plastic-surg-consult' },
   { label: 'Пластика результати', link: '/services/plastic-breast' },
-  { label: 'Збільшення грудей', link: '/services/plastic-breast#augmentation' },
-  { label: 'Зменшення грудей', link: '/services/plastic-breast#reduction' },
-  { label: 'Видалення або заміна імплантів', link: '/services/plastic-breast#implants' },
-  { label: 'Підтяжка грудей', link: '/services/plastic-breast#lift' },
-  { label: 'Гінекомастія', link: '/services/plastic-breast#gynecomastia' },
+  { label: 'Збільшення грудей', link: '/services/plastic-augmentation' },
+  { label: 'Зменшення грудей', link: '/services/plastic-reduction' },
+  { label: 'Видалення або заміна імплантів', link: '/services/removal-replacement-implants' },
+  { label: 'Підтяжка грудей', link: '/services/plastic-lift' },
+  { label: 'Гінекомастія', link: '/services/plastic-gynecomastia' },
 ];
 
 const extraList = [
