@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import { BreastAugmentationStart } from '@/components/BreastAugmentation/index';
+import BreastAugmentationStart from '@/components/BreastAugmentation/BreastAugmentationStart';
 
 import SidebarAnalFissure from '@/components/ProctoAnalFissure/SidebarAnalFissure';
 
