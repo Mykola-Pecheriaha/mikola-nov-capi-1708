@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { type ReactElement } from 'react';
 import Image from 'next/image';
 
-export default function BreastAugmentationStart() {
+export default function BreastAugmentationStart(): ReactElement {
   return (
     <div className="w-full bg-gradient-to-b from-blue-50 to-white py-8 md:py-12">
       <div className="container mx-auto px-4 md:px-6">
