@@ -2,7 +2,7 @@
 
 import React, { type ReactElement, useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import Image from 'next/image';
+import BeforeAfterSlider from './BeforeAfterSlider';
 
 interface ProblemData {
   id: string;
@@ -144,36 +144,16 @@ export default function BreastProblem(): ReactElement {
                         </div>
                       </div>
 
-                      {/* Права частина - зображення до/після */}
-                      <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-center justify-center">
-                        <div className="relative w-full md:w-1/2 aspect-[3/4] rounded-lg overflow-hidden shadow-md">
-                          <Image
-                            src={problem.beforeImage}
-                            alt={problem.beforeAlt}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          />
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2 md:p-3">
-                            <p className="text-white text-xs md:text-sm font-medium text-center">
-                              До
-                            </p>
-                          </div>
-                        </div>
-                        <div className="relative w-full md:w-1/2 aspect-[3/4] rounded-lg overflow-hidden shadow-md">
-                          <Image
-                            src={problem.afterImage}
-                            alt={problem.afterAlt}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          />
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-green-600/70 to-transparent p-2 md:p-3">
-                            <p className="text-white text-xs md:text-sm font-medium text-center">
-                              Після
-                            </p>
-                          </div>
-                        </div>
+                      {/* Права частина - BeforeAfterSlider */}
+                      <div className="flex items-center justify-center">
+                        <BeforeAfterSlider
+                          beforeImage={problem.beforeImage}
+                          afterImage={problem.afterImage}
+                          beforeAlt={problem.beforeAlt}
+                          afterAlt={problem.afterAlt}
+                          width={500}
+                          height={600}
+                        />
                       </div>
                     </div>
                   </div>
