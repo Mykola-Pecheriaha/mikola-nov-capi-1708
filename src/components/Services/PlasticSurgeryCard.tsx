@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const mainList = [
   { label: 'Консультація пластичного хірурга', link: '/services/plastic-surg-consult' },
-  { label: 'Пластика результати', link: '/services/plastic-breast' },
+  { label: 'Альбоми результатів', link: '/services/plastic-breast' },
   { label: 'Збільшення грудей', link: '/services/breast-augmentation' },
   { label: 'Зменшення грудей', link: '/services/plastic-reduction' },
   { label: 'Видалення або заміна імплантів', link: '/services/removal-replacement-implants' },

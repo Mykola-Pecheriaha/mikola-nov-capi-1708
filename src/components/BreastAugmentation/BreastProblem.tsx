@@ -31,7 +31,7 @@ export default function BreastProblem(): ReactElement {
       solution:
         'Збільшення грудей за допомогою імплантів може допомогти досягти бажаного розміру та форми. Сучасні методи дозволяють створити природний вигляд та відчуття. Ми підбираємо оптимальний розмір та форму імплантів, враховуючи індивідуальні особливості тіла та побажання пацієнтки. На сьогоднішній день спільнотою пластичних хірургів заборонено проводити збільшення грудей методом інєкції "різних" наповнювачів. Використовуються тільки імпланти з "оболонками"',
       beforeImage: '/images/before-after/breast/small-breasts-before.jpg',
-      afterImage: '/images/before-after/breast/small-breasts-after.jpg',
+      afterImage: '/images/before-after/breast/asymmetry-after2.jpg',
       beforeAlt: 'Маленькі груди - до операції',
       afterAlt: 'Збільшення грудей - результат',
     },
@@ -151,8 +151,8 @@ export default function BreastProblem(): ReactElement {
                           afterImage={problem.afterImage}
                           beforeAlt={problem.beforeAlt}
                           afterAlt={problem.afterAlt}
-                          width={500}
-                          height={600}
+                          width={400}
+                          height={500}
                         />
                       </div>
                     </div>

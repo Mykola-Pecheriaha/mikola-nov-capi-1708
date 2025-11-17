@@ -104,20 +104,20 @@ export default function BeforeAfterSlider({
         style={{ width, height }}
       >
         {/* Зображення "після" (задній шар) */}
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full bg-gray-100">
           <Image
             src={afterImage || '/placeholder.svg'}
             alt={afterAlt}
             width={width}
             height={height}
-            className="w-full h-full object-cover block"
+            className="w-full h-full object-contain block"
             sizes={`${width}px`}
           />
         </div>
 
         {/* Зображення "до" (передній шар з обрізанням) */}
         <div
-          className="absolute top-0 left-0 w-full h-full z-[2]"
+          className="absolute top-0 left-0 w-full h-full z-[2] bg-gray-100"
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
           <Image
@@ -125,7 +125,7 @@ export default function BeforeAfterSlider({
             alt={beforeAlt}
             width={width}
             height={height}
-            className="w-full h-full object-cover block"
+            className="w-full h-full object-contain block"
             sizes={`${width}px`}
           />
         </div>
