@@ -4,12 +4,12 @@ import Image from 'next/image';
 
 const mainList = [
   { label: 'Консультація пластичного хірурга', link: '/services/plastic-surg-consult' },
-  { label: 'Альбоми результатів', link: '/services/plastic-breast' },
+  { label: 'Альбоми результатів', link: '/services/albums' },
   { label: 'Збільшення грудей', link: '/services/breast-augmentation' },
   { label: 'Підтяжка грудей і корекція соска.', link: '/services/mastopexy-nipple-correction' },
   { label: 'Видалення або заміна імплантів', link: '/services/removal-replacement-implants' },
-  { label: 'Підтяжка грудей', link: '/services/plastic-lift' },
-  { label: 'Гінекомастія', link: '/services/plastic-gynecomastia' },
+
+  { label: 'Гінекомастія', link: '/services/gynecomastia' },
 ];
 
 const extraList = [

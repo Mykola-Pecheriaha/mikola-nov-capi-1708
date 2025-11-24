@@ -2,13 +2,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 const menu = [
-  { label: 'Консультація хірурга', href: '/services/general-surg-consult' },
-  { label: 'Герніопластика', href: '/services/general-hernia' },
-  { label: 'Холецистектомія', href: '/services/general-cholecystectomy' },
-  { label: 'Грижесічення з абдомінопластикою ', href: '/services/general-hernia-abdominoplasty' },
-  { label: 'Пластика білої лінії живота', href: '/services/general-white-line' },
+  { label: 'Консультація пластичного хірурга', href: '/services/plastic-surg-consult' },
+  { label: 'Збільшення груді', href: '/services/breast-augmentation' },
+  { label: 'Зменшення грудей', href: '/services/plastic-reduction' },
+  { label: 'Підтяжка грудей', href: '/services/plastic-lift' },
 ];
-export default function SidebarGeneralHernia() {
+export default function SidebarGynecomastia() {
   const pathname = usePathname();
   return (
     <aside className="hidden md:block md:w-1/5 flex-none mt-10">
@@ -17,10 +16,7 @@ export default function SidebarGeneralHernia() {
           {menu
             .filter(
               (item) =>
-                !(
-                  item.href === '/services/general-hernia' &&
-                  pathname.startsWith('/services/general-hernia')
-                ),
+                !(item.href === '/services/gynecomastia' && pathname.startsWith('/gynecomastia')),
             )
             .map((item) => (
               <li key={item.href}>

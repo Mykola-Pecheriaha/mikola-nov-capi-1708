@@ -1,30 +1,25 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { ImplantBreastReabilitGallery, ImageType } from './ImplantBreastReabilitGallery';
 
 const MastopexyWithNippleCorrection: React.FC = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  // Функція для перевірки доступності зображення
-  const checkImageAvailability = async (src: string): Promise<boolean> => {
-    return new Promise((resolve) => {
-      const img = window.Image ? new window.Image() : document.createElement('img');
-      img.onload = () => resolve(true);
-      img.onerror = () => resolve(false);
-      img.src = src;
-    });
-  };
-
-  // Перевірка доступності зображення при монтуванні компонента
-  useEffect(() => {
-    const checkImage = async () => {
-      const isAvailable = await checkImageAvailability(
-        '/images/mastopexy-with-nipple-correction/plastychna-khirurhiy2-removebg-preview.png',
-      );
-      setImageLoaded(isAvailable);
-    };
-    checkImage();
-  }, []);
+  // Зображення для галереї
+  const galleryImages: ImageType[] = [
+    {
+      src: '/images/mastopexy-with-nipple-correction/mastopexy1.jpg',
+      alt: 'Підтяжка грудей - результат 1',
+      width: 600,
+      height: 450,
+      title: 'Результат підтяжки',
+    },
+    {
+      src: '/images/mastopexy-with-nipple-correction/mastopexy2.jpg',
+      alt: 'Корекція сосків - результат 2',
+      width: 600,
+      height: 450,
+      title: 'Корекція сосків',
+    },
+  ];
 
   return (
     <section className="w-full bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 py-8 md:py-12">
@@ -72,26 +67,9 @@ const MastopexyWithNippleCorrection: React.FC = () => {
             </div>
           </div>
 
-          {/* Права колонка - зображення */}
+          {/* Права колонка - галерея */}
           <div className="w-full md:w-1/2 flex justify-center items-center">
-            {imageLoaded ? (
-              <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/mastopexy-with-nipple-correction/plastychna-khirurhiy2-removebg-preview.png"
-                  alt="Підтяжка грудей і корекція сосків та ареоли"
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            ) : (
-              <div className="relative w-full h-64 md:h-80 lg:h-96 bg-blue-50 dark:bg-gray-800 border-2 border-dashed border-blue-300 dark:border-blue-700 rounded-xl flex items-center justify-center">
-                <span className="text-blue-400 dark:text-blue-500 text-lg">
-                  Завантаження зображення...
-                </span>
-              </div>
-            )}
+            <ImplantBreastReabilitGallery images={galleryImages} />
           </div>
         </div>
 
