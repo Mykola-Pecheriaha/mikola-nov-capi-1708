@@ -266,27 +266,82 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ success: false, error: 'ID is required' }, { status: 400 });
     }
 
-    console.log('🗑️ DELETE request for medical form ID:', id);
+    console.log('🗑️ DELETE request for medical form ID:', id, 'Type:', typeof id);
 
-    // Видаляємо з Supabase
-    const { error } = await supabase.from('medical_forms').delete().eq('id', id);
+    // Перевіряємо чи Supabase налаштований
+    if (isSupabaseAvailable()) {
+      // Конвертуємо ID в число для Supabase
+      const numericId = parseInt(id, 10);
 
-    if (error) {
-      console.error('❌ Supabase delete error:', error);
-      return NextResponse.json(
-        { success: false, error: 'Failed to delete medical form', details: error.message },
-        { status: 500 },
-      );
+      if (isNaN(numericId)) {
+        console.error('❌ Invalid ID format:', id);
+        return NextResponse.json({ success: false, error: 'Invalid ID format' }, { status: 400 });
+      }
+
+      console.log('🔍 Attempting to delete ID:', numericId);
+
+      // Видаляємо з Supabase
+      const { data, error } = await supabase
+        .from('medical_forms')
+        .delete()
+        .eq('id', numericId)
+        .select();
+
+      if (error) {
+        console.error('❌ Supabase delete error:', error);
+        return NextResponse.json(
+          { success: false, error: 'Failed to delete medical form', details: error.message },
+          { status: 500 },
+        );
+      }
+
+      if (!data || data.length === 0) {
+        console.warn('⚠️ No records deleted - ID not found:', numericId);
+        return NextResponse.json(
+          { success: false, error: 'Medical form not found' },
+          { status: 404 },
+        );
+      }
+
+      console.log('✅ Medical form deleted successfully from Supabase:', data);
+
+      return NextResponse.json({
+        success: true,
+        message: 'Medical form deleted from Supabase database',
+        deletedId: numericId,
+      });
+    } else {
+      // Fallback до локальних файлів
+      console.log('📂 Deleting from local file...');
+
+      if (!fs.existsSync(DATA_PATH)) {
+        return NextResponse.json(
+          { success: false, error: 'Medical forms file not found' },
+          { status: 404 },
+        );
+      }
+
+      const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
+      const filteredData = data.filter((form: { id: string }) => form.id !== id);
+
+      if (data.length === filteredData.length) {
+        return NextResponse.json(
+          { success: false, error: 'Medical form not found' },
+          { status: 404 },
+        );
+      }
+
+      fs.writeFileSync(DATA_PATH, JSON.stringify(filteredData, null, 2));
+
+      console.log('✅ Medical form deleted successfully from local file');
+
+      return NextResponse.json({
+        success: true,
+        message: 'Medical form deleted from local file',
+      });
     }
-
-    console.log('✅ Medical form deleted successfully');
-
-    return NextResponse.json({
-      success: true,
-      message: 'Medical form deleted from Supabase database',
-    });
   } catch (e) {
-    console.error('DELETE Error:', e);
+    console.error('💥 DELETE Error:', e);
     return NextResponse.json(
       {
         success: false,

@@ -1,10 +1,28 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from 'react';
 
-export default function FaceLiftPage(): ReactElement {
+import FaceliftSectionStart from '@/components/FaceliftSection/FaceliftSectionStart';
+import FaceliftConsultation from '@/components/FaceliftSection/FaceliftConsultation';
+import FaceliftPreparation from '@/components/FaceliftSection/FaceliftPreparation';
+import FaceliftFAQ from '@/components/FaceliftSection/FaceliftFAQ';
+
+// import GinecomastiyaIndications from '@/components/Gynecomastia/GinecomastiyaIndications';
+
+import SidebarFaceliftSectionStart from '@/components/FaceliftSection/SidebarFaceliftSectionStart';
+
+export default function GynecomastiaPage(): ReactElement {
   return (
     <main className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Наші послуги - Підтяжка обличчя</h1>
-      {/* <Services /> */}
+      <div className="max-w-7xl mx-auto">
+        <FaceliftSectionStart />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-4 mt-8">
+          <section className="md:w-3/4 w-full">
+            <FaceliftConsultation />
+            <FaceliftPreparation />
+            <FaceliftFAQ />
+          </section>
+          <SidebarFaceliftSectionStart />
+        </div>
+      </div>
     </main>
-  )
+  );
 }
