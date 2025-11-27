@@ -18,8 +18,9 @@ const extraList = [
     link: '/services/plastic-face',
     children: [
       { label: 'Підтяжка обличчя', link: '/services/face-lift' },
-      { label: 'Блефаропластика', link: '/services/plastic-face#blepharoplasty' },
+      { label: 'Блефаропластика', link: '/services/blefaroplastica' },
       { label: 'Корекція вух', link: '/services/plastic-face#ears' },
+      { label: 'Пластика зовнішнього вуха', link: '/services/ottoplastic' },
       { label: 'Видалення утворень в ділянці обличчя', link: '/services/plastic-face#removal' },
     ],
   },
