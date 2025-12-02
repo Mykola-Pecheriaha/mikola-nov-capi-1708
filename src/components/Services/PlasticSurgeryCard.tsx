@@ -5,12 +5,18 @@ import Image from 'next/image';
 const mainList = [
   { label: 'Консультація пластичного хірурга', link: '/services/plastic-surg-consult' },
   { label: 'Альбоми результатів', link: '/services/albums' },
-  { label: 'Збільшення грудей', link: '/services/breast-augmentation' },
-  { label: 'Підтяжка грудей і корекція соска.', link: '/services/mastopexy-nipple-correction' },
-  { label: 'Видалення або заміна імплантів', link: '/services/removal-replacement-implants' },
-
-  { label: 'Гінекомастія', link: '/services/gynecomastia' },
 ];
+
+const breastSurgerySection = {
+  label: 'Пластика грудей',
+  link: '',
+  children: [
+    { label: 'Збільшення грудей', link: '/services/breast-augmentation' },
+    { label: 'Підтяжка грудей і корекція соска.', link: '/services/mastopexy-nipple-correction' },
+    { label: 'Видалення або заміна імплантів', link: '/services/removal-replacement-implants' },
+    { label: 'Гінекомастія', link: '/services/gynecomastia' },
+  ],
+};
 
 const extraList = [
   {
@@ -28,10 +34,10 @@ const extraList = [
     label: 'Пластика торса',
     link: '/services/plastic-torso',
     children: [
-      { label: 'Абдомінопластика', link: '/services/plastic-torso#abdominoplasty' },
-      { label: 'Ліпосакція', link: '/services/plastic-torso#liposuction' },
-      { label: 'Видалення шийного горба', link: '/services/plastic-torso#hump' },
-      { label: 'Збільшення сідниць', link: '/services/plastic-torso#buttocks' },
+      { label: 'Абдомінопластика', link: '/services/abdomino-plasty' },
+      { label: 'Ліпосакція', link: '/services/liposuction' },
+      { label: 'Видалення шийного горба', link: '/services/cervical-hump-removal' },
+      { label: 'Збільшення сідниць', link: '/services/buttock-augmentation' },
       { label: 'Вирівнювання гомілок', link: '/services/plastic-torso#shins' },
     ],
   },
@@ -43,8 +49,10 @@ export default function PlasticSurgeryCard() {
   // Об'єднуємо всі рядки для розгортання
   const allRows = [
     ...mainList,
+    { label: breastSurgerySection.label, link: '', isSection: true },
+    ...breastSurgerySection.children,
     ...extraList.flatMap((section) => [
-      { label: section.label, link: section.link, isSection: true },
+      { label: section.label, link: '', isSection: true }, // Прибрали посилання з заголовка розділу
       ...section.children,
     ]),
   ];
@@ -75,19 +83,21 @@ export default function PlasticSurgeryCard() {
             const isSection = 'isSection' in item && item.isSection;
             return (
               <li key={item.label + idx} className={isSection ? 'font-semibold mt-2 mb-1' : 'mb-1'}>
-                {item.link ? (
+                {item.link && item.link !== '' ? (
                   <a
                     href={item.link}
                     className={
                       isSection
-                        ? 'text-zinc-600 underline hover:text-zinc-900 font-semibold'
+                        ? 'text-zinc-600 font-semibold cursor-default'
                         : 'text-zinc-900 underline hover:font-bold transition-colors'
                     }
                   >
                     {item.label}
                   </a>
                 ) : (
-                  <span>{item.label}</span>
+                  <span className={isSection ? 'text-zinc-600 font-semibold' : ''}>
+                    {item.label}
+                  </span>
                 )}
               </li>
             );
