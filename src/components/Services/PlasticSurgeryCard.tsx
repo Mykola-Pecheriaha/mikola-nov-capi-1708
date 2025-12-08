@@ -38,7 +38,7 @@ const extraList = [
       { label: 'Ліпосакція', link: '/services/liposuction' },
       { label: 'Видалення шийного горба', link: '/services/cervical-hump-removal' },
       { label: 'Збільшення сідниць', link: '/services/buttock-augmentation' },
-      { label: 'Вирівнювання гомілок', link: '/services/plastic-torso#shins' },
+      { label: 'Вирівнювання гомілок', link: '/services/plastic-cruroplasty' },
     ],
   },
 ];

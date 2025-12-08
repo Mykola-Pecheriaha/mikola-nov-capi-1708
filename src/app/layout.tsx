@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '../components/Header/Header';
@@ -23,7 +23,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Медичний центр - Консультації та медичні форми',
   description: 'Професійні медичні консультації та детальні медичні форми онлайн',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
   other: {
     'format-detection': 'telephone=no',
     'apple-mobile-web-app-capable': 'yes',
@@ -36,6 +35,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -43,12 +49,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
-      <head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-        />
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           <NetworkStatus />
