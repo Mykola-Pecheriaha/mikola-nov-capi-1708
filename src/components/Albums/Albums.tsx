@@ -12,28 +12,22 @@ interface AlbumCard {
 
 const albums: AlbumCard[] = [
   {
-    id: 'breast-augmentation',
-    title: 'Збільшення груді',
-    coverImage: '/images/albums/breast-augmentation-cover.jpg',
-    href: '/services/albums/breast-augmentation',
+    id: 'breast-surgery',
+    title: 'Пластика грудей',
+    coverImage: '/images/albums/implant25.jpg',
+    href: '/services/albums/breast-surgery',
   },
   {
-    id: 'breast-lift',
-    title: 'Підтяжка грудей і корекція соска',
-    coverImage: '/images/albums/breast-lift-cover.jpg',
-    href: '/services/albums/breast-lift',
+    id: 'face-surgery',
+    title: 'Пластика обличчя',
+    coverImage: '/images/albums/facelift1.jpg',
+    href: '/services/albums/face-surgery',
   },
   {
-    id: 'implant-removal',
-    title: 'Видалення або заміна імплантів',
-    coverImage: '/images/albums/implant-removal-cover.jpg',
-    href: '/services/albums/implant-removal',
-  },
-  {
-    id: 'gynecomastia',
-    title: 'Гінекомастія',
-    coverImage: '/images/albums/gynecomastia-cover.jpg',
-    href: '/services/albums/gynecomastia',
+    id: 'body-surgery',
+    title: 'Пластика торса',
+    coverImage: '/images/albums/abdominoplastic1.jpg',
+    href: '/services/albums/body-surgery',
   },
 ];
 
@@ -50,7 +44,7 @@ export default function Albums() {
         </p>
 
         {/* Сітка карточок */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {albums.map((album) => (
             <Link
               key={album.id}

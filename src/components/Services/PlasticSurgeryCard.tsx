@@ -9,7 +9,7 @@ const mainList = [
 
 const breastSurgerySection = {
   label: 'Пластика грудей',
-  link: '',
+  link: '/services/breast-plastic-surgery',
   children: [
     { label: 'Збільшення грудей', link: '/services/breast-augmentation' },
     { label: 'Підтяжка грудей і корекція соска.', link: '/services/mastopexy-nipple-correction' },
@@ -21,20 +21,20 @@ const breastSurgerySection = {
 const extraList = [
   {
     label: 'Пластика обличча',
-    link: '/services/plastic-face',
+    link: '/services/face-plastic-surgery',
     children: [
       { label: 'Підтяжка обличчя', link: '/services/face-lift' },
       { label: 'Блефаропластика', link: '/services/blefaroplastica' },
-      { label: 'Корекція вух', link: '/services/plastic-face#ears' },
+
       { label: 'Пластика зовнішнього вуха', link: '/services/ottoplastic' },
       { label: 'Видалення утворень в ділянці обличчя', link: '/services/plastic-face#removal' },
     ],
   },
   {
     label: 'Пластика торса',
-    link: '/services/plastic-torso',
+    link: '/services/torso-plastic-surgery',
     children: [
-      { label: 'Абдомінопластика', link: '/services/abdomino-plasty' },
+      { label: 'Абдомінопластика', link: '/services/abdominoplastica' },
       { label: 'Ліпосакція', link: '/services/liposuction' },
       { label: 'Видалення шийного горба', link: '/services/cervical-hump-removal' },
       { label: 'Збільшення сідниць', link: '/services/buttock-augmentation' },
@@ -49,10 +49,10 @@ export default function PlasticSurgeryCard() {
   // Об'єднуємо всі рядки для розгортання
   const allRows = [
     ...mainList,
-    { label: breastSurgerySection.label, link: '', isSection: true },
+    { label: breastSurgerySection.label, link: breastSurgerySection.link, isSection: true },
     ...breastSurgerySection.children,
     ...extraList.flatMap((section) => [
-      { label: section.label, link: '', isSection: true }, // Прибрали посилання з заголовка розділу
+      { label: section.label, link: section.link, isSection: true },
       ...section.children,
     ]),
   ];
@@ -88,7 +88,7 @@ export default function PlasticSurgeryCard() {
                     href={item.link}
                     className={
                       isSection
-                        ? 'text-zinc-600 font-semibold cursor-default'
+                        ? 'text-zinc-600 font-semibold hover:text-blue-600 hover:underline transition-colors cursor-pointer'
                         : 'text-zinc-900 underline hover:font-bold transition-colors'
                     }
                   >
