@@ -18,9 +18,9 @@ const PhleboEndLaser: React.FC = () => {
         </div>
       </div>
       {/* Дві частини: ліворуч текст, праворуч галерея */}
-      <div className="flex flex-col md:flex-row bg-[#e7eeef] rounded-xl shadow p-6 gap-8 items-stretch">
+      <div className="flex flex-col lg:flex-row bg-[#e7eeef] rounded-xl shadow p-6 gap-8 items-start">
         {/* Ліва частина */}
-        <div className="md:w-2/3 w-full flex flex-col">
+        <div className="w-full lg:w-2/3 flex flex-col">
           <h2 className="text-2xl font-bold mb-4 text-blue-900">Переваги та особливості</h2>
           <ul className="list-disc list-inside space-y-3 text-blue-900 text-base font-medium mb-4">
             <li><span className="font-semibold text-blue-700">безболісність та безпека процедури</span> завдяки місцевій анестезії та чіткому контролю процесу за допомогою УЗД;</li>
@@ -31,7 +31,7 @@ const PhleboEndLaser: React.FC = () => {
           </ul>
         </div>
         {/* Права частина: галерея */}
-        <div className="md:w-1/3 w-full flex items-center justify-center">
+        <div className="w-full lg:w-1/3 flex items-center justify-center">
           <GalleryPhleboEndLaser />
         </div>
       </div>
