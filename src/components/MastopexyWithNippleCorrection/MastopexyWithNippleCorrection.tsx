@@ -6,14 +6,14 @@ const MastopexyWithNippleCorrection: React.FC = () => {
   // Зображення для галереї
   const galleryImages: ImageType[] = [
     {
-      src: '/images/mastopexy-with-nipple-correction/mastopexy1.jpg',
+      src: '/images/breast-lift/breastlsft1.jpg',
       alt: 'Підтяжка грудей - результат 1',
       width: 600,
       height: 450,
       title: 'Результат підтяжки',
     },
     {
-      src: '/images/mastopexy-with-nipple-correction/mastopexy2.jpg',
+      src: '/images/breast-lift/breastlsft2.jpg',
       alt: 'Корекція сосків - результат 2',
       width: 600,
       height: 450,

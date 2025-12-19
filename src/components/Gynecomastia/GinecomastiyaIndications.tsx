@@ -14,18 +14,18 @@ const GinecomastiyaIndications: React.FC = () => {
   // Зображення для першої секції
   const images1: ImageType[] = [
     {
-      src: '/images/GinecomastiyaIndications/ginecomas8.jpg',
+      src: '/images/GinecomastiyaIndications/ginecomas4.jpg',
       alt: 'Гінекомастія - приклад 1',
       width: 800,
       height: 600,
-      title: 'Хибна гінекомастія',
+      title: 'Істинна гінекомастія',
     },
     {
-      src: '/images/GinecomastiyaIndications/ginecomas4.jpg',
+      src: '/images/GinecomastiyaIndications/ginecomas8.jpg',
       alt: 'Гінекомастія - приклад 2',
       width: 800,
       height: 600,
-      title: 'Збільшення молочних залоз',
+      title: 'Хибна гінекомастія',
     },
   ];
 

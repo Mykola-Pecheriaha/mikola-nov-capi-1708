@@ -12,7 +12,7 @@ export default function SidebarGeneralHernia() {
   const pathname = usePathname();
   return (
     <aside className="hidden md:block md:w-1/5 flex-none mt-10">
-      <div className="sticky top-30 max-h-[calc(100vh-7rem)] overflow-y-auto bg-white rounded-xl shadow-md p-4 border border-blue-100">
+      <div className="sticky top-35 max-h-[calc(100vh-7rem)] overflow-y-auto bg-white rounded-xl shadow-md p-4 border border-blue-100">
         <ul className="space-y-3 text-base font-medium">
           {menu
             .filter(

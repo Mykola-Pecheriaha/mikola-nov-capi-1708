@@ -60,7 +60,7 @@ const Gynecomastia: React.FC = () => {
                   className="flex items-center text-base md:text-lg lg:text-xl text-gray-800 dark:text-gray-200 font-medium"
                 >
                   <span className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mr-3 md:mr-4 flex-shrink-0"></span>
-                  <span>► {benefit}</span>
+                  <span> {benefit}</span>
                 </li>
               ))}
             </ul>

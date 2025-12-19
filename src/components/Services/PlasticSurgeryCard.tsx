@@ -34,7 +34,7 @@ const extraList = [
     label: 'Пластика торса',
     link: '/services/torso-plastic-surgery',
     children: [
-      { label: 'Абдомінопластика', link: '/services/abdominoplastica' },
+      { label: 'Абдомінопластика', link: '/services/abdomino-plasty' },
       { label: 'Ліпосакція', link: '/services/liposuction' },
       { label: 'Видалення шийного горба', link: '/services/cervical-hump-removal' },
       { label: 'Збільшення сідниць', link: '/services/buttock-augmentation' },

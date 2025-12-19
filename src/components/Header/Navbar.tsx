@@ -6,28 +6,175 @@ import Logo from './Logo';
 import { useTheme } from '@/context/ThemeContext';
 import { Bars3Icon, XMarkIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import BurgerConsultationModal from './BurgerConsultationModal';
-// import { useTheme } from '@/context/ThemeContext'
 
-const navigation = [
+interface SubSubMenuItem {
+  name: string;
+  href: string;
+}
+
+interface CategoryGroup {
+  category: string;
+  items: SubSubMenuItem[];
+}
+
+interface SubMenuItem {
+  name: string;
+  href: string;
+  submenu?: CategoryGroup[];
+}
+
+interface MenuItem {
+  name: string;
+  href: string;
+  submenu?: SubMenuItem[];
+}
+
+const navigation: MenuItem[] = [
   {
     name: 'Головна',
     href: '/',
   },
-
   {
     name: 'Послуги',
     href: '/services',
     submenu: [
-      { name: 'Невідкладна хірургія', href: '/services/emergency' },
-      { name: 'Традиційна хірургія', href: '/services/traditional' },
-      { name: 'Пластична хірургія', href: '/services/plastic' },
-      { name: 'Малоінвазивна хірургія', href: '/services/minimally-invasive' },
-      { name: 'Хірургія вен', href: '/services/vein' },
-      { name: 'Баріартрична хірургія', href: '/services/bariatric' },
-      { name: 'Проктологія', href: '/services/proctology' },
-      { name: 'Урологія', href: '/services/urology' },
-      { name: 'Хірургія пухлин шкіри і слизових', href: '/services/tumor' },
-      { name: 'Гнійносептична хірургія', href: '/services/purulent' },
+      {
+        name: 'Пластична хірургія',
+        href: '/services/plastic',
+        submenu: [
+          {
+            category: 'Пластика грудей',
+            items: [
+              { name: 'Збільшення грудей', href: '/services/breast-augmentation' },
+              {
+                name: 'Підтяжка грудей і корекція соска',
+                href: '/services/mastopexy-nipple-correction',
+              },
+              {
+                name: 'Видалення або заміна імплантів грудних',
+                href: '/services/removal-replacement-implants',
+              },
+              { name: 'Гінекомастія', href: '/services/gynecomastia' },
+            ],
+          },
+          {
+            category: 'Пластика обличчя',
+            items: [
+              { name: 'Підтяжка обличчя', href: '/services/face-lift' },
+              { name: 'Блефаропластика', href: '/services/blefaroplastica' },
+              { name: 'Пластика зовнішнього вуха', href: '/services/ottoplastic' },
+              { name: 'Видалення утворень в ділянці обличчя', href: '/services/face-formations' },
+            ],
+          },
+          {
+            category: 'Пластика торса',
+            items: [
+              { name: 'Абдомінопластика', href: '/services/abdomino-plasty' },
+              { name: 'Ліпосакція', href: '/services/liposuction' },
+              { name: 'Видалення шийного горба', href: '/services/cervical-hump-removal' },
+              { name: 'Збільшення сідниць', href: '/services/buttock-augmentation' },
+              { name: 'Вирівнювання гомілок', href: '/services/plastic-cruroplasty' },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Хірургія вен - флебологія',
+        href: '/services/phlebology-surgery',
+        submenu: [
+          {
+            category: '',
+            items: [
+              { name: 'Консультація хірурга', href: '/services/phlebology' },
+              { name: 'Лазерне видалення вен', href: '/services/phlebology-laser' },
+              { name: 'Мініфлебектомія', href: '/services/phlebology-miniphlebectomy' },
+              { name: 'Склеротерапія', href: '/services/phlebology-sclerotherapy' },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Проктологія',
+        href: '/services/proctology-surgery',
+        submenu: [
+          {
+            category: '',
+            items: [
+              { name: 'Консультація проктолога', href: '/services/proctolog-consultation' },
+              { name: 'Лікування геморою', href: '/services/proctolog-hemorrhoids' },
+              { name: 'Лікування анальної тріщини', href: '/services/proctolog-fissure' },
+              { name: 'Лікування парапроктиту', href: '/services/pararect-fistul-excision' },
+              { name: 'Висічення кісти куприка', href: '/services/proctology-coccyx-cyst' },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Загальна хірургія',
+        href: '/services/general-surgery',
+        submenu: [
+          {
+            category: '',
+            items: [
+              { name: 'Консультація хірурга', href: '/services/general-surg-consult' },
+              { name: 'Герніопластика (видалення гриж живота)', href: '/services/general-hernia' },
+              { name: 'Холецистектомія', href: '/services/general-cholecystectomy' },
+              { name: 'Грижесічення з абдомінопластикою', href: '/services/hernia-abdominoplasty' },
+              { name: 'Пластика білої лінії живота', href: '/services/surgery-abdomen-line' },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Хірургія кисті',
+        href: '/services/hand-surgery-main',
+        submenu: [
+          {
+            category: '',
+            items: [
+              { name: 'Консультація хірурга', href: '/services/hand-surgeon-consultation' },
+              { name: 'Лікування контрактури Дюпюітрена', href: '/services/hand-dupyutren' },
+              { name: 'Лікування карпального синдрому', href: '/services/carpal-syndrome' },
+              {
+                name: 'Лікування тендовагинітів та видалення утворень на кисті (гангліом)',
+                href: '/services/hand-surgery',
+              },
+              { name: 'Лікування гнійних уражень кисті', href: '/services/hand-infection' },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Амбулаторна хірургія',
+        href: '/services/ambulatory-surgery',
+        submenu: [
+          {
+            category: '',
+            items: [
+              {
+                name: 'Видалення новоутворень шкіри (бородавки, родимки, папіломи)',
+                href: '/services/ambulatory-skin-tumors',
+              },
+              {
+                name: 'Видалення доброякісних новоутворень (атероми, ліпоми, фіброми, гігроми)',
+                href: '/services/ambulatory-benign-tumors',
+              },
+              {
+                name: "Лікування гнійно-запальних захворювань шкіри і м'яких тканин",
+                href: '/services/ambulatory-infections',
+              },
+              {
+                name: 'Пластика післяопераційних рубців',
+                href: '/services/ambulatory-scar-plasty',
+              },
+              {
+                name: 'Врослий ніготь і видалення нігтьової пластини',
+                href: '/services/ambulatory-ingrown-nail',
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
   {
@@ -60,23 +207,26 @@ const navigation = [
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     setActiveSubmenu(null);
+    setActiveCategory(null);
   };
 
-  const handleMenuItemClick = (item: {
-    name: string;
-    submenu?: { name: string; href: string }[];
-  }) => {
+  const handleMenuItemClick = (item: MenuItem) => {
     if (item.submenu) {
       setActiveSubmenu(activeSubmenu === item.name ? null : item.name);
     } else {
       closeMobileMenu();
     }
+  };
+
+  const handleCategoryClick = (categoryName: string) => {
+    setActiveCategory(activeCategory === categoryName ? null : categoryName);
   };
 
   return (
@@ -107,16 +257,48 @@ export default function Navbar() {
                 </div>
 
                 {item.submenu && (
-                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="py-1">
                       {item.submenu.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-base text-[#7491a3] hover:bg-gray-50"
-                        >
-                          {subItem.name}
-                        </Link>
+                        <div key={subItem.name} className="relative group/sub">
+                          {/* Основне меню */}
+                          <div className="flex items-center justify-between px-4 py-2 text-base text-[#7491a3] dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                            <Link href={subItem.href} className="flex-1">
+                              {subItem.name}
+                            </Link>
+                            {subItem.submenu && (
+                              <ChevronRightIcon className="h-4 w-4 text-[#7491a3] dark:text-gray-300" />
+                            )}
+                          </div>
+
+                          {/* Субменю (відкривається справа) */}
+                          {subItem.submenu && (
+                            <div className="absolute left-full top-0 ml-1 w-80 bg-white dark:bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 z-50">
+                              <div className="py-2 max-h-[80vh] overflow-y-auto">
+                                {subItem.submenu.map((categoryGroup, idx) => (
+                                  <div key={idx} className="mb-2">
+                                    {categoryGroup.category && (
+                                      <div className="px-4 py-2 text-sm font-semibold text-[#7491a3] dark:text-blue-400 bg-gray-50 dark:bg-gray-700/50">
+                                        {categoryGroup.category}
+                                      </div>
+                                    )}
+                                    <div className="py-1">
+                                      {categoryGroup.items.map((subSubItem) => (
+                                        <Link
+                                          key={subSubItem.name}
+                                          href={subSubItem.href}
+                                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                                        >
+                                          {subSubItem.name}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -202,14 +384,47 @@ export default function Navbar() {
                   {item.submenu && activeSubmenu === item.name && (
                     <div className="bg-white/10 py-2">
                       {item.submenu.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          href={subItem.href}
-                          onClick={closeMobileMenu}
-                          className="block px-8 py-2 text-sm text-white hover:text-white/80"
-                        >
-                          {subItem.name}
-                        </Link>
+                        <div key={subItem.name}>
+                          {/* Основний пункт */}
+                          <button
+                            onClick={() => handleCategoryClick(subItem.name)}
+                            className="w-full px-8 py-2 flex items-center justify-between text-sm text-white hover:text-white/80"
+                          >
+                            <span>{subItem.name}</span>
+                            {subItem.submenu && (
+                              <ChevronRightIcon
+                                className={`h-4 w-4 transition-transform ${
+                                  activeCategory === subItem.name ? 'rotate-90' : ''
+                                }`}
+                              />
+                            )}
+                          </button>
+
+                          {/* Субменю з категоріями */}
+                          {subItem.submenu && activeCategory === subItem.name && (
+                            <div className="bg-white/5 py-1">
+                              {subItem.submenu.map((categoryGroup, idx) => (
+                                <div key={idx} className="mb-2">
+                                  {categoryGroup.category && (
+                                    <div className="px-10 py-1 text-xs font-semibold text-white/70">
+                                      {categoryGroup.category}
+                                    </div>
+                                  )}
+                                  {categoryGroup.items.map((subSubItem) => (
+                                    <Link
+                                      key={subSubItem.name}
+                                      href={subSubItem.href}
+                                      onClick={closeMobileMenu}
+                                      className="block px-12 py-1.5 text-xs text-white/90 hover:text-white"
+                                    >
+                                      {subSubItem.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}

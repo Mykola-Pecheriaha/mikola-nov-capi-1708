@@ -8,7 +8,7 @@ import SocialSidebar from '../components/VidioBord/SocialSidebar';
 import KeyboardAdminShortcut from '../components/KeyboardAdminShortcut';
 import NetworkStatus from '../components/NetworkStatus';
 import MobileDebugPanel from '../components/MobileDebugPanel';
-import { ThemeProvider } from '../context/ThemeContext';
+import { Providers } from '../components/Providers';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider>
+        <Providers>
           <NetworkStatus />
           <KeyboardAdminShortcut />
           <MobileDebugPanel />
@@ -58,7 +58,7 @@ export default function RootLayout({
           <SocialSidebar />
           {children}
           <Footer />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

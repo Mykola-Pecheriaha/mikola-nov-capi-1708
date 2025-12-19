@@ -2,13 +2,30 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 const menu = [
-  { label: 'Консультація пластичного хірурга', href: '/services/plastic-surg-consult' },
+  { label: 'Пластика грудей', href: '/plastic-surg-consult/breast' },
+  { label: 'Збільшення грудей', href: '/services/breast-augmentation' },
+  {
+    label: 'Видалення або заміна імплантів',
+    href: '/services/removal-replacement-implants',
+  },
+  {
+    label: 'Підтяжка грудей та корекція соска.',
+    href: '/services/mastopexy-nipple-correction',
+  },
+  { label: 'Гінекомастія', href: '/services/gynecomastia' },
+  { label: 'Пластика обличча', href: '/services/face' },
+  { label: 'Підтяжка обличчя', href: '/services/face-lift' },
+  { label: 'Блефаропластика', href: '/services/blefaroplastica' },
+  { label: 'Пластика зовнішнього вуха', href: '/services/ottoplastic' },
+  { label: 'Видалення утворень в ділянці обличчя', href: '/services/face-tumors' },
+  { label: 'Пластика торса', href: '/services/torso' },
   { label: 'Абдомінопластика', href: '/services/abdomino-plasty' },
   { label: 'Ліпосакція', href: '/services/liposuction' },
   { label: 'Видалення шийного горба', href: '/services/cervical-hump-removal' },
-  { label: 'Підтяжка обличча', href: '/services/face-lift' },
-  { label: 'Вирівнювання гомілок', href: '/services/plastic-torso#shins' },
+  { label: 'Збільшення сідниць', href: '/services/buttock-augmentation' },
+  { label: 'Вирівнювання гомілок', href: '/services/plastic-cruroplasty' },
 ];
+
 export default function SidebarButtockAugment() {
   const pathname = usePathname();
   return (
