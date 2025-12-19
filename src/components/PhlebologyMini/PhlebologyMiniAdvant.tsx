@@ -1,5 +1,5 @@
-import React from "react";
-import { GalleryMiniAdvant } from "./GalleryMiniAdvant";
+import React from 'react';
+import { GalleryMiniAdvant } from './GalleryMiniAdvant';
 
 const PhlebologyMiniAdvant: React.FC = () => {
   return (
@@ -13,7 +13,8 @@ const PhlebologyMiniAdvant: React.FC = () => {
         <div className="bg-blue-50 border-l-4 border-blue-400 rounded-lg p-5 flex gap-4 items-start shadow">
           <span className="mt-1 text-blue-400 text-2xl">ℹ️</span>
           <div className="text-blue-900 text-base">
-            Багато клінік досі роблять операцію звичайним хірургічним способом. Однак прогрес іде вперед і метод мініфлебектомії є найкращим вирішенням проблеми на сьогоднішній день.
+            Багато клінік досі роблять операцію звичайним хірургічним способом. Однак прогрес іде
+            вперед і метод мініфлебектомії є найкращим вирішенням проблеми на сьогоднішній день.
           </div>
         </div>
       </div>
@@ -41,7 +42,11 @@ const PhlebologyMiniAdvant: React.FC = () => {
         <div className="bg-blue-50 border-l-4 border-blue-400 rounded-lg p-5 flex gap-4 items-start shadow">
           <span className="mt-1 text-blue-400 text-2xl">⚠️</span>
           <div className="text-blue-900 text-base">
-            Недолік мініфлебектомії лише в тому, що може залишитися невеликий рубець на шкірі. Але це суто індивідуально і є особливістю відновлення організму. У перший час після операції можуть залишитися синці в ділянці видаленої вени. Також необхідно обмежити фізичні навантаження в повсякденному житті. Для кращого загоєння ран лікар призначає носіння спеціальних компресійних панчіх.
+            Недолік мініфлебектомії лише в тому, що може залишитися невеликий рубець на шкірі. Але
+            це суто індивідуально і є особливістю відновлення організму. У перший час після операції
+            можуть залишитися синці в ділянці видаленої вени. Також необхідно обмежити фізичні
+            навантаження в повсякденному житті. Для кращого загоєння ран лікар призначає носіння
+            спеціальних компресійних панчіх.
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
-import React from "react";
-import { GalleryMiniStage } from "./GalleryMiniStage";
+import React from 'react';
+import { GalleryMiniStage } from './GalleryMiniStage';
 
 const PhlebologyMiniStage: React.FC = () => {
   return (
@@ -13,7 +13,8 @@ const PhlebologyMiniStage: React.FC = () => {
         <div className="bg-blue-50 border-l-4 border-blue-400 rounded-lg p-5 flex gap-4 items-start shadow">
           <span className="mt-1 text-blue-400 text-2xl">ℹ️</span>
           <div className="text-blue-900 text-base">
-            Є декілька методів мініфлебектомії - Метод Роберта Мюллера, Золтана Вараді. Різниця в розмірі розрізу (1-2 мм і 5 мм)
+            Є декілька методів мініфлебектомії - Метод Роберта Мюллера, Золтана Вараді. Різниця в
+            розмірі розрізу (1-2 мм і 5 мм)
           </div>
         </div>
       </div>
