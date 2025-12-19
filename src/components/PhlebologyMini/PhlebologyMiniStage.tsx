@@ -17,10 +17,10 @@ const PhlebologyMiniStage: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* Дві частини: ліворуч текст, праворуч галерея */}
-      <div className="flex flex-col md:flex-row bg-[#e7eeef] rounded-xl shadow p-6 gap-8 items-stretch">
+      {/* Дві частини: текст та галерея */}
+      <div className="flex flex-col lg:flex-row bg-[#e7eeef] rounded-xl shadow p-6 gap-8 items-start">
         {/* Ліва частина */}
-        <div className="md:w-2/3 w-full flex flex-col">
+        <div className="w-full lg:w-2/3 flex flex-col">
           <h2 className="text-2xl font-bold mb-4 text-blue-900">Основні етапи</h2>
           <ul className="list-disc list-inside space-y-3 text-blue-900 text-base font-medium mb-4">
             <li>місцеве знеболювання;</li>
@@ -31,7 +31,7 @@ const PhlebologyMiniStage: React.FC = () => {
           </ul>
         </div>
         {/* Права частина: галерея */}
-        <div className="md:w-1/3 w-full flex items-center justify-center">
+        <div className="w-full lg:w-1/3 flex items-center justify-center">
           <GalleryMiniStage />
         </div>
       </div>
