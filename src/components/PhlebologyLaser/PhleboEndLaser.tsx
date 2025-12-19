@@ -1,5 +1,5 @@
-import React from "react";
-import { GalleryPhleboEndLaser } from "./GalleryPhleboEndLaser";
+import React from 'react';
+import { GalleryPhleboEndLaser } from './GalleryPhleboEndLaser';
 
 const PhleboEndLaser: React.FC = () => {
   return (
@@ -23,11 +23,31 @@ const PhleboEndLaser: React.FC = () => {
         <div className="w-full lg:w-2/3 flex flex-col">
           <h2 className="text-2xl font-bold mb-4 text-blue-900">Переваги та особливості</h2>
           <ul className="list-disc list-inside space-y-3 text-blue-900 text-base font-medium mb-4">
-            <li><span className="font-semibold text-blue-700">безболісність та безпека процедури</span> завдяки місцевій анестезії та чіткому контролю процесу за допомогою УЗД;</li>
-            <li><span className="font-semibold text-blue-700">швидке проведення операції</span>, всього за 30-40 хв, та можливість позбутися патології всього за 1 день;</li>
-            <li><span className="font-semibold text-blue-700">ефективність</span>, неможливість рецидиву захворювання;</li>
-            <li><span className="font-semibold text-blue-700">відмінний косметичний ефект</span>; відсутність шрамів;</li>
-            <li><span className="font-semibold text-blue-700">можливість повернутися до нормального ритму життя</span> відразу після операції, лише з тимчасовими обмеженнями щодо підняття тяжкості, бігу та стрибків.</li>
+            <li>
+              <span className="font-semibold text-blue-700">
+                безболісність та безпека процедури
+              </span>{' '}
+              завдяки місцевій анестезії та чіткому контролю процесу за допомогою УЗД;
+            </li>
+            <li>
+              <span className="font-semibold text-blue-700">швидке проведення операції</span>,
+              всього за 30-40 хв, та можливість позбутися патології всього за 1 день;
+            </li>
+            <li>
+              <span className="font-semibold text-blue-700">ефективність</span>, неможливість
+              рецидиву захворювання;
+            </li>
+            <li>
+              <span className="font-semibold text-blue-700">відмінний косметичний ефект</span>;
+              відсутність шрамів;
+            </li>
+            <li>
+              <span className="font-semibold text-blue-700">
+                можливість повернутися до нормального ритму життя
+              </span>{' '}
+              відразу після операції, лише з тимчасовими обмеженнями щодо підняття тяжкості, бігу та
+              стрибків.
+            </li>
           </ul>
         </div>
         {/* Права частина: галерея */}
