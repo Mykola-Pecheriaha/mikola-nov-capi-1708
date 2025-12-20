@@ -12,14 +12,14 @@ export default function PlasticSurgConsult() {
           <div className="md:w-1/2 w-full flex flex-col justify-between p-6">
             <div>
               <h2 className="text-2xl font-bold mb-4">Консультація пластичного хірурга</h2>
-              <p className="text-lg leading-relaxed text-gray-950 dark:text-gray-100 font-normal text-justify hyphens-auto">
-                <strong className="font-semibold text-cyan-900 dark:text-white">
+              <p className="text-lg leading-relaxed font-semibold text-justify hyphens-auto" style={{ color: '#000000' }}>
+                <strong className="font-bold" style={{ color: '#0c4a6e' }}>
                   Пластична хірургія
                 </strong>{' '}
                 — це гармонійне поєднання сучасних медичних технологій та мистецтва створення
                 досконалих форм.
                 <br />
-                <strong className="font-semibold text-cyan-900 dark:text-white">
+                <strong className="font-bold" style={{ color: '#0c4a6e' }}>
                   - Перший крок
                 </strong>{' '}
                 до бажаних змін починається з індивідуальної консультації.
@@ -32,8 +32,8 @@ export default function PlasticSurgConsult() {
                 оптимальний метод та забезпечити максимальну безпеку й комфорт.
               </p>
 
-              <p className="text-lg leading-relaxed text-gray-950 dark:text-gray-100 font-normal text-justify hyphens-auto">
-                <strong className="font-semibold text-cyan-900 dark:text-white">
+              <p className="text-lg leading-relaxed font-semibold text-justify hyphens-auto" style={{ color: '#000000' }}>
+                <strong className="font-bold" style={{ color: '#0c4a6e' }}>
                   Якщо операція складна або багатоетапна,
                 </strong>{' '}
                 то слід розуміти, що для відновлення після неї потрібно не один тиждень, в цей
@@ -47,12 +47,12 @@ export default function PlasticSurgConsult() {
                 втручанням, як наприклад, ін&apos;єкції, при яких пошкодження шкіри мінімальні
                 Навчався у провідних спеціалістів світу та виконую всі види пластичних операцій.
                 <br />
-                <strong className="font-semibold text-cyan-900 dark:text-white">
+                <strong className="font-bold" style={{ color: '#0c4a6e' }}>
                   Понад 2600 пацієнтів із різних країн вже довірили нам свою красу.
                 </strong>
               </p>
 
-              <p className="text-lg leading-relaxed text-gray-950 dark:text-gray-100 font-normal text-justify hyphens-auto">
+              <p className="text-lg leading-relaxed font-semibold text-justify hyphens-auto" style={{ color: '#000000' }}>
                 Ми всі різні. Хтось мріє про тонкий прямий носик чи підтягнуту шкіру, інші — про
                 гармонійні форми та струнку фігуру.
                 <br />
@@ -62,7 +62,7 @@ export default function PlasticSurgConsult() {
                 Такі зміни впливають не лише на зовнішність, але й на самопочуття, впевненість і
                 навіть життєвий успіх.
                 <br />
-                <strong className="font-semibold text-cyan-900 dark:text-white">
+                <strong className="font-bold" style={{ color: '#0c4a6e' }}>
                   Разом із моєю командою ми допомагаємо втілити ці бажання, створюючи красу, яка
                   підкреслює вашу індивідуальність
                 </strong>
