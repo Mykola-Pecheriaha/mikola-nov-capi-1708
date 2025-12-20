@@ -108,7 +108,7 @@ export default function BlogPage() {
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Блог медичної клініки</h1>
           <p className="text-lg md:text-xl text-cyan-100 max-w-2xl">
-            Корисна інформація про пластичну хірургію, реабілітацію та здоров'я від наших фахівців
+            Корисна інформація про пластичну хірургію, реабілітацію та здоров`я від наших фахівців
           </p>
         </div>
       </section>

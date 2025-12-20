@@ -284,7 +284,7 @@ export default function Navbar() {
                                     {categoryGroup.category && (
                                       <div className="px-4 py-2 text-sm font-semibold text-[#7491a3] dark:text-blue-400 bg-gray-50 dark:bg-gray-700/50">
                                         {categoryGroup.href ? (
-                                          <Link 
+                                          <Link
                                             href={categoryGroup.href}
                                             className="hover:text-blue-600 dark:hover:text-blue-300 transition-colors block"
                                           >
@@ -421,7 +421,7 @@ export default function Navbar() {
                                   {categoryGroup.category && (
                                     <div className="px-10 py-1 text-xs font-semibold text-white/70">
                                       {categoryGroup.href ? (
-                                        <Link 
+                                        <Link
                                           href={categoryGroup.href}
                                           onClick={closeMobileMenu}
                                           className="hover:text-white transition-colors block"
