@@ -46,7 +46,7 @@ const blogPosts: BlogPost[] = [
     date: '18 грудня 2025',
     category: 'Підготовка',
     image: '/images/gallery-images/gallery-images1.jpg',
-    readTime: '5 хв'
+    readTime: '5 хв',
   },
   {
     id: 2,
@@ -91,18 +91,20 @@ const blogPosts: BlogPost[] = [
     date: '15 грудня 2025',
     category: 'Реабілітація',
     image: '/images/gallery-images/gallery-images10.jpg',
-    readTime: '7 хв'
-  }
+    readTime: '7 хв',
+  },
 ];
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
-  const post = blogPosts.find(p => p.id === parseInt(params.id));
+  const post = blogPosts.find((p) => p.id === parseInt(params.id));
 
   if (!post) {
     return (
       <main className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Пост не знайдено</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            Пост не знайдено
+          </h1>
           <Link href="/blog" className="text-cyan-600 hover:text-cyan-700 font-medium">
             Повернутися на блог
           </Link>
@@ -128,12 +130,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
 
       {/* Hero Image */}
       <div className="relative h-96 w-full overflow-hidden">
-        <Image
-          src={post.image}
-          alt={post.title}
-          fill
-          className="object-cover"
-        />
+        <Image src={post.image} alt={post.title} fill className="object-cover" />
       </div>
 
       {/* Content */}
@@ -146,9 +143,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             {post.title}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-            {post.excerpt}
-          </p>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">{post.excerpt}</p>
 
           {/* Meta Info */}
           <div className="flex flex-wrap gap-6 text-gray-600 dark:text-gray-400 border-t border-b border-gray-200 dark:border-gray-700 py-4">
@@ -173,17 +168,23 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             <div key={index} className="mb-6">
               {paragraph.includes('-') || paragraph.includes('1.') ? (
                 <div>
-                  {paragraph.split('\n').map((line, lineIndex) => (
+                  {paragraph.split('\n').map((line, lineIndex) =>
                     line.trim().startsWith('-') || line.trim().match(/^\d+\./) ? (
-                      <li key={lineIndex} className="ml-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <li
+                        key={lineIndex}
+                        className="ml-6 text-gray-700 dark:text-gray-300 leading-relaxed"
+                      >
                         {line.replace(/^[-\d.]\s*/, '')}
                       </li>
                     ) : (
-                      <p key={lineIndex} className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <p
+                        key={lineIndex}
+                        className="text-gray-700 dark:text-gray-300 leading-relaxed"
+                      >
                         {line}
                       </p>
-                    )
-                  ))}
+                    ),
+                  )}
                 </div>
               ) : (
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
@@ -201,9 +202,9 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {blogPosts
-              .filter(p => p.id !== post.id && p.category === post.category)
+              .filter((p) => p.id !== post.id && p.category === post.category)
               .slice(0, 2)
-              .map(relatedPost => (
+              .map((relatedPost) => (
                 <Link
                   key={relatedPost.id}
                   href={`/blog/${relatedPost.id}`}

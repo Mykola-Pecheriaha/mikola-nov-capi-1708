@@ -14,6 +14,7 @@ interface SubSubMenuItem {
 
 interface CategoryGroup {
   category: string;
+  href?: string;
   items: SubSubMenuItem[];
 }
 
@@ -44,6 +45,7 @@ const navigation: MenuItem[] = [
         submenu: [
           {
             category: 'Пластика грудей',
+            href: '/services/breast-plastic-surgery',
             items: [
               { name: 'Збільшення грудей', href: '/services/breast-augmentation' },
               {
@@ -59,6 +61,7 @@ const navigation: MenuItem[] = [
           },
           {
             category: 'Пластика обличчя',
+            href: '/services/face-plastic-surgery',
             items: [
               { name: 'Підтяжка обличчя', href: '/services/face-lift' },
               { name: 'Блефаропластика', href: '/services/blefaroplastica' },
@@ -68,6 +71,7 @@ const navigation: MenuItem[] = [
           },
           {
             category: 'Пластика торса',
+            href: '/services/torso-plastic-surgery',
             items: [
               { name: 'Абдомінопластика', href: '/services/abdomino-plasty' },
               { name: 'Ліпосакція', href: '/services/liposuction' },
@@ -279,7 +283,16 @@ export default function Navbar() {
                                   <div key={idx} className="mb-2">
                                     {categoryGroup.category && (
                                       <div className="px-4 py-2 text-sm font-semibold text-[#7491a3] dark:text-blue-400 bg-gray-50 dark:bg-gray-700/50">
-                                        {categoryGroup.category}
+                                        {categoryGroup.href ? (
+                                          <Link 
+                                            href={categoryGroup.href}
+                                            className="hover:text-blue-600 dark:hover:text-blue-300 transition-colors block"
+                                          >
+                                            {categoryGroup.category}
+                                          </Link>
+                                        ) : (
+                                          <span>{categoryGroup.category}</span>
+                                        )}
                                       </div>
                                     )}
                                     <div className="py-1">
@@ -407,7 +420,17 @@ export default function Navbar() {
                                 <div key={idx} className="mb-2">
                                   {categoryGroup.category && (
                                     <div className="px-10 py-1 text-xs font-semibold text-white/70">
-                                      {categoryGroup.category}
+                                      {categoryGroup.href ? (
+                                        <Link 
+                                          href={categoryGroup.href}
+                                          onClick={closeMobileMenu}
+                                          className="hover:text-white transition-colors block"
+                                        >
+                                          {categoryGroup.category}
+                                        </Link>
+                                      ) : (
+                                        <span>{categoryGroup.category}</span>
+                                      )}
                                     </div>
                                   )}
                                   {categoryGroup.items.map((subSubItem) => (
