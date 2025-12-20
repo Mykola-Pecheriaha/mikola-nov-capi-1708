@@ -12,7 +12,7 @@ export default function PlasticSurgConsult() {
           <div className="md:w-1/2 w-full flex flex-col justify-between p-6">
             <div>
               <h2 className="text-2xl font-bold mb-4">Консультація пластичного хірурга</h2>
-              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-light text-justify hyphens-auto">
+              <p className="text-lg leading-relaxed text-gray-900 dark:text-gray-100 font-light text-justify hyphens-auto">
                 <strong className="font-semibold text-cyan-900 dark:text-white">
                   Пластична хірургія
                 </strong>{' '}
@@ -32,7 +32,7 @@ export default function PlasticSurgConsult() {
                 оптимальний метод та забезпечити максимальну безпеку й комфорт.
               </p>
 
-              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-light text-justify hyphens-auto">
+              <p className="text-lg leading-relaxed text-gray-900 dark:text-gray-100 font-light text-justify hyphens-auto">
                 <strong className="font-semibold text-cyan-900 dark:text-white">
                   Якщо операція складна або багатоетапна,
                 </strong>{' '}
@@ -52,7 +52,7 @@ export default function PlasticSurgConsult() {
                 </strong>
               </p>
 
-              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-light text-justify hyphens-auto">
+              <p className="text-lg leading-relaxed text-gray-900 dark:text-gray-100 font-light text-justify hyphens-auto">
                 Ми всі різні. Хтось мріє про тонкий прямий носик чи підтягнуту шкіру, інші — про
                 гармонійні форми та струнку фігуру.
                 <br />
