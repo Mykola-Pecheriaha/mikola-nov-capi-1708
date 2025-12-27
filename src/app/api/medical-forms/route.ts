@@ -316,7 +316,9 @@ export async function DELETE(req: Request) {
       }
 
       const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
-      const filteredData = data.filter((form: { id: string | number }) => String(form.id) !== String(id));
+      const filteredData = data.filter(
+        (form: { id: string | number }) => String(form.id) !== String(id),
+      );
 
       if (data.length === filteredData.length) {
         return NextResponse.json(
