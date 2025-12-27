@@ -89,9 +89,30 @@ const blogPosts: BlogPost[] = [
     image: '/images/gallery-images/gallery-images12.jpg',
     readTime: '6 хв',
   },
+  {
+    id: 7,
+    title: 'Карпальний синдром: клінічні спостереження та рішення',
+    excerpt:
+      'Нічні болі в кистях, оніміння пальців та тунельний синдром - аналіз на основі практики хірурга.',
+    content:
+      'Карпальний синдром досить часто турбує пацієнтів. Дізнайтеся про причини, діагностику та ефективні методи лікування...',
+    author: 'Др. Миколай Печеріга',
+    date: '24 грудня 2025',
+    category: 'Хірургія руки',
+    image: '/images/hand/carp41.jpg',
+    readTime: '12 хв',
+  },
 ];
 
-const categories = ['Всі', 'Підготовка', 'Реабілітація', 'Тренди', 'Методи', 'Психологія'];
+const categories = [
+  'Всі',
+  'Підготовка',
+  'Реабілітація',
+  'Тренди',
+  'Методи',
+  'Психологія',
+  'Хірургія руки',
+];
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('Всі');
