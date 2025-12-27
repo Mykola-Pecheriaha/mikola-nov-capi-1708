@@ -290,7 +290,7 @@ export async function DELETE(req: Request) {
       }
 
       if (!data || data.length === 0) {
-        console.warn('⚠️ No records deleted - ID not found:', numericId);
+        console.warn('⚠️ No records deleted - ID not found:', deleteId);
         return NextResponse.json(
           { success: false, error: 'Medical form not found' },
           { status: 404 },
@@ -316,7 +316,7 @@ export async function DELETE(req: Request) {
       }
 
       const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
-      const filteredData = data.filter((form: { id: string }) => form.id !== id);
+      const filteredData = data.filter((form: { id: string | number }) => String(form.id) !== String(id));
 
       if (data.length === filteredData.length) {
         return NextResponse.json(

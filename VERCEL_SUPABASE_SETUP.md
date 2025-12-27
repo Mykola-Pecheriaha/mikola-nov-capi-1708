@@ -3,14 +3,15 @@
 ## 🔴 ПРОБЛЕМА
 
 Якщо ви бачите помилку при деплої на Vercel:
+
 ```
-🔧 Система потребує налаштування бази даних. 
-Адміністратор має: 
-1. Створити проект на supabase.com 
-2. Налаштувати змінні середовища 
+🔧 Система потребує налаштування бази даних.
+Адміністратор має:
+1. Створити проект на supabase.com
+2. Налаштувати змінні середовища
 3. Створити таблиці БД
 
-Detalі: Supabase configuration required. 
+Detalі: Supabase configuration required.
 Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables.
 ```
 
@@ -48,18 +49,22 @@ Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environmen
 3. Натисніть: **Settings** (у верхній панелі)
 4. У лівій панелі виберіть: **Environment Variables**
 5. Додайте перевую змінну:
+
    ```
    Name:  NEXT_PUBLIC_SUPABASE_URL
    Value: https://xxxxx.supabase.co
    ```
+
    Виберіть: ✅ **Production** ✅ **Preview**
    Натисніть: **Add**
 
 6. Додайте другу змінну:
+
    ```
    Name:  NEXT_PUBLIC_SUPABASE_ANON_KEY
    Value: eyJ0eXAiOiJKV1QiL...
    ```
+
    Виберіть: ✅ **Production** ✅ **Preview**
    Натисніть: **Add**
 
@@ -69,6 +74,7 @@ Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environmen
 
 1. У Supabase Dashboard перейдіть: **SQL Editor** (у лівій панелі)
 2. Натисніть: **New Query**
+
 ### КРОК 4: Створити таблиці БД
 
 1. У Supabase Dashboard перейдіть: **SQL Editor** (у лівій панелі)
@@ -172,27 +178,36 @@ npm run dev
 ## 🐛 ДІАГНОСТИКА ПОМИЛОК
 
 ### Помилка: "Invalid API key"
+
 ```
 ❌ Ключ не розпізнаний
 ```
+
 **Рішення:**
+
 - Переконайтесь, що ви скопіювали **anon key**, а не **service_role key**
 - Анон ключ має починатися: `eyJ0eXAiOiJKV1QiL...`
 
 ### Помилка: "Connection failed"
+
 ```
 ❌ Cannot connect to database
 ```
+
 **Рішення:**
+
 - Перевірте, що URL правильний: `https://xxxxx.supabase.co`
 - Переконайтесь, що проект готовий (чекайте на Supabase сторінці)
 - Перевірте, що змінні добавлені в **Production** і **Preview**
 
 ### Дані не зберігаються
+
 ```
 ❌ Форма надіслана, але немає даних в Supabase
 ```
+
 **Рішення:**
+
 - Перевірте, що таблиці існують: Supabase → **Table Editor**
 - Перевірте логи: Vercel → **Deployments** → **Logs** → пошукайте помилки
 - Перевірте RLS політики: вони мають дозволяти INSERT
@@ -203,6 +218,7 @@ npm run dev
   ```
 
 ### Як переглянути логи в Vercel
+
 1. Vercel Dashboard → ваш проект
 2. **Deployments** → вибрати deployment (з дефектом)
 3. **Logs** → пошукайте помилки в логах
@@ -210,6 +226,7 @@ npm run dev
 ## 📞 ДОПОМІЖНІ КОМАНДИ
 
 ### На локальній машині:
+
 ```bash
 # Налаштування Supabase (інтерактивно)
 node supabase-setup.js
@@ -239,6 +256,7 @@ CREATE POLICY "Allow select for authenticated users" ON medical_forms FOR SELECT
 
 CREATE POLICY "Allow insert for everyone" ON consultations FOR INSERT WITH CHECK (true);
 CREATE POLICY "Allow select for authenticated users" ON consultations FOR SELECT USING (auth.role() = 'authenticated');
+
 ```
 
 ## Моніторинг
@@ -250,3 +268,4 @@ CREATE POLICY "Allow select for authenticated users" ON consultations FOR SELECT
 ---
 
 **Важливо**: Після налаштування Supabase форми будуть працювати і з мобільних пристроїв, і з десктопу без помилок файлової системи.
+```
