@@ -10,9 +10,15 @@
     "test:api": "node test-medical-forms.js",
     "check:supabase": "./check-supabase.sh",
     "setup:supabase": "./setup-supabase.sh",
-    "setup:help": "echo '🎯 Швидке налаштування Supabase:' && echo '📖 cat SUPABASE_STEP_BY_STEP.md  # Покрокова інструкція' && echo '🔍 yarn check:supabase          # Перевірка налаштування' && echo '🧪 yarn test:api               # Тестування API' && echo '📁 Файли: supabase-setup-complete.sql (SQL код)'",
-    "setup:guide": "cat SUPABASE_STEP_BY_STEP.md",
-    "setup:sql": "echo '📋 Скопіюйте цей SQL код у Supabase SQL Editor:' && echo '===========================================' && cat supabase-setup-complete.sql"
+    "setup:quick": "cat SUPABASE_QUICK_GUIDE.md",
+    "setup:detailed": "cat SUPABASE_STEP_BY_STEP.md",
+    "setup:full": "cat SUPABASE_SETUP_GUIDE.md",
+    "setup:start": "cat START_HERE.md",
+    "setup:interactive": "bash ./setup-supabase-interactive.sh",
+    "setup:node": "node supabase-setup.js",
+    "setup:sql": "echo '📋 Скопіюйте цей SQL код у Supabase SQL Editor → New query → RUN:' && echo '' && echo '════════════════════════════════════════════════════════════' && cat supabase-setup-complete.sql && echo '════════════════════════════════════════════════════════════'",
+    "setup:check": "bash ./check-supabase-detailed.sh",
+    "setup:help": "echo '🎯 Вибір способу налаштування Supabase:' && echo '' && echo '⚡ НАЙШВИДШЕ (1 хвилина):' && echo '   cat START_HERE.md' && echo '' && echo '🚀 ШВИДКЕ (5 хвилин):' && echo '   yarn setup:start' && echo '' && echo '📖 ДЕТАЛЬНЕ (15 хвилин):' && echo '   yarn setup:detailed' && echo '' && echo '🔧 ПОВНЕ (20 хвилин):' && echo '   yarn setup:full' && echo '' && echo '🎯 ІНТЕРАКТИВНЕ:' && echo '   yarn setup:interactive' && echo '   yarn setup:node' && echo '' && echo '🔍 ПЕРЕВІРКА:' && echo '   yarn setup:check' && echo '' && echo '🧪 ТЕСТУВАННЯ:' && echo '   yarn test:api' && echo ''"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",

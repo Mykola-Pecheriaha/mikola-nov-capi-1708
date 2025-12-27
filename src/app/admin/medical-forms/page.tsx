@@ -52,11 +52,14 @@ export default function MedicalFormsAdminPage() {
     }
 
     try {
+      console.log('🗑️ Attempting to delete medical form with ID:', formId, 'Type:', typeof formId);
       const response = await fetch(`/api/medical-forms?id=${formId}`, {
         method: 'DELETE',
       });
 
+      console.log('📡 Delete response status:', response.status);
       const result = await response.json();
+      console.log('✅ Delete response result:', result);
 
       if (result.success) {
         // Оновлюємо список форм
@@ -70,11 +73,15 @@ export default function MedicalFormsAdminPage() {
 
         alert('Консультацію успішно видалено!');
       } else {
-        alert(`Помилка при видаленні: ${result.error}`);
+        console.error('❌ Delete failed:', result);
+        alert(`Помилка при видаленні: ${result.error || 'Невідома помилка'}`);
       }
     } catch (error) {
-      console.error('Delete error:', error);
-      alert('Помилка при видаленні консультації');
+      console.error('❌ Delete error:', error);
+      alert(
+        'Помилка при видаленні консультації: ' +
+          (error instanceof Error ? error.message : 'Невідома помилка'),
+      );
     }
   };
 

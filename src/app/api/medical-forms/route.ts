@@ -270,21 +270,15 @@ export async function DELETE(req: Request) {
 
     // Перевіряємо чи Supabase налаштований
     if (isSupabaseAvailable()) {
-      // Конвертуємо ID в число для Supabase
-      const numericId = parseInt(id, 10);
-
-      if (isNaN(numericId)) {
-        console.error('❌ Invalid ID format:', id);
-        return NextResponse.json({ success: false, error: 'Invalid ID format' }, { status: 400 });
-      }
-
-      console.log('🔍 Attempting to delete ID:', numericId);
+      // ID може бути як число так і UUID рядок - залишаємо як є
+      const deleteId = id;
+      console.log('🔍 Attempting to delete ID:', deleteId);
 
       // Видаляємо з Supabase
       const { data, error } = await supabase
         .from('medical_forms')
         .delete()
-        .eq('id', numericId)
+        .eq('id', deleteId)
         .select();
 
       if (error) {
@@ -308,7 +302,7 @@ export async function DELETE(req: Request) {
       return NextResponse.json({
         success: true,
         message: 'Medical form deleted from Supabase database',
-        deletedId: numericId,
+        deletedId: deleteId,
       });
     } else {
       // Fallback до локальних файлів
