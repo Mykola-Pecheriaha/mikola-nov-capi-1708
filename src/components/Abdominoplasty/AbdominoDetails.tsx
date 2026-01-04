@@ -202,13 +202,13 @@ const AbdominoDetails: React.FC = () => {
           <div className="flex flex-col justify-start order-2 md:order-1">
             <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-xl p-4 sm:p-6 md:p-8 border border-red-200 dark:border-red-800 shadow-md hover:shadow-lg transition-shadow duration-300">
               <h3 className="text-xl md:text-2xl font-bold text-red-900 dark:text-red-300 mb-4 md:mb-6">
-                ✅ До основних протипоказань належать:
+                До основних протипоказань належать:
               </h3>
 
               <ul className="space-y-4 md:space-y-5">
                 <li className="text-base sm:text-lg text-gray-800 dark:text-gray-200 leading-relaxed">
                   <span className="font-bold text-red-700 dark:text-red-400 mr-2">❗</span>
-                  Хронічні захворювання:
+                  <span className="font-semibold">Хронічні захворювання:</span>
                   <ul className="ml-6 mt-2 space-y-1 list-disc text-gray-700 dark:text-gray-300">
                     <li>цукровий діабет</li>
                     <li>ожиріння III–IV ступеня</li>

@@ -17,7 +17,7 @@ const torsoServices: ServiceCard[] = [
     description:
       'Пластика живота для корекції форми, усунення надлишків шкіри та жирових відкладень',
     coverImage: '/images/services/abdominoplastic.jpg',
-    href: '/services/abdominoplastica',
+    href: '/services/abdomino-plasty',
   },
   {
     id: 'liposuction',

@@ -41,7 +41,7 @@ const navigation: MenuItem[] = [
     submenu: [
       {
         name: 'Пластична хірургія',
-        href: '/services/plastic',
+        href: '/services/plastic-surg-consult',
         submenu: [
           {
             category: 'Пластика грудей',

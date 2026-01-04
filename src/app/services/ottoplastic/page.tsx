@@ -7,9 +7,9 @@ import OttoDetails from '@/components/Ottoplastic/OttoDetails';
 import OttoPreparation from '@/components/Ottoplastic/OttoPreparation';
 import OttoFAQ from '@/components/Ottoplastic/OttoFAQ';
 
-import SidebarBlefaroplastic from '@/components/Ottoplastic/SidebarOttoplastic';
+import SidebarOttoplastic from '@/components/Ottoplastic/SidebarOttoplastic';
 
-export default function GynecomastiaPage(): ReactElement {
+export default function OttoplasticPage(): ReactElement {
   return (
     <main className="p-6">
       <div className="max-w-7xl mx-auto">
@@ -20,7 +20,7 @@ export default function GynecomastiaPage(): ReactElement {
             <OttoPreparation />
             <OttoFAQ />
           </section>
-          <SidebarBlefaroplastic />
+          <SidebarOttoplastic />
         </div>
       </div>
     </main>

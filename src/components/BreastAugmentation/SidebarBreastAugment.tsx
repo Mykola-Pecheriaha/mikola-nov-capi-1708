@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 const menu = [
-  { label: 'Пластика грудей', href: '/plastic-surg-consult/breast' },
+  { label: 'Пластика грудей', href: '/services/breast-plastic-surgery' },
   { label: 'Збільшення грудей', href: '/services/breast-augmentation' },
   {
     label: 'Видалення або заміна імплантів',
