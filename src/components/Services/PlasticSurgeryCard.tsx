@@ -27,7 +27,7 @@ const extraList = [
       { label: 'Блефаропластика', link: '/services/blefaroplastica' },
 
       { label: 'Пластика зовнішнього вуха', link: '/services/ottoplastic' },
-      { label: 'Видалення утворень в ділянці обличчя', link: '/services/plastic-face#removal' },
+      { label: 'Видалення утворень в ділянці обличчя', link: '/services/face-formations' },
     ],
   },
   {

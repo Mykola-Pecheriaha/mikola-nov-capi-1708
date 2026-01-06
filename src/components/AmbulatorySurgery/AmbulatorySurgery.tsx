@@ -17,7 +17,7 @@ const ambulatorySurgeryServices: ServiceCard[] = [
     description:
       'Безпечне видалення бородавок, родимок та папілом за допомогою сучасних методів для отримання косметичного результату',
     coverImage: '/images/services/resultbreast5.jpg',
-    href: '/services/ambulatory-skin-tumors',
+    href: '/services/face-formations',
   },
 
   {
@@ -34,7 +34,7 @@ const ambulatorySurgeryServices: ServiceCard[] = [
     description:
       'Пластичне видалення та корекція непривабливих рубців для відновлення косметичного вигляду шкіри',
     coverImage: '/images/services/skinplastic1.jpg',
-    href: '/services/ambulatory-scar-plasty',
+    href: '/services/derm-correction',
   },
   {
     id: 'ingrown-nail-treatment',
@@ -53,7 +53,7 @@ export default function AmbulatorySurgery() {
         {/* Заголовок */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-900 dark:text-blue-100">
-            Амбулаторна хірургія
+            Хірургія шкіри та м`яких тканин
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Професійна амбулаторна хірургічна допомога при новоутвореннях та дефектах шкіри.

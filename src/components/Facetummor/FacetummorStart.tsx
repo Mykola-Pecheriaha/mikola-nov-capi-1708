@@ -31,7 +31,7 @@ const FacetummorStart: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         {/* Заголовок вверху по середині */}
         <h2 className="text-2xl md:text-4xl font-bold text-center text-blue-900 dark:text-blue-400 mb-8 md:mb-12 transition-colors duration-300">
-          Новоутворення обличча
+          Новоутворення обличча та тіла
         </h2>
 
         {/* Дві колонки: текст зліва, зображення справа */}

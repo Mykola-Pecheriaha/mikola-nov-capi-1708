@@ -156,20 +156,17 @@ const navigation: MenuItem[] = [
             category: '',
             items: [
               {
-                name: 'Видалення новоутворень шкіри (бородавки, родимки, папіломи)',
-                href: '/services/ambulatory-skin-tumors',
+                name: 'Видалення новоутворень шкіри і підшкірної клітковини (бородавки, родимки, папіломи, атероми, ліпоми, фіброми, гігроми)',
+                href: '/services/face-formations',
               },
-              {
-                name: 'Видалення доброякісних новоутворень (атероми, ліпоми, фіброми, гігроми)',
-                href: '/services/ambulatory-benign-tumors',
-              },
+
               {
                 name: "Лікування гнійно-запальних захворювань шкіри і м'яких тканин",
                 href: '/services/ambulatory-infections',
               },
               {
-                name: 'Пластика післяопераційних рубців',
-                href: '/services/ambulatory-scar-plasty',
+                name: 'Пластика дефектів шкіри та післяопераційних рубців',
+                href: '/services/derm-correction',
               },
               {
                 name: 'Врослий ніготь і видалення нігтьової пластини',

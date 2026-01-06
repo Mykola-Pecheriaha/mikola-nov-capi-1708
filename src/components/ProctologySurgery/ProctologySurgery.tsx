@@ -17,7 +17,7 @@ const proctologyServices: ServiceCard[] = [
     description:
       'Первинна консультація з проктологом для діагностики захворювань прямої кишки та обговорення плану лікування',
     coverImage: '/images/services/proctology.jpg',
-    href: '/services/proctology.jpg',
+    href: '/services/proctolog-consultation',
   },
   {
     id: 'hemorrhoid-treatment',
@@ -25,7 +25,7 @@ const proctologyServices: ServiceCard[] = [
     description:
       'Сучасні методики лікування геморою від мініінвазивних процедур до хірургічного втручання',
     coverImage: '/images/services/hemorroy19.jpg',
-    href: '/services/hemorroy19.jpg',
+    href: '/services/proctolog-hemorrhoids',
   },
   {
     id: 'anal-fissure-treatment',

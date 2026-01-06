@@ -6,17 +6,17 @@ import Image from 'next/image';
 const mainList = [
   {
     label: 'Видалення новоутворень шкіри (бородавки, родимки, папіломи)',
-    link: '/services/ambulatory-skin-tumors',
+    link: '/services/face-formations',
   },
   {
     label: 'Видалення доброякісних новоутворень (атероми, ліпоми, фіброми, гігроми)',
-    link: '/services/ambulatory-benign-tumors',
+    link: '/services/face-formations',
   },
   {
     label: "Лікування гнійно-запальних захворювань шкіри і м'яких тканин",
     link: '/services/ambulatory-infections',
   },
-  { label: 'Пластика післяопераційних рубців', link: '/services/ambulatory-scar-plasty' },
+  { label: 'Пластика післяопераційних рубців', link: '/services/derm-correction' },
   {
     label: 'Врослий ніготь і видалення нігтьової пластини',
     link: '/services/ambulatory-ingrown-nail',

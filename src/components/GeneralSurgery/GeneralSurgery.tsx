@@ -43,14 +43,6 @@ const generalServices: ServiceCard[] = [
     coverImage: '/images/abdomiGernio/abdomiGernio23.jpg',
     href: '/services/hernia-abdominoplasty',
   },
-  {
-    id: 'white-line-repair',
-    title: 'Пластика білої лінії живота',
-    description:
-      "Хірургічна корекція розходження прямих м'язів живота та пластика білої лінії для відновлення естетики",
-    coverImage: '/images/services/general-white-line.jpg',
-    href: '/services/surgery-abdomen-line',
-  },
 ];
 
 export default function GeneralSurgery() {

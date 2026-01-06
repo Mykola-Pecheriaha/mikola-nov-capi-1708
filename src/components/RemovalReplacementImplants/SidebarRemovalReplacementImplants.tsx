@@ -18,7 +18,7 @@ const menu = [
   { label: 'Блефаропластика', href: '/services/blefaroplastica' },
   { label: 'Пластика зовнішнього вуха', href: '/services/ottoplastic' },
   { label: 'Видалення утворень в ділянці обличчя', href: '/services/face-tumors' },
-  { label: 'Пластика торса', href: '/services/torso' },
+  { label: 'Пластика торса', href: '/services/torso-plastic-surgery' },
   { label: 'Абдомінопластика', href: '/services/abdomino-plasty' },
   { label: 'Ліпосакція', href: '/services/liposuction' },
   { label: 'Видалення шийного горба', href: '/services/cervical-hump-removal' },
@@ -30,7 +30,7 @@ export default function SidebarRemovalReplacementImplants() {
   const pathname = usePathname();
   return (
     <aside className="hidden md:block md:w-1/5 flex-none mt-10">
-      <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto bg-white rounded-xl shadow-md p-4 border border-blue-100">
+      <div className="sticky top-34 max-h-[calc(100vh-7rem)] overflow-y-auto bg-white rounded-xl shadow-md p-4 border border-blue-100">
         <ul className="space-y-3 text-base font-medium">
           {menu
             .filter(

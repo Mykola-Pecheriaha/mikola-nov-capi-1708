@@ -28,7 +28,7 @@ const links = [
 export default function SidebarOttoplastic() {
   const pathname = usePathname();
   return (
-    <aside className="sticky top-24 max-h-[80vh] overflow-y-auto bg-white rounded-xl shadow-md p-4 w-full md:w-64">
+    <aside className="sticky top-34 max-h-[80vh] overflow-y-auto bg-white rounded-xl shadow-md p-4 w-full md:w-64">
       <ul className="space-y-2">
         {links
           .filter((link) => link.href !== pathname)
