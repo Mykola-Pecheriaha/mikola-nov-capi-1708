@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 
 import DermScarCorrectionStart from '@/components/DermScarCorrection/DermScarCorrectionStart';
 import DermScarCorrectionDetails from '@/components/DermScarCorrection/DermScarCorrectionDetails';
+import DermScarCorrectionOper from '@/components/DermScarCorrection/DermScarCorrectionOper';
 
 import SidebarDermScarCorrection from '@/components/DermScarCorrection/SidebarDermScarCorrection';
 
@@ -15,6 +16,7 @@ export default function DermCorrectionPage(): ReactElement {
           <div className="flex flex-col md:flex-row gap-6 md:gap-4 mt-8">
             <section className="md:w-3/4 w-full">
               <DermScarCorrectionDetails />
+              <DermScarCorrectionOper />
             </section>
             <SidebarDermScarCorrection />
           </div>
