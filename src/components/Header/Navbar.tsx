@@ -124,7 +124,6 @@ const navigation: MenuItem[] = [
               { name: 'Герніопластика (видалення гриж живота)', href: '/services/general-hernia' },
               { name: 'Холецистектомія', href: '/services/general-cholecystectomy' },
               { name: 'Грижесічення з абдомінопластикою', href: '/services/hernia-abdominoplasty' },
-              { name: 'Пластика білої лінії живота', href: '/services/surgery-abdomen-line' },
             ],
           },
         ],
@@ -179,8 +178,8 @@ const navigation: MenuItem[] = [
     ],
   },
   {
-    name: 'Команда',
-    href: '/team',
+    name: 'Про лікаря',
+    href: '/about-doctor',
   },
   {
     name: 'Про клініку',

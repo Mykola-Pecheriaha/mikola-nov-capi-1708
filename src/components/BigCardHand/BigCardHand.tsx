@@ -1,6 +1,5 @@
-
-"use client";
-import GalleryHand from '../GalleryHand/GalleryHand'
+'use client';
+import GalleryHand from '../GalleryHand/GalleryHand';
 import { useRouter } from 'next/navigation';
 
 export default function BigCardHand() {
@@ -17,12 +16,14 @@ export default function BigCardHand() {
                 <span className="text-2xl text-gray-400">&rarr;</span>
               </div>
               <p className="text-gray-600 text-base md:text-lg mb-8">
-                Кисть — важлива частина тіла, від якої залежить щоденна активність людини. Будь-які ушкодження чи захворювання потребують своєчасного лікування для збереження її функцій.
+                Кисть — важлива частина тіла, від якої залежить щоденна активність людини. Будь-які
+                ушкодження чи захворювання потребують своєчасного лікування для збереження її
+                функцій.
               </p>
             </div>
             <button
               className="mt-auto w-full md:w-auto px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded transition-all duration-200 text-base md:text-lg shadow"
-              onClick={() => router.push('/services/hand-surgeon-consultation')}
+              onClick={() => router.push('/services/hand-surgery-main')}
             >
               Дізнатися більше
             </button>
@@ -34,5 +35,5 @@ export default function BigCardHand() {
         </div>
       </div>
     </section>
-  )
+  );
 }

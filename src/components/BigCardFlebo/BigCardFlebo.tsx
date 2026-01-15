@@ -1,7 +1,5 @@
-
-
-"use client";
-import GalleryFlebolog from './GalleryFlebolog'
+'use client';
+import GalleryFlebolog from './GalleryFlebolog';
 import { useRouter } from 'next/navigation';
 
 export default function BigCardFlebo() {
@@ -14,16 +12,19 @@ export default function BigCardFlebo() {
           <div className="flex-1 md:flex-[2] bg-white rounded-lg shadow-lg p-8 flex flex-col justify-between min-h-[400px]">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Хірургія вен - флебологія</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+                  Хірургія вен - флебологія
+                </h2>
                 <span className="text-2xl text-gray-400">&rarr;</span>
               </div>
               <p className="text-gray-600 text-base md:text-lg mb-8">
-               Оперативне при варикозній хворобі нижніх кінцівок з використанням сучасних технологій: лазерна венектомія, склеротерапія.
+                Оперативне при варикозній хворобі нижніх кінцівок з використанням сучасних
+                технологій: лазерна венектомія, склеротерапія.
               </p>
             </div>
             <button
               className="mt-auto w-full md:w-auto px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded transition-all duration-200 text-base md:text-lg shadow"
-              onClick={() => router.push('/services/phlebology')}
+              onClick={() => router.push('/services/phlebology-surgery')}
             >
               Дізнатися більше
             </button>
@@ -35,5 +36,5 @@ export default function BigCardFlebo() {
         </div>
       </div>
     </section>
-  )
+  );
 }

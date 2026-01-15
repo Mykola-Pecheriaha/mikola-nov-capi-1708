@@ -1,6 +1,5 @@
-
-"use client";
-import GalleryProcto from '../GalleryProcto/GalleryProcto'
+'use client';
+import GalleryProcto from '../GalleryProcto/GalleryProcto';
 import { useRouter } from 'next/navigation';
 
 export default function BigCardProcto() {
@@ -16,14 +15,18 @@ export default function BigCardProcto() {
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Проктологія.</h2>
                 <span className="text-2xl text-gray-400">&rarr;</span>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">Сучасне лікування проктологічних захворювань</h3>
+              <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">
+                Сучасне лікування проктологічних захворювань
+              </h3>
               <p className="text-gray-600 text-base md:text-lg mb-8">
-                Захворювання прямої кишки є поширеною медичною проблемою, що потребує професійного підходу. Своєчасна діагностика та лікування дозволяють уникнути ускладнень і забезпечити відновлення здоров’я та якості життя.
+                Захворювання прямої кишки є поширеною медичною проблемою, що потребує професійного
+                підходу. Своєчасна діагностика та лікування дозволяють уникнути ускладнень і
+                забезпечити відновлення здоров’я та якості життя.
               </p>
             </div>
             <button
               className="mt-auto w-full md:w-auto px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded transition-all duration-200 text-base md:text-lg shadow"
-              onClick={() => router.push('/services/proctolog-consultation')}
+              onClick={() => router.push('/services/proctology-surgery')}
             >
               Дізнатися більше
             </button>
@@ -35,5 +38,5 @@ export default function BigCardProcto() {
         </div>
       </div>
     </section>
-  )
+  );
 }
