@@ -3,6 +3,7 @@ import RemovalReplacementImplants from '@/components/RemovalReplacementImplants/
 import RemovalBreastImplantRevision from '@/components/RemovalReplacementImplants/RemovalBreastImplantRevision';
 import ImplantReplacementProcedure from '@/components/RemovalReplacementImplants/ImplantReplacementProcedure';
 import ImplantBreastRecoveryReabilit from '@/components/RemovalReplacementImplants/ImplantBreastRecoveryReabilit';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 import SidebarRemovalReplacementImplants from '@/components/RemovalReplacementImplants/SidebarRemovalReplacementImplants';
 
 export default function RemovalReplacementImplantsPage(): ReactElement {
@@ -15,6 +16,7 @@ export default function RemovalReplacementImplantsPage(): ReactElement {
             <RemovalBreastImplantRevision />
             <ImplantReplacementProcedure />
             <ImplantBreastRecoveryReabilit />
+            <ConsultationCTA />
           </section>
           <SidebarRemovalReplacementImplants />
         </div>

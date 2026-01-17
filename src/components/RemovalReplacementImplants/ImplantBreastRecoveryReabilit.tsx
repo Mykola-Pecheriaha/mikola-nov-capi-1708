@@ -103,43 +103,6 @@ const ImplantBreastRecoveryReabilit: FC = () => {
               </div>
             </div>
           </div>
-
-          {/* Заклик до дії */}
-          <div
-            className="relative overflow-hidden rounded-2xl p-8 sm:p-10 md:p-12 text-center border"
-            style={{
-              background:
-                'linear-gradient(135deg, rgba(142, 170, 184, 0.08) 0%, rgba(142, 170, 184, 0.05) 100%)',
-              borderColor: '#8EAAB8',
-            }}
-          >
-            <div
-              className="absolute top-0 left-0 right-0 h-1"
-              style={{
-                background: 'linear-gradient(90deg, #8EAAB8 0%, #7491a3 100%)',
-              }}
-            />
-            <div className="max-w-2xl mx-auto">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-gray-800 dark:text-gray-100">
-                Потрібна консультація?
-              </h3>
-              <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-7 md:mb-8 text-gray-800 dark:text-gray-200 leading-relaxed">
-                Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію
-                та підтримку на всіх етапах відновлення.
-              </p>
-              <Link href="/ask-doctor" className="inline-block">
-                <button
-                  className="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white rounded-full shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
-                  style={{
-                    background: 'linear-gradient(135deg, #8EAAB8 0%, #7491a3 100%)',
-                  }}
-                >
-                  <span className="font-semibold">Зв&apos;язатися з нами</span>
-                  <span className="text-lg sm:text-xl transition-transform">→</span>
-                </button>
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
     </section>

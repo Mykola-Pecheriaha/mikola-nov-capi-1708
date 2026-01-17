@@ -5,6 +5,7 @@ import ButtockAugmentDetails from '@/components/ButtockAugment/ButtockAugmentDet
 import ButtockContraIndication from '@/components/ButtockAugment/ButtockContraIndication';
 import ButtockPreparation from '@/components/ButtockAugment/ButtockPreparation';
 import ButtockRehabilitation from '@/components/ButtockAugment/ButtockRehabilitation';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarButtockAugment from '@/components/ButtockAugment/SidebarButtockAugment';
 
@@ -19,6 +20,7 @@ export default function ButtockAugmentStartPage(): ReactElement {
             <ButtockContraIndication />
             <ButtockPreparation />
             <ButtockRehabilitation />
+            <ConsultationCTA />
           </section>
           <SidebarButtockAugment />
         </div>

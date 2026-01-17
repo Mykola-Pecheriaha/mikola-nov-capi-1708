@@ -6,6 +6,7 @@ import LiposuctionIndicatio from '@/components/Liposuction/LiposuctionIndicatio'
 import LiposuctionPreparation from '@/components/Liposuction/LiposuctionPreparation';
 
 import LiposuctionFAQ from '@/components/Liposuction/LiposuctionFAQ';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 import SidebarLiposuction from '@/components/Liposuction/SidebarLiposuction';
 
 export default function LiposuctionPage(): ReactElement {
@@ -19,6 +20,7 @@ export default function LiposuctionPage(): ReactElement {
             <LiposuctionIndicatio />
             <LiposuctionPreparation />
             <LiposuctionFAQ />
+            <ConsultationCTA />
           </section>
           <SidebarLiposuction />
         </div>

@@ -5,6 +5,7 @@ import Gynecomastia from '@/components/Gynecomastia/Gynecomastia';
 import GinecomastiyaIndications from '@/components/Gynecomastia/GinecomastiyaIndications';
 import GinecomastiyaPreparation from '@/components/Gynecomastia/GinecomastiyaPreparation';
 import GinecomastiyaFAQ from '@/components/Gynecomastia/GinecomastiyaFAQ';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarGynecomastia from '@/components/Gynecomastia/SidebarGynecomastia';
 
@@ -18,6 +19,7 @@ export default function GynecomastiaPage(): ReactElement {
             <GinecomastiyaIndications />
             <GinecomastiyaPreparation />
             <GinecomastiyaFAQ />
+            <ConsultationCTA />
           </section>
           <SidebarGynecomastia />
         </div>

@@ -141,18 +141,6 @@ export function CervicalHumpPreparation() {
             </div>
           </div>
         </div>
-
-        {/* Заклик до дії */}
-        <div className="mt-10 text-center p-10 md:p-8 sm:p-6 bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-md border border-blue-100 dark:border-blue-900 backdrop-blur-sm">
-          <p className="text-xl md:text-lg mb-5 text-gray-800 dark:text-gray-100">
-            Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію.
-          </p>
-          <Link href="/ask-doctor">
-            <button className="bg-blue-500 dark:bg-blue-600 text-white border-none px-7 py-3 text-lg font-semibold rounded-full cursor-pointer transition-all duration-300 shadow-md hover:bg-blue-600 dark:hover:bg-blue-500 hover:-translate-y-0.5 hover:shadow-lg">
-              Зв&apos;язатися з нами
-            </button>
-          </Link>
-        </div>
       </div>
     </section>
   );

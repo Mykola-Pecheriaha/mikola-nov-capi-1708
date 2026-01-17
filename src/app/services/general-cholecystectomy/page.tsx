@@ -4,6 +4,7 @@ import GeneraCholeStart from '@/components/GeneraChole/GeneraCholeStart';
 import GeneraCholeSymtome from '@/components/GeneraChole/GeneraCholeSymtome';
 import GeneraCholeTerapi from '@/components/GeneraChole/GeneraCholeTerapi';
 import GeneraCholeReabil from '@/components/GeneraChole/GeneraCholeReabil';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarGeneraChole from '@/components/GeneraChole/SidebarGeneraChole';
 
@@ -17,6 +18,7 @@ export default function GeneralHerniaPage(): ReactElement {
             <GeneraCholeSymtome />
             <GeneraCholeTerapi />
             <GeneraCholeReabil />
+            <ConsultationCTA />
           </section>
           <SidebarGeneraChole />
         </div>

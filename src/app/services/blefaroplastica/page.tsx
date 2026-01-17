@@ -7,6 +7,7 @@ import BlefaroplasticDetails from '@/components/Blefaroplastic/BlefaroplasticDet
 import BlepharoPreparation from '@/components/Blefaroplastic/BlepharoPreparation';
 
 import BlepharoFAQ from '@/components/Blefaroplastic/BlepharoFAQ';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 import SidebarBlefaroplastic from '@/components/Blefaroplastic/SidebarBlefaroplastic';
 
 export default function GynecomastiaPage(): ReactElement {
@@ -19,6 +20,7 @@ export default function GynecomastiaPage(): ReactElement {
             <BlefaroplasticDetails />
             <BlepharoPreparation />
             <BlepharoFAQ />
+            <ConsultationCTA />
           </section>
           <SidebarBlefaroplastic />
         </div>

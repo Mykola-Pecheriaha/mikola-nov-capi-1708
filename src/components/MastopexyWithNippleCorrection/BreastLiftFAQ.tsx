@@ -155,41 +155,6 @@ export default function BreastLiftFAQ() {
             </div>
           ))}
         </div>
-
-        {/* CTA секція */}
-        <div
-          className="relative rounded-2xl p-8 sm:p-10 lg:p-12 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 overflow-hidden border-t-4 shadow-lg hover:shadow-xl transition-all duration-300"
-          style={{ borderTopColor: '#5A7480' }}
-        >
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <span className="text-5xl sm:text-6xl flex-shrink-0" style={{ color: '#8EAAB8' }}>
-              💬
-            </span>
-
-            <div className="flex-1">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-3">
-                Потрібна консультація?
-              </h3>
-              <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію
-                та підтримку на всіх етапах лікування.
-              </p>
-              <Link href="/ask-doctor">
-                <button
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                  style={{ background: '#8EAAB8' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = '#7a99ab')}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = '#8EAAB8')}
-                >
-                  <span>Звязатися з нами</span>
-                  <span className="text-xl transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`

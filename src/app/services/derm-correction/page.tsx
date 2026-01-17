@@ -3,6 +3,7 @@ import type { ReactElement } from 'react';
 import DermScarCorrectionStart from '@/components/DermScarCorrection/DermScarCorrectionStart';
 import DermScarCorrectionDetails from '@/components/DermScarCorrection/DermScarCorrectionDetails';
 import DermScarCorrectionOper from '@/components/DermScarCorrection/DermScarCorrectionOper';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarDermScarCorrection from '@/components/DermScarCorrection/SidebarDermScarCorrection';
 
@@ -17,6 +18,7 @@ export default function DermCorrectionPage(): ReactElement {
             <section className="md:w-3/4 w-full">
               <DermScarCorrectionDetails />
               <DermScarCorrectionOper />
+              <ConsultationCTA />
             </section>
             <SidebarDermScarCorrection />
           </div>

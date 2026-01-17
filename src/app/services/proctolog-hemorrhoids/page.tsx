@@ -1,18 +1,17 @@
+import type { ReactElement } from 'react';
 
+import ProctoHemorrhoiStart from '@/components/ProctoHemorrhoi/ProctoHemorrhoiStart';
 
-import type { ReactElement } from "react" 
+import ProctoHemorrhoiStages from '@/components/ProctoHemorrhoi/ProctoHemorrhoiStages';
 
-import ProctoHemorrhoiStart from "@/components/ProctoHemorrhoi/ProctoHemorrhoiStart";
+import ProctoHemorrhoiSimptoms from '@/components/ProctoHemorrhoi/ProctoHemorrhoiSimptoms';
 
-import ProctoHemorrhoiStages from "@/components/ProctoHemorrhoi/ProctoHemorrhoiStages";
+import ProctoHemorrhoiTerapi from '@/components/ProctoHemorrhoi/ProctoHemorrhoiTerapi';
 
-import ProctoHemorrhoiSimptoms  from "@/components/ProctoHemorrhoi/ProctoHemorrhoiSimptoms";
+import ProctoHemorrhoiOper from '@/components/ProctoHemorrhoi/ProctoHemorrhoiOper';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
-import ProctoHemorrhoiTerapi  from "@/components/ProctoHemorrhoi/ProctoHemorrhoiTerapi";
-
-import ProctoHemorrhoiOper  from "@/components/ProctoHemorrhoi/ProctoHemorrhoiOper";
-
-import SidebarProctoHemorrhoi from "@/components/ProctoHemorrhoi/SidebarProctoHemorrhoi";
+import SidebarProctoHemorrhoi from '@/components/ProctoHemorrhoi/SidebarProctoHemorrhoi';
 
 export default function ProctologConsultationPage(): ReactElement {
   return (
@@ -21,19 +20,15 @@ export default function ProctologConsultationPage(): ReactElement {
         <ProctoHemorrhoiStart />
         <div className="flex flex-col md:flex-row gap-6 md:gap-4 mt-8">
           <section className="md:w-3/4 w-full">
-
             <ProctoHemorrhoiStages />
             <ProctoHemorrhoiSimptoms />
             <ProctoHemorrhoiTerapi />
             <ProctoHemorrhoiOper />
- 
-            
-
+            <ConsultationCTA />
           </section>
           <SidebarProctoHemorrhoi />
         </div>
       </div>
     </main>
-  )
+  );
 }
-

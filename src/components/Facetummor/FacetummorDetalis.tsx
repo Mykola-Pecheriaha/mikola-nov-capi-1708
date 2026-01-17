@@ -186,18 +186,6 @@ const FacetummorDetalis: React.FC = () => {
             доброякісного характеру утворення.
           </p>
         </div>
-
-        {/* Заклик до дії */}
-        <div className="mt-12 md:mt-16 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-xl p-6 sm:p-8 md:p-10 text-center border-2 border-blue-400 dark:border-blue-600 shadow-lg transition-colors duration-300">
-          <p className="text-base sm:text-lg md:text-xl text-gray-800 dark:text-gray-200 font-medium mb-6 transition-colors duration-300">
-            Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію.
-          </p>
-          <Link href="/ask-doctor">
-            <button className="bg-blue-600 dark:bg-blue-700 hover:bg-blue-700 dark:hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-              Зв&apos;язатися з нами
-            </button>
-          </Link>
-        </div>
       </div>
     </section>
   );

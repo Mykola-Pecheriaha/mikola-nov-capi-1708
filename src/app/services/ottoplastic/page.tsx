@@ -6,6 +6,7 @@ import OttoDetails from '@/components/Ottoplastic/OttoDetails';
 
 import OttoPreparation from '@/components/Ottoplastic/OttoPreparation';
 import OttoFAQ from '@/components/Ottoplastic/OttoFAQ';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarOttoplastic from '@/components/Ottoplastic/SidebarOttoplastic';
 
@@ -19,6 +20,7 @@ export default function OttoplasticPage(): ReactElement {
             <OttoDetails />
             <OttoPreparation />
             <OttoFAQ />
+            <ConsultationCTA />
           </section>
           <SidebarOttoplastic />
         </div>

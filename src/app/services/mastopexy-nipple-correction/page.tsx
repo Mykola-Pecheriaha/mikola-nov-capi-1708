@@ -6,6 +6,7 @@ import BreastLiftNippleContraIndications from '@/components/MastopexyWithNippleC
 import BreastLiftNipplePreparation from '@/components/MastopexyWithNippleCorrection/BreastLiftNipplePreparation';
 import MastopexyInfo from '@/components/MastopexyWithNippleCorrection/MastopexyInfo';
 import BreastLiftFAQ from '@/components/MastopexyWithNippleCorrection/BreastLiftFAQ';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarMastopexyWithNippleCorrection from '@/components/MastopexyWithNippleCorrection/SidebarMastopexyWithNippleCorrection';
 
@@ -21,6 +22,7 @@ export default function MastopexyWithNippleCorrectionPage(): ReactElement {
             <BreastLiftNipplePreparation />
             <MastopexyInfo />
             <BreastLiftFAQ />
+            <ConsultationCTA />
           </section>
           <SidebarMastopexyWithNippleCorrection />
         </div>

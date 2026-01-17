@@ -4,8 +4,7 @@ import FaceliftSectionStart from '@/components/FaceliftSection/FaceliftSectionSt
 import FaceliftConsultation from '@/components/FaceliftSection/FaceliftConsultation';
 import FaceliftPreparation from '@/components/FaceliftSection/FaceliftPreparation';
 import FaceliftFAQ from '@/components/FaceliftSection/FaceliftFAQ';
-
-// import GinecomastiyaIndications from '@/components/Gynecomastia/GinecomastiyaIndications';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarFaceliftSectionStart from '@/components/FaceliftSection/SidebarFaceliftSectionStart';
 
@@ -19,6 +18,7 @@ export default function GynecomastiaPage(): ReactElement {
             <FaceliftConsultation />
             <FaceliftPreparation />
             <FaceliftFAQ />
+            <ConsultationCTA />
           </section>
           <SidebarFaceliftSectionStart />
         </div>

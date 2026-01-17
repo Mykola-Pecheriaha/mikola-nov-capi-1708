@@ -1,16 +1,15 @@
+import type { ReactElement } from 'react';
 
+import ProctoСoccyxСystStart from '@/components/ProctoСoccyxСyst/ProctoСoccyxСystStart';
 
-import type { ReactElement } from "react" 
+import ProctoСoccyxСystSimptom from '@/components/ProctoСoccyxСyst/ProctoСoccyxСystSimptom';
 
-import ProctoСoccyxСystStart from "@/components/ProctoСoccyxСyst/ProctoСoccyxСystStart";
+import ProctoСoccyxСystTerapi from '@/components/ProctoСoccyxСyst/ProctoСoccyxСystTerapi';
 
-import ProctoСoccyxСystSimptom from "@/components/ProctoСoccyxСyst/ProctoСoccyxСystSimptom";
+import ProctoСoccyxСystRelapse from '@/components/ProctoСoccyxСyst/ProctoСoccyxСystRelapse';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
-import ProctoСoccyxСystTerapi from "@/components/ProctoСoccyxСyst/ProctoСoccyxСystTerapi";
-
-import ProctoСoccyxСystRelapse from "@/components/ProctoСoccyxСyst/ProctoСoccyxСystRelapse";
-
-import SidebarСoccyxСyst from "@/components/ProctoСoccyxСyst/SidebarСoccyxСyst";
+import SidebarСoccyxСyst from '@/components/ProctoСoccyxСyst/SidebarСoccyxСyst';
 
 export default function ProctologConsultationPage(): ReactElement {
   return (
@@ -19,17 +18,15 @@ export default function ProctologConsultationPage(): ReactElement {
         <ProctoСoccyxСystStart />
         <div className="flex flex-col md:flex-row gap-6 md:gap-4 mt-8">
           <section className="md:w-3/4 w-full">
-
             <ProctoСoccyxСystSimptom />
-            <ProctoСoccyxСystTerapi/>
+            <ProctoСoccyxСystTerapi />
             <ProctoСoccyxСystRelapse />
+            <ConsultationCTA />
             {/* <ProctoAnalFissureTerapi /> */}
-
           </section>
           <SidebarСoccyxСyst />
         </div>
       </div>
     </main>
-  )
+  );
 }
-

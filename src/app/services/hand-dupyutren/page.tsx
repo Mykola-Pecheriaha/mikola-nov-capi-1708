@@ -1,13 +1,14 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from 'react';
 
-import Dupuytren from "@/components/Dupuytren/Dupuytren";
-import PrychynyDyupyitrena from "@/components/Dupuytren/PrychynyDyupyitrena";
-import StagesDupuytren from "@/components/Dupuytren/StagesDupuytren";
-import ClinicsDupuytren from "@/components/Dupuytren/ClinicsDupuytren";
-import DiagnosticDupuytren from "@/components/Dupuytren/DiagnosticDupuytren";
-import TreatmentDupuytren from "@/components/Dupuytren/TreatmentDupuytren";
-import RehabilitationDupuytren from "@/components/Dupuytren/RehabilitationDupuytren";
-import SidebarHandDupuytren from "@/components/Dupuytren/SidebarHandDupuytren";
+import Dupuytren from '@/components/Dupuytren/Dupuytren';
+import PrychynyDyupyitrena from '@/components/Dupuytren/PrychynyDyupyitrena';
+import StagesDupuytren from '@/components/Dupuytren/StagesDupuytren';
+import ClinicsDupuytren from '@/components/Dupuytren/ClinicsDupuytren';
+import DiagnosticDupuytren from '@/components/Dupuytren/DiagnosticDupuytren';
+import TreatmentDupuytren from '@/components/Dupuytren/TreatmentDupuytren';
+import RehabilitationDupuytren from '@/components/Dupuytren/RehabilitationDupuytren';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
+import SidebarHandDupuytren from '@/components/Dupuytren/SidebarHandDupuytren';
 
 export default function DupuytrenPage(): ReactElement {
   return (
@@ -22,10 +23,11 @@ export default function DupuytrenPage(): ReactElement {
             <DiagnosticDupuytren />
             <TreatmentDupuytren />
             <RehabilitationDupuytren />
+            <ConsultationCTA />
           </section>
           <SidebarHandDupuytren />
         </div>
       </div>
     </main>
-  )
+  );
 }

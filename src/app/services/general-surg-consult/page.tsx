@@ -1,12 +1,11 @@
+import type { ReactElement } from 'react';
 
-import type { ReactElement } from "react" 
+import GeneralSurgConsult from '@/components/GeneralSurgConsult/GeneralSurgConsult';
+import GeneralSurgDiagnos from '@/components/GeneralSurgConsult/GeneralSurgDiagnos';
+import GeneralSurgUrgent from '@/components/GeneralSurgConsult/GeneralSurgUrgent';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
-import GeneralSurgConsult from "@/components/GeneralSurgConsult/GeneralSurgConsult";
-import GeneralSurgDiagnos from "@/components/GeneralSurgConsult/GeneralSurgDiagnos";
-import GeneralSurgUrgent from "@/components/GeneralSurgConsult/GeneralSurgUrgent";
-
-
-import SidebarGeneralSurgConsult from "@/components/GeneralSurgConsult/SidebarGeneralSurgConsult ";
+import SidebarGeneralSurgConsult from '@/components/GeneralSurgConsult/SidebarGeneralSurgConsult ';
 
 export default function GeneralSurgConsultPage(): ReactElement {
   return (
@@ -15,16 +14,13 @@ export default function GeneralSurgConsultPage(): ReactElement {
         <GeneralSurgConsult />
         <div className="flex flex-col md:flex-row gap-6 md:gap-4 mt-8">
           <section className="md:w-3/4 w-full">
-          <GeneralSurgDiagnos/>
-          <GeneralSurgUrgent />
-            
-
-
+            <GeneralSurgDiagnos />
+            <GeneralSurgUrgent />
+            <ConsultationCTA />
           </section>
           <SidebarGeneralSurgConsult />
         </div>
       </div>
     </main>
-  )
+  );
 }
-

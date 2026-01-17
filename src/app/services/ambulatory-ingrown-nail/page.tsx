@@ -4,6 +4,7 @@ import NailCorrectionStart from '@/components/NailCorrection/NailCorrectionStart
 import NailCorrectionClinic from '@/components/NailCorrection/NailCorrectionClinic';
 import NailCorrectionTerapi from '@/components/NailCorrection/NailCorrectionTerapi';
 import NailCorrectionReabil from '@/components/NailCorrection/NailCorrectionReabil';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarNailCorrection from '@/components/NailCorrection/SidebarNailCorrection';
 
@@ -19,6 +20,7 @@ export default function DermCorrectionPage(): ReactElement {
               <NailCorrectionClinic />
               <NailCorrectionTerapi />
               <NailCorrectionReabil />
+              <ConsultationCTA />
             </section>
             <SidebarNailCorrection />
           </div>

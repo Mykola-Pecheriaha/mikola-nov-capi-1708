@@ -258,18 +258,6 @@ const AbdominoGernReabill: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Заклик до дії */}
-        <div className="mt-8 sm:mt-10 text-center p-6 sm:p-8 md:p-10 bg-blue-100/60 dark:bg-blue-900/40 rounded-2xl shadow-lg">
-          <p className="text-lg sm:text-xl mb-5 text-gray-800 dark:text-gray-100 font-medium">
-            Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію.
-          </p>
-          <Link href="/ask-doctor">
-            <button className="bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white border-none px-6 sm:px-7 py-3 text-base sm:text-lg font-semibold rounded-full cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
-              Зв&apos;язатися з нами
-            </button>
-          </Link>
-        </div>
       </div>
     </section>
   );

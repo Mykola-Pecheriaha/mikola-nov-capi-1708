@@ -217,10 +217,10 @@ export function LiposuctionFAQ({ backgroundColor }: LiposuctionFAQProps) {
 
         <div className="mb-10 text-lg leading-relaxed text-gray-700 dark:text-gray-300 text-center max-w-[900px] mx-auto px-5">
           <p>
-            Ліпосакція — це не просто хірургічна процедура, а естетичне вдосконалення тіла. Вона спрямована на
-            делікатне моделювання фігури: усунення стійких жирових відкладень для досягнення бажаної форми та
-            пропорцій. Процедура проводиться на різних зонах — живіт, стегна, боки, руки, підборіддя — щоб відкрити
-            природну красу контурів.
+            Ліпосакція — це не просто хірургічна процедура, а естетичне вдосконалення тіла. Вона
+            спрямована на делікатне моделювання фігури: усунення стійких жирових відкладень для
+            досягнення бажаної форми та пропорцій. Процедура проводиться на різних зонах — живіт,
+            стегна, боки, руки, підборіддя — щоб відкрити природну красу контурів.
           </p>
         </div>
 
@@ -236,7 +236,9 @@ export function LiposuctionFAQ({ backgroundColor }: LiposuctionFAQProps) {
                 className="p-5 flex justify-between items-center cursor-pointer bg-white dark:bg-gray-800 hover:bg-blue-50/50 dark:hover:bg-gray-700/50 transition-colors duration-300"
                 onClick={() => toggleItem(index)}
               >
-                <h3 className="m-0 text-lg md:text-xl text-gray-800 dark:text-gray-100 font-semibold">{item.question}</h3>
+                <h3 className="m-0 text-lg md:text-xl text-gray-800 dark:text-gray-100 font-semibold">
+                  {item.question}
+                </h3>
                 <span className="text-blue-500 dark:text-blue-400 transition-transform duration-300 flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 hover:bg-blue-200 dark:hover:bg-blue-800/50 hover:scale-110">
                   {openItem === index ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
                 </span>
@@ -257,18 +259,6 @@ export function LiposuctionFAQ({ backgroundColor }: LiposuctionFAQProps) {
               )}
             </div>
           ))}
-        </div>
-
-        {/* Заклик до дії */}
-        <div className="mt-10 text-center p-10 md:p-8 sm:p-6 bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-md border border-blue-100 dark:border-blue-900 backdrop-blur-sm">
-          <p className="text-xl md:text-lg mb-5 text-gray-800 dark:text-gray-100">
-            Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію.
-          </p>
-          <Link href="/ask-doctor">
-            <button className="bg-blue-500 dark:bg-blue-600 text-white border-none px-7 py-3 text-lg font-semibold rounded-full cursor-pointer transition-all duration-300 shadow-md hover:bg-blue-600 dark:hover:bg-blue-500 hover:-translate-y-0.5 hover:shadow-lg">
-              Зв&apos;язатися з нами
-            </button>
-          </Link>
         </div>
       </div>
 

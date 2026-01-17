@@ -1,14 +1,13 @@
+import type { ReactElement } from 'react';
 
+import ProctoHendConsul from '@/components/ProctoSurgeonConsultation/ProctoHendConsul';
 
-import type { ReactElement } from "react" 
+import ProctoSimptomConsul from '@/components/ProctoSurgeonConsultation/ProctoSimptomConsul';
 
-import ProctoHendConsul from "@/components/ProctoSurgeonConsultation/ProctoHendConsul";
+import ProctoPreparationConsul from '@/components/ProctoSurgeonConsultation/ProctoPreparationConsul';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
-import ProctoSimptomConsul from "@/components/ProctoSurgeonConsultation/ProctoSimptomConsul";
-
-import ProctoPreparationConsul from "@/components/ProctoSurgeonConsultation/ProctoPreparationConsul";
-
-import SidebarProctoConsult from "@/components/ProctoSurgeonConsultation/SidebarProctoConsult";
+import SidebarProctoConsult from '@/components/ProctoSurgeonConsultation/SidebarProctoConsult';
 
 export default function ProctologConsultationPage(): ReactElement {
   return (
@@ -17,18 +16,14 @@ export default function ProctologConsultationPage(): ReactElement {
         <ProctoHendConsul />
         <div className="flex flex-col md:flex-row gap-6 md:gap-4 mt-8">
           <section className="md:w-3/4 w-full">
-
             <ProctoSimptomConsul />
             <ProctoPreparationConsul />
+            <ConsultationCTA />
             {/* <PhleboAtmentConsul /> */}
- 
-            
-
           </section>
           <SidebarProctoConsult />
         </div>
       </div>
     </main>
-  )
+  );
 }
-

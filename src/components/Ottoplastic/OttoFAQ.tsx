@@ -242,18 +242,6 @@ export default function OttoFAQ() {
             </div>
           ))}
         </div>
-
-        {/* Заклик до дії */}
-        <div className="mt-12 md:mt-16 text-center bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-8 md:p-10 shadow-md">
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6">
-            Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію.
-          </p>
-          <Link href="/ask-doctor">
-            <button className="bg-blue-800 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 text-base md:text-lg">
-              Зв&apos;язатися з нами
-            </button>
-          </Link>
-        </div>
       </div>
 
       <style jsx>{`

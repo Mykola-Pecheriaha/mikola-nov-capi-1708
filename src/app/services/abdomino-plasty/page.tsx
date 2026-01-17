@@ -4,6 +4,7 @@ import AbdominoplastyStart from '@/components/Abdominoplasty/AbdominoplastyStart
 import AbdominoDetails from '@/components/Abdominoplasty/AbdominoDetails';
 import AbdominoPreparation from '@/components/Abdominoplasty/AbdominoPreparation';
 import AbdominoFAQ from '@/components/Abdominoplasty/AbdominoFAQ';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarAbdominoplastyt from '@/components/Abdominoplasty/SidebarAbdominoplastyt';
 
@@ -19,6 +20,7 @@ export default function AbdominoplastyPage(): ReactElement {
               <AbdominoDetails />
               <AbdominoPreparation />
               <AbdominoFAQ />
+              <ConsultationCTA />
             </section>
             <SidebarAbdominoplastyt />
           </div>

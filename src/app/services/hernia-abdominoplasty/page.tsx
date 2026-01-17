@@ -3,6 +3,7 @@ import type { ReactElement } from 'react';
 import AbdominoGernStart from '@/components/AbdominoGern/AbdominoGernStart';
 import AbdominoGernOper from '@/components/AbdominoGern/AbdominoGernOper';
 import AbdominoGernReabill from '@/components/AbdominoGern/AbdominoGernReabill';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarAbdominoGern from '@/components/AbdominoGern/SidebarAbdominoGern';
 
@@ -16,6 +17,7 @@ export default function GeneralHerniaPage(): ReactElement {
           <section className="md:w-3/4 w-full">
             <AbdominoGernOper />
             <AbdominoGernReabill />
+            <ConsultationCTA />
           </section>
           <SidebarAbdominoGern />
         </div>

@@ -3,6 +3,7 @@ import type { ReactElement } from 'react';
 import FacetummorStart from '@/components/Facetummor/FacetummorStart';
 import FacetummorDetalis from '@/components/Facetummor/FacetummorDetalis';
 import FacetummorDiagnoz from '@/components/Facetummor/FacetummorDiagnoz';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarFacetummor from '@/components/Facetummor/SidebarFacetummor';
 
@@ -17,6 +18,7 @@ export default function FacetummorPage(): ReactElement {
             <section className="md:w-3/4 w-full">
               <FacetummorDiagnoz />
               <FacetummorDetalis />
+              <ConsultationCTA />
             </section>
             <SidebarFacetummor />
           </div>

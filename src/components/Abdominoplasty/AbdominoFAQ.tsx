@@ -399,18 +399,6 @@ const AbdominoFAQ: React.FC<AbdominoFAQProps> = () => {
             )}
           </div>
         </div>
-
-        {/* Заклик до дії */}
-        <div className="text-center bg-gradient-to-r from-blue-50 to-white dark:from-blue-950/40 dark:to-gray-900 p-6 md:p-8 rounded-lg border border-blue-200 dark:border-blue-800 shadow-sm dark:shadow-md">
-          <p className="text-base md:text-lg font-medium text-gray-800 dark:text-gray-300 mb-6">
-            Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію.
-          </p>
-          <Link href="/ask-doctor">
-            <button className="bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-              Зв&apos;язатися з нами
-            </button>
-          </Link>
-        </div>
       </div>
     </section>
   );

@@ -1,18 +1,17 @@
+import type { ReactElement } from 'react';
 
+import ProctoAnalFissureStart from '@/components/ProctoAnalFissure/ProctoAnalFissureStart';
 
-import type { ReactElement } from "react" 
+import ProctoAnalFissureSimptom from '@/components/ProctoAnalFissure/ProctoAnalFissureSimptom';
 
-import ProctoAnalFissureStart from "@/components/ProctoAnalFissure/ProctoAnalFissureStart";
+import ProctoAnalFissureComplic from '@/components/ProctoAnalFissure/ProctoAnalFissureComplic';
 
-import ProctoAnalFissureSimptom from "@/components/ProctoAnalFissure/ProctoAnalFissureSimptom";
+import ProctoAnalFissureDiagnos from '@/components/ProctoAnalFissure/ProctoAnalFissureDiagnos';
 
-import ProctoAnalFissureComplic from "@/components/ProctoAnalFissure/ProctoAnalFissureComplic";
+import ProctoAnalFissureTerapi from '@/components/ProctoAnalFissure/ProctoAnalFissureTerapi';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
-import ProctoAnalFissureDiagnos from "@/components/ProctoAnalFissure/ProctoAnalFissureDiagnos";
-
-import ProctoAnalFissureTerapi  from "@/components/ProctoAnalFissure/ProctoAnalFissureTerapi";
-
-import SidebarAnalFissure from "@/components/ProctoAnalFissure/SidebarAnalFissure";
+import SidebarAnalFissure from '@/components/ProctoAnalFissure/SidebarAnalFissure';
 
 export default function ProctologConsultationPage(): ReactElement {
   return (
@@ -21,19 +20,15 @@ export default function ProctologConsultationPage(): ReactElement {
         <ProctoAnalFissureStart />
         <div className="flex flex-col md:flex-row gap-6 md:gap-4 mt-8">
           <section className="md:w-3/4 w-full">
-
             <ProctoAnalFissureSimptom />
-            <ProctoAnalFissureComplic/>
+            <ProctoAnalFissureComplic />
             <ProctoAnalFissureDiagnos />
             <ProctoAnalFissureTerapi />
- 
-            
-
+            <ConsultationCTA />
           </section>
           <SidebarAnalFissure />
         </div>
       </div>
     </main>
-  )
+  );
 }
-

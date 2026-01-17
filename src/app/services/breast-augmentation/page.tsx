@@ -5,6 +5,7 @@ import BreastProblem from '@/components/BreastAugmentation/BreastProblem';
 import AugmentationConsultation from '@/components/BreastAugmentation/AugmentationConsultation';
 import BreastAugmentationPreparation from '@/components/BreastAugmentation/BreastAugmentationPreparation';
 import BreastQuestion from '@/components/BreastAugmentation/BreastQuestion';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarBreastAugment from '@/components/BreastAugmentation/SidebarBreastAugment';
 
@@ -19,6 +20,7 @@ export default function ProctologConsultationPage(): ReactElement {
             <AugmentationConsultation />
             <BreastAugmentationPreparation />
             <BreastQuestion />
+            <ConsultationCTA />
           </section>
           <SidebarBreastAugment />
         </div>

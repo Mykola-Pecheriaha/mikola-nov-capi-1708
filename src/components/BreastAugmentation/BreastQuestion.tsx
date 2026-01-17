@@ -302,19 +302,6 @@ const BreastQuestion: React.FC<BreastQuestionProps> = ({ backgroundColor, onCont
             );
           })}
         </div>
-
-        {/* Заклик до дії */}
-        <div className="mt-8 md:mt-12 text-center p-6 md:p-10 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-800 rounded-2xl shadow-xl">
-          <p className="text-base md:text-lg text-white mb-4 md:mb-6 leading-relaxed">
-            Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію.
-          </p>
-          <button
-            className="bg-white text-blue-700 dark:bg-gray-100 dark:text-blue-800 px-6 md:px-8 py-3 md:py-3.5 text-sm md:text-base font-semibold rounded-full shadow-lg hover:bg-gray-50 dark:hover:bg-gray-200 hover:-translate-y-0.5 transition-all duration-300"
-            onClick={onContactClick}
-          >
-            Зв&apos;язатися з нами
-          </button>
-        </div>
       </div>
     </section>
   );

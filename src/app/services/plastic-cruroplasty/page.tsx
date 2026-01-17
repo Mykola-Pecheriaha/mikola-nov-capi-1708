@@ -5,6 +5,7 @@ import CruroplastyIndication from '@/components/Cruroplasty/CruroplastyIndicatio
 import CruroplastyPreparation from '@/components/Cruroplasty/CruroplastyPreparation';
 import CruroplastyReabilitatio from '@/components/Cruroplasty/CruroplastyReabilitatio';
 import CruroplastyLypofiling from '@/components/Cruroplasty/CruroplastyLypofiling';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 import SidebarСruroplasty from '@/components/Cruroplasty/SidebarСruroplasty';
 
@@ -19,6 +20,7 @@ export default function CruroplastyPage(): ReactElement {
             <CruroplastyPreparation />
             <CruroplastyLypofiling />
             <CruroplastyReabilitatio />
+            <ConsultationCTA />
           </section>
           / <SidebarСruroplasty />
         </div>

@@ -4,8 +4,8 @@ import CervicalHumpRemoval from '@/components/CervicalHumpRemoval/CervicalHumpRe
 import CervicalHumpDetails from '@/components/CervicalHumpRemoval/CervicalHumpDetails';
 import CervicalHumpIndicatio from '@/components/CervicalHumpRemoval/CervicalHumpIndicatio';
 import CervicalHumpPreparation from '@/components/CervicalHumpRemoval/CervicalHumpPreparation';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
-// import LiposuctionFAQ from '@/components/Liposuction/LiposuctionFAQ';
 import SidebarCervicalHumpRemoval from '@/components/CervicalHumpRemoval/SidebarCervicalHumpRemoval';
 
 export default function CervicalHumpRemovalPage(): ReactElement {
@@ -18,7 +18,7 @@ export default function CervicalHumpRemovalPage(): ReactElement {
             <CervicalHumpDetails />
             <CervicalHumpIndicatio />
             <CervicalHumpPreparation />
-            {/* <LiposuctionFAQ /> */}
+            <ConsultationCTA />
           </section>
           <SidebarCervicalHumpRemoval />
         </div>
