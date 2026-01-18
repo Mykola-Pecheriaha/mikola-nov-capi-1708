@@ -135,18 +135,6 @@ const GinecomastiyaFAQ: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Заклик до дії */}
-        <div className="text-center p-8 md:p-10 bg-blue-50 dark:bg-gray-700/50 rounded-2xl shadow-lg border border-blue-200 dark:border-blue-900/30">
-          <p className="text-lg md:text-xl text-blue-900 dark:text-blue-100 mb-6 leading-relaxed">
-            Маєте додаткові запитання? Наші спеціалісти готові надати вам детальну консультацію.
-          </p>
-          <Link href="/ask-doctor">
-            <button className="bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 text-base md:text-lg">
-              Зв&apos;язатися з нами
-            </button>
-          </Link>
-        </div>
       </div>
 
       <style jsx>{`
