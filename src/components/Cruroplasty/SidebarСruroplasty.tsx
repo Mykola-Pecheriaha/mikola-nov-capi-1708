@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 const menu = [
-  { label: 'Пластика грудей', href: '/plastic-surg-consult/breast' },
+  { label: 'Пластика грудей', href: '/services/breast-plastic-surgery' },
   { label: 'Збільшення грудей', href: '/services/breast-augmentation' },
   {
     label: 'Видалення або заміна імплантів',
@@ -13,7 +13,7 @@ const menu = [
     href: '/services/mastopexy-nipple-correction',
   },
   { label: 'Гінекомастія', href: '/services/gynecomastia' },
-  { label: 'Пластика обличча', href: '/services/face' },
+  { label: 'Пластика обличча', href: '/services/face-plastic-surgery' },
   { label: 'Підтяжка обличчя', href: '/services/face-lift' },
   { label: 'Блефаропластика', href: '/services/blefaroplastica' },
   { label: 'Пластика зовнішнього вуха', href: '/services/ottoplastic' },

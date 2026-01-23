@@ -1,15 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import { Phone, Calendar, Clock, CheckCircle } from 'lucide-react';
 
 const ConsultationCTA: React.FC = () => {
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
-
-  const openContactForm = () => {
-    // Можна додати логіку для відкриття форми або навігації
-    console.log('Записатися на консультацію');
-  };
-
   return (
     <section className="w-full bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 py-8 md:py-12">
       <div className="container mx-auto px-4 md:px-6">
@@ -71,14 +65,14 @@ const ConsultationCTA: React.FC = () => {
 
             {/* Секція дій */}
             <div className="flex flex-col items-center justify-center text-center md:border-l border-blue-200 dark:border-blue-700 md:pl-8 md:py-0">
-              <button
-                onClick={openContactForm}
+              <Link
+                href="/medical-form"
                 className="w-full md:w-auto px-6 md:px-8 py-3 md:py-4 mb-6 bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 text-base md:text-lg"
               >
                 <Calendar size={20} />
                 <span className="hidden sm:inline">Записатися на консультацію</span>
                 <span className="sm:hidden">Записатися</span>
-              </button>
+              </Link>
 
               {/* Контактна інформація */}
               <div className="space-y-2 md:space-y-3">

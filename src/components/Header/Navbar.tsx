@@ -183,7 +183,7 @@ const navigation: MenuItem[] = [
   },
   {
     name: 'Про клініку',
-    href: '/about',
+    href: '/department',
     submenu: [
       { name: 'Відділення хірургічне', href: '/about/department' },
       { name: 'Операційна', href: '/about/operating-room' },
@@ -377,19 +377,29 @@ export default function Navbar() {
             <div className="divide-y divide-white/10 pt-12 px-4">
               {navigation.map((item) => (
                 <div key={item.name} className="py-2">
-                  <button
-                    onClick={() => handleMenuItemClick(item)}
-                    className="w-full px-0 py-2 flex items-center justify-between text-white hover:text-white/80"
-                  >
-                    <span className="text-sm font-medium">{item.name}</span>
-                    {item.submenu && (
-                      <ChevronRightIcon
-                        className={`h-5 w-5 transition-transform ${
-                          activeSubmenu === item.name ? 'rotate-90' : ''
-                        }`}
-                      />
-                    )}
-                  </button>
+                  {item.submenu ? (
+                    <button
+                      onClick={() => handleMenuItemClick(item)}
+                      className="w-full px-0 py-2 flex items-center justify-between text-white hover:text-white/80"
+                    >
+                      <span className="text-sm font-medium">{item.name}</span>
+                      {item.submenu && (
+                        <ChevronRightIcon
+                          className={`h-5 w-5 transition-transform ${
+                            activeSubmenu === item.name ? 'rotate-90' : ''
+                          }`}
+                        />
+                      )}
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={closeMobileMenu}
+                      className="w-full px-0 py-2 flex items-center justify-between text-white hover:text-white/80 text-sm font-medium block"
+                    >
+                      <span>{item.name}</span>
+                    </Link>
+                  )}
                   {item.submenu && activeSubmenu === item.name && (
                     <div className="bg-white/10 py-2">
                       {item.submenu.map((subItem) => (
