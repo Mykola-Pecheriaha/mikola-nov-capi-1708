@@ -184,11 +184,6 @@ const navigation: MenuItem[] = [
   {
     name: 'Про клініку',
     href: '/department',
-    submenu: [
-      { name: 'Відділення хірургічне', href: '/about/department' },
-      { name: 'Операційна', href: '/about/operating-room' },
-      { name: 'Обладнання', href: '/about/equipment' },
-    ],
   },
   {
     name: 'Контакти',
