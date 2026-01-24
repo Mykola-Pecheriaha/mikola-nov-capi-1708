@@ -5,6 +5,7 @@ import ProctologyCard from "@/components/Services/ProctologyCard";
 import GeneralSurgeryCard from "@/components/Services/GeneralSurgeryCard";
 import HandSurgeryCard from "@/components/Services/HandSurgeryCard";
 import AmbulatorySurgeryCard from "@/components/Services/AmbulatorySurgeryCard";
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 export default function ServicesPage(): ReactElement {
   return (
@@ -18,6 +19,7 @@ export default function ServicesPage(): ReactElement {
   <HandSurgeryCard />
   <AmbulatorySurgeryCard />
       </div>
+      <ConsultationCTA />
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 export default function ProctologyPage(): ReactElement {
   return (
@@ -29,6 +30,7 @@ export default function ProctologyPage(): ReactElement {
           </li>
         </ul>
       </div>
+      <ConsultationCTA />
     </main>
   );
 }
