@@ -1,4 +1,4 @@
-import PlasticSurgConsult from "@/components/PlasticSurgConsult/PlasticSurgConsult";
+import PlasticSurgConsult from '@/components/PlasticSurgConsult/PlasticSurgConsult';
 import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 export default function PlasticSurgConsultPage() {

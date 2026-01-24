@@ -1,4 +1,4 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from 'react';
 import ConsultationCTA from '@/components/About/ConsultationCTA';
 
 export default function HemorrhoidTreatmentPage(): ReactElement {
@@ -8,5 +8,5 @@ export default function HemorrhoidTreatmentPage(): ReactElement {
       {/* <Services /> */}
       <ConsultationCTA />
     </main>
-  )
+  );
 }
