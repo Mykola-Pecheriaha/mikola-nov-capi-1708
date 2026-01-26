@@ -271,7 +271,7 @@ const blogPosts: BlogPost[] = [
 
 У таких випадках операція є не альтернативою спорту, а умовою для його безпечного повернення.
 
-[imgs:/images/blog/abdomino/abdomsno36.jpg|/images/blog/abdomino/abdomsno5.jpg]
+[imgs:/images/blog/abdomino/abdomsno5.jpg]
 
 АБДОМІНОПЛАСТИКА ЯК ІНВЕСТИЦІЯ В ЯКІСТЬ ЖИТТЯ
 
@@ -311,6 +311,111 @@ const blogPosts: BlogPost[] = [
     category: 'Пластична хірургія',
     image: '/images/abdominoplasty/abdominoplastic1.jpg',
     readTime: '14 хв',
+  },
+  {
+    id: 9,
+    title: 'Клімактеричний або «вдовиний» горб: причини, наслідки та сучасні підходи до лікування',
+    excerpt:
+      'Локальні жирові відкладення в зоні нижнього шийного та верхнього грудного відділів хребта — проблема медична, а не тільки естетична.',
+    content: `Локальні жирові відкладення в зоні нижнього шийного та верхнього грудного відділів хребта в побуті називають «холкою», «вдовиним» або клімактеричним горбом. Це ущільнення добре помітне візуально й з часом може призводити до формування сутулості та згорбленої фігури. Найчастіше таке відхилення спостерігається у жінок певного віку, особливо в період гормональної перебудови організму.
+
+Окрім естетичного дискомфорту, клімактеричний горб є медичною проблемою, що може впливати на роботу хребта, судин, м'язів та внутрішніх органів.
+
+[img:/images/blog/cervical-hump/cervical-hump7.jpg]
+
+ПРИЧИНИ ФОРМУВАННЯ «ВДОВИНОГО» ГОРБА
+
+Основною ланкою в розвитку цієї патології є гормональний дисбаланс, однак існує цілий комплекс чинників, які сприяють утворенню жирового валика в комірцевій зоні:
+
+- Порушення гормонального фону. У період клімаксу знижується синтез жіночих гормонів, що сприяє посиленому накопиченню жирової тканини.
+- Хвороба Іценка–Кушинга. Супроводжується надмірним утворенням гормонів наднирковими залозами, що змінює розподіл жиру в організмі.
+- Надмірна маса тіла. Часто поєднується з гормональними порушеннями та посилює локальні жирові відкладення.
+- Генетична схильність. Якщо в родині вже були подібні зміни, ризик їх появи значно зростає.
+- Травми хребта. Обмеження рухливості після травм сприяє застою та накопиченню жиру в комірцевій зоні.
+- Остеопороз. Нестача кальцію призводить до деформацій хребта.
+- Шийний остеохондроз. Дегенеративні зміни та відкладення солей можуть супроводжуватися формуванням жирового валика.
+- Неправильна постава та малорухливий спосіб життя. Особливо під час тривалої роботи за комп'ютером.
+
+
+[imgs:/images/blog/cervical-hump/cervical-hump.jpg|/images/blog/cervical-hump/cervical-hump2.jpg]
+
+ЧИМ НЕБЕЗПЕЧНИЙ КЛІМАКТЕРИЧНИЙ ГОРБ
+
+На перший погляд «вдовиний» горб здається лише косметичним дефектом. Проте насправді це стан, який може значно погіршити якість життя.
+
+Скупчення жиру тисне на м'язи, кісткові структури та судини, що призводить до:
+- атрофії м'язів у проблемній зоні;
+- прогресуючого викривлення хребта;
+- порушення кровотоку до головного мозку;
+- хронічної втоми, дратівливості;
+- постійних болів у шиї та верхній частині спини.
+
+Зі збільшенням горба порушується венозний та лімфатичний відтік, що ще більше посилює застійні явища.
+
+СТАДІЇ РОЗВИТКУ «ВДОВИНОГО» ГОРБА
+
+Початкова стадія
+
+З'являються невеликі ущільнення в комірцевій зоні без болю та дискомфорту. Турбують переважно естетичні зміни.
+
+Виражена стадія
+
+Горб стає помітним. З'являються періодичні болі, відчуття скутості, мігрені, дискомфорт під час рухів шиєю та плечима.
+
+Запущена стадія
+
+Виникають запаморочення, порушення мозкового кровообігу, зниження чутливості в проблемній зоні, постійний головний біль, шум у вухах.
+
+[img:/images/blog/cervical-hump/cervical-hump6.jpg]
+
+ЯК ЗМІНЮЄТЬСЯ ПОСТАВА ПРИ ПРОГРЕСУВАННІ ХВОРОБИ
+
+З часом у пацієнта поступово змінюється постава:
+- з'являється сутулість;
+- підборіддя опускається до грудей;
+- шия висувається вперед;
+- може випинатися живіт і посилюватися вигин у попереку.
+
+Організм намагається компенсувати неправильне положення тіла, що призводить до м'язових спазмів. Людина мимоволі обирає «зручні» пози, які лише погіршують ситуацію.
+
+Такі зміни впливають на міжхребцеві диски, можуть зменшувати об'єм легень, створювати додаткове навантаження на серце, порушувати лімфовідтік і сприяти розвитку застійних процесів. Усе це є серйозним приводом для звернення до лікаря.
+
+[img:/images/blog/cervical-hump/cervical-hump11.jpg]
+
+ЛІКУВАННЯ КЛІМАКТЕРИЧНОГО («ВДОВИНОГО») ГОРБА
+
+Консервативне лікування
+
+Застосовується на ранніх етапах, коли жировий валик ще невеликий і лише починає формуватися.
+
+До таких методів належать:
+- лікувальна фізкультура, гімнастика, йога;
+- плавання 2–3 рази на тиждень;
+- корекція постави;
+- масаж, мануальна терапія;
+- фізіотерапія;
+- нормалізація ваги та обміну речовин.
+
+Важливо розуміти: вправи та консервативні методи не завжди здатні повністю прибрати вже сформований горб. Вони ефективні для сповільнення його росту, зменшення болю, покращення кровообігу та обміну речовин.
+
+Мануальна терапія може зняти м'язові спазми та частково скоригувати положення хребців, але жирові відкладення вона не усуває радикально.
+
+Радикальне вирішення проблеми
+
+Якщо «вдовиний» горб уже сформований і має щільну структуру, повністю позбутися його допомагає лише хірургічна корекція. Пластична операція дозволяє видалити локальні жирові відкладення, відновити контури шиї та верхньої частини спини і покращити поставу.
+
+ВИСНОВОК
+
+Клімактеричний або «вдовиний» горб — це не лише естетична вада, а складне порушення, пов'язане з гормональними, обмінними та ортопедичними змінами. Своєчасне консервативне лікування як правило приводить до уповільнення формування горба, однак повністю усунути його не здатне. Хірургічне лікування шляхом ліпосакції на сьогодні є найбільш ефективним і малотравматичним методом радикальної корекції цього стану.
+
+[img:/images/blog/cervical-hump/cervical-hump15.jpg]
+
+Контактна інформація: +38 (050) 757-54-11`,
+    author: 'Др. Миколай Печеріга',
+    date: '25 січня 2026',
+    category: 'Пластична хірургія',
+    image: '/images/blog/cervical-hump/cervical-hump14.jpg',
+    readTime: '8 хв',
   },
 ];
 
@@ -385,9 +490,12 @@ export default function BlogPostPage({ params }: { params: Promise<{ id: string 
         {/* Article Content */}
         <div className="mb-12">
           {post.content.split('\n\n').map((paragraph, index) => {
+            // Trim paragraph to handle whitespace
+            const trimmedParagraph = paragraph.trim();
+
             // Handle multiple images in row syntax [imgs:path1|path2|path3]
-            if (paragraph.startsWith('[imgs:')) {
-              const imagePaths = paragraph.match(/\[imgs:(.*?)\]/)?.[1];
+            if (trimmedParagraph.startsWith('[imgs:')) {
+              const imagePaths = trimmedParagraph.match(/\[imgs:(.*?)\]/)?.[1];
               if (imagePaths) {
                 const paths = imagePaths.split('|').map((p) => p.trim());
                 return (
@@ -397,13 +505,15 @@ export default function BlogPostPage({ params }: { params: Promise<{ id: string 
                     style={{ gridTemplateColumns: `repeat(${paths.length}, 1fr)` }}
                   >
                     {paths.map((path, imgIndex) => (
-                      <div key={imgIndex} className="rounded-lg overflow-hidden shadow-lg">
+                      <div
+                        key={imgIndex}
+                        className="relative rounded-lg overflow-hidden shadow-lg h-64 md:h-80"
+                      >
                         <Image
                           src={path}
                           alt={`Blog content image ${imgIndex + 1}`}
-                          width={400}
-                          height={300}
-                          className="w-full h-auto object-cover"
+                          fill
+                          className="object-cover"
                         />
                       </div>
                     ))}
@@ -413,8 +523,8 @@ export default function BlogPostPage({ params }: { params: Promise<{ id: string 
             }
 
             // Handle single image syntax [img:path/to/image.jpg]
-            if (paragraph.startsWith('[img:')) {
-              const imagePath = paragraph.match(/\[img:(.*?)\]/)?.[1];
+            if (trimmedParagraph.startsWith('[img:')) {
+              const imagePath = trimmedParagraph.match(/\[img:(.*?)\]/)?.[1];
               if (imagePath) {
                 return (
                   <div key={index} className="my-8 rounded-lg overflow-hidden shadow-lg">
@@ -433,20 +543,20 @@ export default function BlogPostPage({ params }: { params: Promise<{ id: string 
             return (
               <div key={index} className="mb-6">
                 {/* Check if this is a heading with emoji (starts with emoji) */}
-                {paragraph.match(/^[\p{Emoji_Presentation}]/u) &&
-                !paragraph.includes('-') &&
-                !paragraph.includes('1.') ? (
+                {trimmedParagraph.match(/^[\p{Emoji_Presentation}]/u) &&
+                !trimmedParagraph.includes('-') &&
+                !trimmedParagraph.includes('1.') ? (
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 mt-8 pb-3 border-b-2 border-cyan-500">
-                    {paragraph}
+                    {trimmedParagraph}
                   </h2>
-                ) : paragraph === 'Типові скарги, які вводять пацієнта в оман' ||
-                  paragraph === 'Коли операція стає неминучою' ? (
+                ) : trimmedParagraph === 'Типові скарги, які вводять пацієнта в оман' ||
+                  trimmedParagraph === 'Коли операція стає неминучою' ? (
                   <h2 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-4 mt-8 pb-3">
-                    {paragraph}
+                    {trimmedParagraph}
                   </h2>
-                ) : paragraph.includes('-') || paragraph.includes('1.') ? (
+                ) : trimmedParagraph.includes('-') || trimmedParagraph.includes('1.') ? (
                   <div>
-                    {paragraph.split('\n').map((line, lineIndex) =>
+                    {trimmedParagraph.split('\n').map((line, lineIndex) =>
                       line.trim().startsWith('-') || line.trim().match(/^\d+\./) ? (
                         <li
                           key={lineIndex}
@@ -464,13 +574,13 @@ export default function BlogPostPage({ params }: { params: Promise<{ id: string 
                       ),
                     )}
                   </div>
-                ) : paragraph.includes('Контактна інформація') ? (
+                ) : trimmedParagraph.includes('Контактна інформація') ? (
                   <p className="text-gray-700 dark:text-gray-500 leading-relaxed text-lg font-bold">
-                    {paragraph}
+                    {trimmedParagraph}
                   </p>
                 ) : (
                   <p className="text-gray-700 dark:text-gray-500 leading-relaxed text-lg">
-                    {paragraph}
+                    {trimmedParagraph}
                   </p>
                 )}
               </div>
